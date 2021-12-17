@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% set controller_name = "Liste des Adresses"  %}
+{% set title = "Adresses" %}
+
+{% block title %}{{ title }} - {{ parent() }}]}{% endblock %}
+
+{% block body %}
+    <h1>Address index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StreetNumber</th>
+                <th>StreetNumberExtension</th>
+                <th>StreetType</th>
+                <th>StreetName</th>
+                <th>Building</th>
+                <th>Establishment</th>
+                <th>Floor</th>
+                <th>FloorNumber</th>
+                <th>PostalCode</th>
+                <th>PostalCodePrefix</th>
+                <th>PostalCodeSuffix</th>
+                <th>City</th>
+                <th>Cedex</th>
+                <th>PostBoxCode</th>
+                <th>Locality</th>
+                <th>AdminitrativeAreaLevel1</th>
+                <th>AdminitrativeAreaLevel2</th>
+                <th>AdminitrativeAreaLevel3</th>
+                <th>AdminitrativeAreaLevel4</th>
+                <th>AdminitrativeAreaLevel5</th>
+                <th>Country</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Altitude</th>
+                <th>IsFlat</th>
+                <th>HasElevator</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for address in addresses %}
+            <tr>
+                <td>{{ address.id }}</td>
+                <td>{{ address.streetNumber }}</td>
+                <td>{{ address.streetNumberExtension }}</td>
+                <td>{{ address.streetType }}</td>
+                <td>{{ address.streetName }}</td>
+                <td>{{ address.building }}</td>
+                <td>{{ address.establishment }}</td>
+                <td>{{ address.floor }}</td>
+                <td>{{ address.floorNumber }}</td>
+                <td>{{ address.postalCode }}</td>
+                <td>{{ address.postalCodePrefix }}</td>
+                <td>{{ address.postalCodeSuffix }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.cedex }}</td>
+                <td>{{ address.postBoxCode }}</td>
+                <td>{{ address.locality }}</td>
+                <td>{{ address.adminitrativeAreaLevel1 }}</td>
+                <td>{{ address.adminitrativeAreaLevel2 }}</td>
+                <td>{{ address.adminitrativeAreaLevel3 }}</td>
+                <td>{{ address.adminitrativeAreaLevel4 }}</td>
+                <td>{{ address.adminitrativeAreaLevel5 }}</td>
+                <td>{{ address.country }}</td>
+                <td>{{ address.latitude }}</td>
+                <td>{{ address.longitude }}</td>
+                <td>{{ address.altitude }}</td>
+                <td>{{ address.isFlat ? 'Yes' : 'No' }}</td>
+                <td>{{ address.hasElevator ? 'Yes' : 'No' }}</td>
+                <td>{{ address.createdAt ? address.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ address.updatedAt ? address.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('address_show', {'id': address.id}) }}">show</a>
+                    <a href="{{ path('address_edit', {'id': address.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="30">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('address:new') }}">Create new</a>
+{% endblock %}

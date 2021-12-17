@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Address{% endblock %}
+
+{% block body %}
+    <h1>Address</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ address.id }}</td>
+            </tr>
+            <tr>
+                <th>StreetNumber</th>
+                <td>{{ address.streetNumber }}</td>
+            </tr>
+            <tr>
+                <th>StreetNumberExtension</th>
+                <td>{{ address.streetNumberExtension }}</td>
+            </tr>
+            <tr>
+                <th>StreetType</th>
+                <td>{{ address.streetType }}</td>
+            </tr>
+            <tr>
+                <th>StreetName</th>
+                <td>{{ address.streetName }}</td>
+            </tr>
+            <tr>
+                <th>Building</th>
+                <td>{{ address.building }}</td>
+            </tr>
+            <tr>
+                <th>Establishment</th>
+                <td>{{ address.establishment }}</td>
+            </tr>
+            <tr>
+                <th>Floor</th>
+                <td>{{ address.floor }}</td>
+            </tr>
+            <tr>
+                <th>FloorNumber</th>
+                <td>{{ address.floorNumber }}</td>
+            </tr>
+            <tr>
+                <th>PostalCode</th>
+                <td>{{ address.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>PostalCodePrefix</th>
+                <td>{{ address.postalCodePrefix }}</td>
+            </tr>
+            <tr>
+                <th>PostalCodeSuffix</th>
+                <td>{{ address.postalCodeSuffix }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <th>Cedex</th>
+                <td>{{ address.cedex }}</td>
+            </tr>
+            <tr>
+                <th>PostBoxCode</th>
+                <td>{{ address.postBoxCode }}</td>
+            </tr>
+            <tr>
+                <th>Locality</th>
+                <td>{{ address.locality }}</td>
+            </tr>
+            <tr>
+                <th>AdminitrativeAreaLevel1</th>
+                <td>{{ address.adminitrativeAreaLevel1 }}</td>
+            </tr>
+            <tr>
+                <th>AdminitrativeAreaLevel2</th>
+                <td>{{ address.adminitrativeAreaLevel2 }}</td>
+            </tr>
+            <tr>
+                <th>AdminitrativeAreaLevel3</th>
+                <td>{{ address.adminitrativeAreaLevel3 }}</td>
+            </tr>
+            <tr>
+                <th>AdminitrativeAreaLevel4</th>
+                <td>{{ address.adminitrativeAreaLevel4 }}</td>
+            </tr>
+            <tr>
+                <th>AdminitrativeAreaLevel5</th>
+                <td>{{ address.adminitrativeAreaLevel5 }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ address.country }}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ address.latitude }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ address.longitude }}</td>
+            </tr>
+            <tr>
+                <th>Altitude</th>
+                <td>{{ address.altitude }}</td>
+            </tr>
+            <tr>
+                <th>IsFlat</th>
+                <td>{{ address.isFlat ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>HasElevator</th>
+                <td>{{ address.hasElevator ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ address.createdAt ? address.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ address.updatedAt ? address.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('address:index') }}">back to list</a>
+
+    <a href="{{ path('address:edit', {'id': address.id}) }}">edit</a>
+
+    {{ include('address/address/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% set controller_name = "Liste des Commentaires"  %}
+{% set title = "Commentaires" %}
+
+{% block title %}{{ title }} - {{ parent() }}]}{% endblock %}
+
+{% block body %}
+    <h1>Comment index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>CommentText</th>
+                <th>CreationDate</th>
+                <th>UpdateDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.title }}</td>
+                <td>{{ comment.commentText }}</td>
+                <td>{{ comment.creationDate ? comment.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ comment.updateDate ? comment.updateDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('comment:show', {'id': comment.id}) }}">show</a>
+                    <a href="{{ path('comment:edit', {'id': comment.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('comment:new') }}">Create new</a>
+{% endblock %}

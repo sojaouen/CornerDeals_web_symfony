@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}CornerDeals{% endblock %}</title>
+{#        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">#}
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+
+        <div class="container">
+
+        <header>
+            <h1>Corner Deals</h1>
+
+            <nav>
+                <a href="{{ url('homepage') }}"><i class="ri-home-fill"></i>Home</a><br>
+
+                <br>
+
+{#                Menu quand l'utilisateur est anonyme#}
+                <a href="{{ url('app_register') }}">Inscription</a> -
+                <a href="{{ url('app_login') }}">Connexion</a>
+
+{#                Menu quand l'utilisateur est identifié#}
+                <a href="#">Mon Profil</a> -
+                <a href="#">Deconnexion</a><br>
+
+                <br>
+
+                <a href="{{ url('merchant:index') }}">Boutiques</a><br>
+                <a href="{{ url('discount_code:index') }}">Codes Promo</a><br>
+                <a href="{{ url('deal:index') }}">Deals</a><br>
+                <a href="{{ url('category:index') }}">Categories</a><br>
+                <a href="{{ url('product:index') }}">Produits</a><br>
+                <a href="{{ url('address:index') }}">Adresses</a><br>
+                <a href="{{ url('comment:index') }}">Commentaires</a><br>
+            </nav>
+        </header>
+            {% block body %}{% endblock %}
+        </div>
+            {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </body>
+</html>
