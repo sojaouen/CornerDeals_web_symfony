@@ -8,13 +8,16 @@ use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Unique;
 
 class RegistrationFormType extends AbstractType
@@ -32,7 +35,7 @@ class RegistrationFormType extends AbstractType
 
             // Email
             ->add('email', EmailType::class, [
-                'label' => "Email",
+                'label' => "Email*",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Veuillez saisir votre adresse email"
@@ -46,15 +49,15 @@ class RegistrationFormType extends AbstractType
                     new Email([
                         'message' => "L'adresse email n'est pas valide"
                     ]),
-                    new Unique([
-                        'message' => "L'adresse email est déjà utilisée"
-                    ])
+//                    new Unique([
+//                        'message' => "L'adresse email est déjà utilisée"
+//                    ])
                 ]
             ])
 
             // Firstname
             ->add('firstname', TextType::class, [
-                'label' => "Prénom",
+                'label' => "Prénom*",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Veuillez saisir votre prénom"
@@ -68,7 +71,7 @@ class RegistrationFormType extends AbstractType
 
             // Lastname
             ->add('lastname', TextType::class, [
-                'label' => "NOM",
+                'label' => "NOM*",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Veuillez saisir votre nom"
@@ -82,7 +85,7 @@ class RegistrationFormType extends AbstractType
 
             // Birthdate
             ->add('birthdate', BirthdayType::class, [
-                'label' => "Date de naissance",
+                'label' => "Date de naissance*",
                 'required' => true,
                 'placeholder' => [
                     'year' => "Année",
@@ -95,8 +98,12 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => "La date de naissance est obligatoire"
-                    ])
-                ],
+                    ]),
+//                    new GreaterThan([
+//                        'value' => new \DateTime('now'),
+//                        'message' => "Vous devez être majeur pour vous inscrire"
+//                    ])
+                ]
             ])
 
             // Agree terms
@@ -109,25 +116,66 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
 
-            // Password
-            ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'label' => "Mot de passe",
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+
+                // Pour enlever le label sur le champs repeated
+                'label' => false,
+
+                'required' => true,
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Saisissez votre mot de passe',
-                    ]),
+
+                'first_options' => [
+                    'label'=> "Mot de passe*",
+                    'attr' => [
+                        'placeholder' => "Veuillez saisir votre mot de passe"
+                    ],
+                    'constraints' => [
+                        new NotBlank([
+                            'message' => "Le mot de passe est obligatoire"
+                        ]),
                     new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
+                        'min' => 8,
+                        'minMessage' => "Le mot de passe doit contenir au moins 8 caractères",
+                        'max' => 32,
+                        'maxMessage' => "Le mot de passe ne peut contenir plus de 32 caractères"
                     ]),
+                    new Regex([
+                        'pattern' => "/^[A-Za-z0-9]\w{8,32}$/",
+                        'message' => "Le mot de passe ne doit pas contenir de caractères spéciaux"
+                        ])
+                    ]
                 ],
+
+                'second_options' => [
+                    'label' => "Confirmation de votre mot de passe*",
+                    'attr' => [
+                        'placeholder' => "Veuillez confirmer votre mot de passe"
+                    ]
+
+                ],
+                    'invalid_message' => "Les mots de passe ne sont pas identiques"
             ])
+
+//            // Password
+//            ->add('plainPassword', PasswordType::class, [
+//                // instead of being set onto the object directly,
+//                // this is read and encoded in the controller
+//                'label' => "Mot de passe*",
+//                'mapped' => false,
+//                'attr' => ['autocomplete' => 'new-password'],
+//                'constraints' => [
+//                    new NotBlank([
+//                        'message' => 'Saisissez votre mot de passe',
+//                    ]),
+//                    new Length([
+//                        'min' => 6,
+//                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+//                        // max length allowed by Symfony for security reasons
+//                        'max' => 4096,
+//                    ]),
+//                ],
+//            ])
         ;
     }
 
