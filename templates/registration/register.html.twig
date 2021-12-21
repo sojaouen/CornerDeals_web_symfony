@@ -8,7 +8,12 @@
             <div class="col-lg-4 offset-lg-4">
     <h1>Inscrivez-vous</h1>
 
-    {{ form_start(registrationForm) }}
+{#                Pour bloquer la validation du front#}
+    {{ form_start(registrationForm, {
+        attr: {
+            novalidate: "novalidate"
+        }})
+    }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Mot de passe'
