@@ -35,7 +35,7 @@ class RegistrationFormType extends AbstractType
 
             // Email
             ->add('email', EmailType::class, [
-                'label' => "Email*",
+                'label' => "Email",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Veuillez saisir votre adresse email"
@@ -57,7 +57,7 @@ class RegistrationFormType extends AbstractType
 
             // Firstname
             ->add('firstname', TextType::class, [
-                'label' => "Prénom*",
+                'label' => "Prénom",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Veuillez saisir votre prénom"
@@ -71,7 +71,7 @@ class RegistrationFormType extends AbstractType
 
             // Lastname
             ->add('lastname', TextType::class, [
-                'label' => "NOM*",
+                'label' => "NOM",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Veuillez saisir votre nom"
@@ -85,7 +85,7 @@ class RegistrationFormType extends AbstractType
 
             // Birthdate
             ->add('birthdate', BirthdayType::class, [
-                'label' => "Date de naissance*",
+                'label' => "Date de naissance",
                 'required' => true,
                 'placeholder' => [
                     'year' => "Année",
@@ -126,7 +126,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
 
                 'first_options' => [
-                    'label'=> "Mot de passe*",
+                    'label'=> "Mot de passe",
                     'attr' => [
                         'placeholder' => "Veuillez saisir votre mot de passe"
                     ],
@@ -141,14 +141,14 @@ class RegistrationFormType extends AbstractType
                         'maxMessage' => "Le mot de passe ne peut contenir plus de 32 caractères"
                     ]),
                     new Regex([
-                        'pattern' => "/^[A-Za-z0-9]\w{8,32}$/",
-                        'message' => "Le mot de passe ne doit pas contenir de caractères spéciaux"
+                        'pattern' => "/^[A-Za-z0-9]\w{7,32}$/",
+                        'message' => "Le mot de passe doit contenir entre 8 et 32 caractères sans aucun caractère spécial"
                         ])
                     ]
                 ],
 
                 'second_options' => [
-                    'label' => "Confirmation de votre mot de passe*",
+                    'label' => "Confirmation de votre mot de passe",
                     'attr' => [
                         'placeholder' => "Veuillez confirmer votre mot de passe"
                     ]
