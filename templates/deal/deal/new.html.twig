@@ -3,9 +3,16 @@
 {% block title %}New Deal{% endblock %}
 
 {% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 offset-lg-4">
     <h1>Create new Deal</h1>
 
     {{ include('deal/deal/_form.html.twig') }}
 
     <a href="{{ path('deal:index') }}">back to list</a>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
