@@ -4,6 +4,9 @@ namespace App\Form\Category;
 
 use App\Entity\Category\Category;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,29 +20,37 @@ class CategoryType extends AbstractType
 
             // Name
             ->add('name', TextType::class, [
-//                'label' => "Entrer le nom de la catégorie",
-
+                'label' => "Nom",
+                'required' => true,
                 'attr' => [
-                    'placeholder' => "Entrer le nom de la catégorie"
+                    'placeholder' => "Veuillez saisir le nom de la catégorie"
                 ],
-
-                'help' => "Champ obligatoire",
 
                 'constraints' => [
                     new NotBlank([
-                        'message' => "Le champ est obligatoire"
-                    ])
+                        'message' => "Le nom de la catégorie est obligatoire"
+                    ]),
                 ]
             ])
 
-            // Descriptioon
-            ->add('description')
+            // Description
+            ->add('description', TextareaType::class, [
+                'label' => "Description",
+
+                'constraints' => [
+                    new NotBlank([
+                        'message' => "Une description est obligatoire"
+                    ]),
+                ]
+            ])
 
             // Color
-            ->add('color')
+            ->add('color', ColorType::class, [
+                'label' => "Couleur"
+            ])
 
             // Illustration
-            ->add('illustration')
+            ->add('illustration', FileType::class)
         ;
     }
 

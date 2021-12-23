@@ -1,17 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Category{% endblock %}
+{# Page Settings #}
+{% set title = "Ajouter une nouvelle catégorie" %}
 
+
+{# Page Title #}
+{% block title %}{{ title }} - {{ parent() }}{% endblock %}
+
+
+{# Page Content #}
 {% block body %}
 <div class="container">
     <div class="row">
         <div class="col-lg-4 offset-lg-4">
 
-        <h1>Create new Category</h1>
+            {# Header / Titre de la page #}
+            <header class="page-header">
+                <h1 class="page-title">{{ title }}</h1>
+            </header>
 
+            {# Formulaire de creation du produit #}
     {{ include('category/category/_form.html.twig') }}
 
-    <a href="{{ path('category:index') }}">back to list</a>
+    <a href="{{ path('category:index') }}">Retour à la liste</a>
         </div>
     </div>
 </div>

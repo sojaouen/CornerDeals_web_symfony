@@ -4,16 +4,37 @@ namespace App\Form\Product;
 
 use App\Entity\Product\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ProductType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('description')
+
+            // Name
+            ->add('name', TextType::class, [
+                'label' => "Nom",
+                'required' => true,
+                'attr' => [
+                    'placeholder' => "Veuillez saisir le nom du produit"
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => "Le nom du produit est obligatoire"
+                    ])
+                ],
+            ])
+
+            // Description
+            ->add('description', TextareaType::class, [
+                'label' => "Description",
+                'required' => false
+            ])
         ;
     }
 

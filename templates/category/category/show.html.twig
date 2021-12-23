@@ -1,13 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Category{% endblock %}
+{# Page Settings #}
+{% set title = "Info sur la catégorie : " ~ category.name %}
 
+
+{# Page Title #}
+{% block title %}{{ title }} - {{ parent() }}{% endblock %}
+
+
+{# Page Content #}
 {% block body %}
-    <h1>Category</h1>
+<div class="container">
 
-    <table class="table">
+
+    {# Header / Titre de la page #}
+    <header class="page-header">
+        <h1 class="page-title">{{ title }}</h1>
+    </header>
+
+
+    {# Barre d'actions (ajouter un produit) #}
+    <div class="page-toolbar text-right mt-3">
+        <a href="{{ path('category:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter une catégorie</a>
+        <a href="{{ path('category:edit', {id: category.id})}}" class="btn btn-warning btn-sm">Modifier la catégorie</a>
+        <a href="{{ path('category:delete', {id: category.id}) }}" class="btn btn-danger btn-sm">Supprimer la catégorie</a>
+    </div>
+
+
+    {# Info du Produit #}
+    <table class="table table-hover mt-5">
         <tbody>
-            <tr>
+        <tr>
                 <th>Id</th>
                 <td>{{ category.id }}</td>
             </tr>
@@ -34,5 +57,4 @@
 
     <a href="{{ path('category:edit', {'id': category.id}) }}">edit</a>
 
-    {{ include('category/category/_delete_form.html.twig') }}
 {% endblock %}

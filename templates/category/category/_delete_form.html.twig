@@ -23,7 +23,7 @@
 
         {# Barre d'actions (ajouter un produit) #}
         <div class="page-toolbar text-right mt-3">
-            <a href="{{ path('category:read', {id: category.id}) }}" class="btn btn-secondary btn-sm">Annuler</a>
+            <a href="{{ path('category:show', {id: category.id}) }}" class="btn btn-secondary btn-sm">Annuler</a>
             <a href="{{ path('category:index') }}" class="btn btn-secondary btn-sm">Retour à la liste des catégories</a>
         </div>
 
@@ -37,7 +37,7 @@
             <input type="hidden" name="_method" value="DELETE">
 
             {# Boutton d'annulation #}
-            <a href="{{ path('category:read', {id: category.id}) }}" class="btn btn-secondary btn-sm">Non</a>
+            <a href="{{ path('category:show', {id: category.id}) }}" class="btn btn-secondary btn-sm">Non</a>
 
             {# Boutton de confirmation #}
             <button type="submit" class="btn btn-danger btn-sm">Oui</button>

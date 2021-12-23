@@ -1,15 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Product index{% endblock %}
+{% set controller_name = "Liste des Produits"  %}
+{% set title = "Produits" %}
+
+{% block title %}{{ title }} - {{ parent() }}]}{% endblock %}
 
 {% block body %}
-    <h1>Product index</h1>
+<div class="container">
 
-    <table class="table">
-        <thead>
-            <tr>
+
+    {# Header / Titre de la page #}
+    <header class="page-header">
+        <h1 class="page-title">{{ title }}</h1>
+    </header>
+
+    {# Barre d'actions (ajouter un produit) #}
+    <div class="page-toolbar text-right mt-3">
+        <a href="{{ path('product:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter un produit</a>
+    </div>
+
+    {# Tableau de la liste des produits #}
+    <table class="table table-hover mt-5">
+        {# Entete du tableau HTML #}
+        <thead class="thead-dark">
+        <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom</th>
                 <th>Description</th>
                 <th>actions</th>
             </tr>
@@ -27,11 +43,10 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun produit</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('product:new') }}">Create new</a>
 {% endblock %}

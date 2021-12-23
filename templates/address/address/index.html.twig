@@ -6,40 +6,53 @@
 {% block title %}{{ title }} - {{ parent() }}]}{% endblock %}
 
 {% block body %}
-    <h1>Address index</h1>
+<div class="container">
 
-    <table class="table">
-        <thead>
-            <tr>
+
+    {# Header / Titre de la page #}
+    <header class="page-header">
+        <h1 class="page-title">{{ title }}</h1>
+    </header>
+
+    {# Barre d'actions (ajouter un produit) #}
+    <div class="page-toolbar text-right mt-3">
+        <a href="{{ path('address:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter une adresse</a>
+    </div>
+
+    {# Tableau de la liste des produits #}
+    <table class="table table-hover mt-5">
+        {# Entete du tableau HTML #}
+        <thead class="thead-dark">
+        <tr>
                 <th>Id</th>
-                <th>StreetNumber</th>
-                <th>StreetNumberExtension</th>
-                <th>StreetType</th>
-                <th>StreetName</th>
-                <th>Building</th>
-                <th>Establishment</th>
-                <th>Floor</th>
-                <th>FloorNumber</th>
-                <th>PostalCode</th>
-                <th>PostalCodePrefix</th>
-                <th>PostalCodeSuffix</th>
-                <th>City</th>
+                <th>Numéro de rue</th>
+                <th>Extension du numéro de rue</th>
+                <th>Type de rue</th>
+                <th>Nom de la rue</th>
+                <th>Nom de l'immeuble</th>
+                <th>Nom de l'établissement</th>
+                <th>Étage</th>
+                <th>Numéro de l'étage</th>
+                <th>Code Postal</th>
+                <th>Préfixe code postal</th>
+                <th>Sufffixe code postal</th>
+                <th>Ville</th>
                 <th>Cedex</th>
                 <th>PostBoxCode</th>
-                <th>Locality</th>
-                <th>AdminitrativeAreaLevel1</th>
-                <th>AdminitrativeAreaLevel2</th>
-                <th>AdminitrativeAreaLevel3</th>
-                <th>AdminitrativeAreaLevel4</th>
-                <th>AdminitrativeAreaLevel5</th>
-                <th>Country</th>
+                <th>Localité</th>
+                <th>Zone administrative niveau 1</th>
+                <th>Zone administrative niveau 2</th>
+                <th>Zone administrative niveau 3</th>
+                <th>Zone administrative niveau 4</th>
+                <th>Zone administrative niveau 5</th>
+                <th>Pays</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
                 <th>Altitude</th>
-                <th>IsFlat</th>
-                <th>HasElevator</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
+                <th>Est un appartemment</th>
+                <th>A un ascenseur<0/th>
+                <th>Créé le</th>
+                <th>Mis à jour le</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -82,11 +95,10 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="30">no records found</td>
+                <td colspan="30">Aucune adresse</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('address:new') }}">Create new</a>
 {% endblock %}
