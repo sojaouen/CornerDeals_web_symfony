@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Entity\Category;
+namespace App\Entity;
 
 use App\Repository\Category\CategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,7 +30,7 @@ class Category
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=7, nullable=true)
+     * @ORM\Column(type="string", length=7, options={"fixed" = true}, nullable=true)
      */
     private $color;
 
@@ -36,6 +38,16 @@ class Category
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $illustration;
+
+    /**
+     * @ORM\OneToMany(targetEntity=deal::class, mappedBy="category")
+     */
+    private $deals;
+
+    public function __construct()
+    {
+        $this->deals = new ArrayCollection();
+    }
 
     // TODO: Add parent property
 
@@ -88,6 +100,36 @@ class Category
     public function setIllustration(?string $illustration): self
     {
         $this->illustration = $illustration;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|deal[]
+     */
+    public function getDeals(): Collection
+    {
+        return $this->deals;
+    }
+
+    public function addDeal(deal $deal): self
+    {
+        if (!$this->deals->contains($deal)) {
+            $this->deals[] = $deal;
+            $deal->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDeal(deal $deal): self
+    {
+        if ($this->deals->removeElement($deal)) {
+            // set the owning side to null (unless already changed)
+            if ($deal->getCategory() === $this) {
+                $deal->setCategory(null);
+            }
+        }
 
         return $this;
     }

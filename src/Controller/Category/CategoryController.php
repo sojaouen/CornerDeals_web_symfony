@@ -2,7 +2,7 @@
 
 namespace App\Controller\Category;
 
-use App\Entity\Category\Category;
+use App\Entity\Category;
 use App\Form\Category\CategoryType;
 use App\Repository\Category\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;

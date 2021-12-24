@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Deal;
+namespace App\Entity;
 
 use App\Repository\Deal\DealRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -41,6 +41,12 @@ class Deal
      * @ORM\Column(type="string", length=255)
      */
     private $discountUnity;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="deals")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
 
     // TODO: Add Title
     // TODO: Add Description
@@ -126,6 +132,18 @@ class Deal
     public function setDiscountUnity(string $discountUnity): self
     {
         $this->discountUnity = $discountUnity;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

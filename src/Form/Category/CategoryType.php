@@ -2,7 +2,7 @@
 
 namespace App\Form\Category;
 
-use App\Entity\Category\Category;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;

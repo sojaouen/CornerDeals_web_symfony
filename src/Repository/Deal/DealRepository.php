@@ -2,7 +2,7 @@
 
 namespace App\Repository\Deal;
 
-use App\Entity\Deal\Deal;
+use App\Entity\Deal;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
