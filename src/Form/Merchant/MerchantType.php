@@ -4,6 +4,7 @@ namespace App\Form\Merchant;
 
 use App\Entity\Merchant\Merchant;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
@@ -40,6 +41,12 @@ class MerchantType extends AbstractType
             // Website
             ->add('website', UrlType::class,[
                 'label' => "Site internet",
+                'required' => false,
+            ])
+
+            // Logo
+            ->add('logo', FileType::class,[
+                'label' => "Logo",
                 'required' => false,
             ])
         ;

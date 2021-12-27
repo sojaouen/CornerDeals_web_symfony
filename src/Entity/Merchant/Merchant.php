@@ -32,7 +32,12 @@ class Merchant
      */
     private $website;
 
-    // TODO: Add the "logo" property
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $logo;
+
+    // TODO: Add the "logo" property OK
     // TODO: Add Deal relationship
     // TODO: Add DiscountCode relationship
     // TODO: Add location (internet, country, region, locality,...)
@@ -74,6 +79,18 @@ class Merchant
     public function setWebsite(?string $website): self
     {
         $this->website = $website;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(?string $logo): self
+    {
+        $this->logo = $logo;
 
         return $this;
     }

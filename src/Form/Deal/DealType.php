@@ -4,8 +4,10 @@ namespace App\Form\Deal;
 
 use App\Entity\Deal;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\PercentType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,6 +34,20 @@ class DealType extends AbstractType
                 ]
             ])
 
+            // Description
+            ->add('description', TextareaType::class, [
+                'label' => "Description",
+                'required' => false
+            ])
+
+            // URL
+            ->add('url', TextType::class,[
+                'label' => "URL du deal",
+                'required' => true,
+                'attr' => [
+                    'placeholder' => "Veuillez copier ici l'adresse url du deal"
+                ],
+            ])
             // crossedOutPrice
             ->add('crossedOutPrice', NumberType::class, [
                 'label' => "Prix normal",
@@ -55,11 +71,38 @@ class DealType extends AbstractType
                 'required' => true
             ])
 
-            // discountUnity
-            ->add('discountUnity', PercentType::class, [
-                'label' => "Pourcentage de réduction",
-                'required' => true
+            // discountType
+            -> add('discountType', ChoiceType::class,[
+                'label' => "Unité de mesure",
+                'choices' => [
+                    'Numéraire' => 'nbr',
+                    'Pourcentage' => '%',
+                ]
             ])
+
+            // discountCode
+            ->add('discountCode', TextType::class,[
+                'label' => "Code Promo",
+                'required' => false,
+                'attr' => [
+                    'placeholder' => "Veuillez saisir le code promo du deal"
+                ]
+            ])
+
+            // currencyType
+
+            // startAt
+
+            // endAt
+
+            // shippingCost
+
+            // isFreeShipping
+
+            // isLocal
+
+            // localities
+
         ;
     }
 
