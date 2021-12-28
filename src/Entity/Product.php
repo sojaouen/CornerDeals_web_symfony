@@ -39,6 +39,16 @@ class Product
      */
     private $discountCodes;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="products")
+     */
+    private $category;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $illustration;
+
     public function __construct()
     {
         $this->deals = new ArrayCollection();
@@ -124,6 +134,30 @@ class Product
         if ($this->discountCodes->removeElement($discountCode)) {
             $discountCode->removeProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(string $illustration): self
+    {
+        $this->illustration = $illustration;
 
         return $this;
     }
