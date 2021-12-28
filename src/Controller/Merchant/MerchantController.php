@@ -2,7 +2,7 @@
 
 namespace App\Controller\Merchant;
 
-use App\Entity\Merchant\Merchant;
+use App\Entity\Merchant;
 use App\Form\Merchant\MerchantType;
 use App\Repository\Merchant\MerchantRepository;
 use Doctrine\ORM\EntityManagerInterface;

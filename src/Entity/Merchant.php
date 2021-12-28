@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\Category\CategoryRepository;
+use App\Repository\Merchant\MerchantRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass=MerchantRepository::class)
  */
-class Category
+class Merchant
 {
     /**
      * @ORM\Id
@@ -30,25 +30,24 @@ class Category
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=7, options={"fixed" = true}, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $color;
+    private $website;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $illustration;
+    private $logo;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Deal::class, mappedBy="categories")
+     * @ORM\OneToMany(targetEntity=Deal::class, mappedBy="merchant")
      */
     private $deals;
 
     /**
-     * @ORM\ManyToMany(targetEntity=DiscountCode::class, mappedBy="categories")
+     * @ORM\OneToMany(targetEntity=DiscountCode::class, mappedBy="merchant")
      */
     private $discountCodes;
-
 
     public function __construct()
     {
@@ -56,7 +55,10 @@ class Category
         $this->discountCodes = new ArrayCollection();
     }
 
-    // TODO: Add parent property OK
+    // TODO: Add the "logo" property OK
+    // TODO: Add Deal relationship OK
+    // TODO: Add DiscountCode relationship OK
+    // TODO: Add location (internet, country, region, locality,...)
 
     public function getId(): ?int
     {
@@ -87,54 +89,54 @@ class Category
         return $this;
     }
 
-    public function getColor(): ?string
+    public function getWebsite(): ?string
     {
-        return $this->color;
+        return $this->website;
     }
 
-    public function setColor(?string $color): self
+    public function setWebsite(?string $website): self
     {
-        $this->color = $color;
+        $this->website = $website;
 
         return $this;
     }
 
-    public function getIllustration(): ?string
+    public function getLogo(): ?string
     {
-        return $this->illustration;
+        return $this->logo;
     }
 
-    public function setIllustration(?string $illustration): self
+    public function setLogo(?string $logo): self
     {
-        $this->illustration = $illustration;
+        $this->logo = $logo;
 
         return $this;
     }
 
     /**
-     * @return Collection|deal[]
+     * @return Collection|Deal[]
      */
     public function getDeals(): Collection
     {
         return $this->deals;
     }
 
-    public function addDeal(deal $deal): self
+    public function addDeal(Deal $deal): self
     {
         if (!$this->deals->contains($deal)) {
             $this->deals[] = $deal;
-            $deal->setCategory($this);
+            $deal->setMerchant($this);
         }
 
         return $this;
     }
 
-    public function removeDeal(deal $deal): self
+    public function removeDeal(Deal $deal): self
     {
         if ($this->deals->removeElement($deal)) {
             // set the owning side to null (unless already changed)
-            if ($deal->getCategory() === $this) {
-                $deal->setCategory(null);
+            if ($deal->getMerchant() === $this) {
+                $deal->setMerchant(null);
             }
         }
 
@@ -153,7 +155,7 @@ class Category
     {
         if (!$this->discountCodes->contains($discountCode)) {
             $this->discountCodes[] = $discountCode;
-            $discountCode->addCategory($this);
+            $discountCode->setMerchant($this);
         }
 
         return $this;
@@ -162,7 +164,10 @@ class Category
     public function removeDiscountCode(DiscountCode $discountCode): self
     {
         if ($this->discountCodes->removeElement($discountCode)) {
-            $discountCode->removeCategory($this);
+            // set the owning side to null (unless already changed)
+            if ($discountCode->getMerchant() === $this) {
+                $discountCode->setMerchant(null);
+            }
         }
 
         return $this;

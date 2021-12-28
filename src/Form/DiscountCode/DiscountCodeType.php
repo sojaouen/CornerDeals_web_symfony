@@ -2,7 +2,7 @@
 
 namespace App\Form\DiscountCode;
 
-use App\Entity\DiscountCode\DiscountCode;
+use App\Entity\DiscountCode;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;

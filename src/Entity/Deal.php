@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\Deal\DealRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,12 +38,6 @@ class Deal
      * @ORM\Column(type="float")
      */
     private $discount;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="deals")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $category;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -103,6 +99,28 @@ class Deal
      */
     private $localities = [];
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="deals")
+     */
+    private $categories;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Merchant::class, inversedBy="deals")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $merchant;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="deals")
+     */
+    private $products;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+        $this->products = new ArrayCollection();
+    }
+
     // TODO: Add Title - OK
     // TODO: Add Description - A faire
     // TODO: Add URL - A faire
@@ -122,9 +140,9 @@ class Deal
 
     // TODO: discountUnity = OK
 
-    // TODO: Add relationship Merchant
-    // TODO: Add relationship Product
-    // TODO: Add relationship Category/group
+    // TODO: Add relationship Merchant OK
+    // TODO: Add relationship Product OK
+    // TODO: Add relationship Category/group OK
     // TODO: Add relationship Medias (collection)
 
     public function getId(): ?int
@@ -344,6 +362,69 @@ class Deal
     public function setLocalities(array $localities): self
     {
         $this->localities = $localities;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Category[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Category $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Category $category): self
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
+    }
+
+    public function getMerchant(): ?Merchant
+    {
+        return $this->merchant;
+    }
+
+    public function setMerchant(?Merchant $merchant): self
+    {
+        $this->merchant = $merchant;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addDeal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->removeElement($product)) {
+            $product->removeDeal($this);
+        }
 
         return $this;
     }

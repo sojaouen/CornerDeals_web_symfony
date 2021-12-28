@@ -2,7 +2,7 @@
 
 namespace App\Controller\Product;
 
-use App\Entity\Product\Product;
+use App\Entity\Product;
 use App\Form\Product\ProductType;
 use App\Repository\Product\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;

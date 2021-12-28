@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\Category\CategoryRepository;
+use App\Repository\Product\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ * @ORM\Entity(repositoryClass=ProductRepository::class)
  */
-class Category
+class Product
 {
     /**
      * @ORM\Id
@@ -30,25 +30,14 @@ class Category
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=7, options={"fixed" = true}, nullable=true)
-     */
-    private $color;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $illustration;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Deal::class, mappedBy="categories")
+     * @ORM\ManyToMany(targetEntity=Deal::class, inversedBy="products")
      */
     private $deals;
 
     /**
-     * @ORM\ManyToMany(targetEntity=DiscountCode::class, mappedBy="categories")
+     * @ORM\ManyToMany(targetEntity=DiscountCode::class, mappedBy="products")
      */
     private $discountCodes;
-
 
     public function __construct()
     {
@@ -56,7 +45,8 @@ class Category
         $this->discountCodes = new ArrayCollection();
     }
 
-    // TODO: Add parent property OK
+    // TODO: Add deal relationship OK
+    // TODO: Add Gallery relationship
 
     public function getId(): ?int
     {
@@ -87,56 +77,26 @@ class Category
         return $this;
     }
 
-    public function getColor(): ?string
-    {
-        return $this->color;
-    }
-
-    public function setColor(?string $color): self
-    {
-        $this->color = $color;
-
-        return $this;
-    }
-
-    public function getIllustration(): ?string
-    {
-        return $this->illustration;
-    }
-
-    public function setIllustration(?string $illustration): self
-    {
-        $this->illustration = $illustration;
-
-        return $this;
-    }
-
     /**
-     * @return Collection|deal[]
+     * @return Collection|Deal[]
      */
     public function getDeals(): Collection
     {
         return $this->deals;
     }
 
-    public function addDeal(deal $deal): self
+    public function addDeal(Deal $deal): self
     {
         if (!$this->deals->contains($deal)) {
             $this->deals[] = $deal;
-            $deal->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeDeal(deal $deal): self
+    public function removeDeal(Deal $deal): self
     {
-        if ($this->deals->removeElement($deal)) {
-            // set the owning side to null (unless already changed)
-            if ($deal->getCategory() === $this) {
-                $deal->setCategory(null);
-            }
-        }
+        $this->deals->removeElement($deal);
 
         return $this;
     }
@@ -153,7 +113,7 @@ class Category
     {
         if (!$this->discountCodes->contains($discountCode)) {
             $this->discountCodes[] = $discountCode;
-            $discountCode->addCategory($this);
+            $discountCode->addProduct($this);
         }
 
         return $this;
@@ -162,7 +122,7 @@ class Category
     public function removeDiscountCode(DiscountCode $discountCode): self
     {
         if ($this->discountCodes->removeElement($discountCode)) {
-            $discountCode->removeCategory($this);
+            $discountCode->removeProduct($this);
         }
 
         return $this;
