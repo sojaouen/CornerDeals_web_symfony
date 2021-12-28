@@ -5,8 +5,9 @@ namespace App\Form\Deal;
 use App\Entity\Deal;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CurrencyType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\PercentType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -50,7 +51,7 @@ class DealType extends AbstractType
             ])
             // crossedOutPrice
             ->add('crossedOutPrice', NumberType::class, [
-                'label' => "Prix normal",
+                'label' => "Prix habituel",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Le prix avant la réduction"
@@ -90,19 +91,60 @@ class DealType extends AbstractType
             ])
 
             // currencyType
+            ->add('currencyType', CurrencyType::class,[
+                'label' => "Devise",
+                'required' => true,
+                'attr' => [
+                    'placeholder' => "Euro"
+                ]
+            ])
 
             // startAt
+            ->add('startAt', DateType::class,[
+                'label' => "Date du début de l'offre"
+            ])
 
             // endAt
+            ->add('endAt', DateType::class,[
+                'label' => "Date de fin de l'offre"
+            ])
 
             // shippingCost
+            ->add('shippingCost', NumberType::class,[
+                'label' => "Frais d'envoi",
+                'required' => false,
+                'attr' => [
+                    'placeholder' => "Montant des frais d'expédition"
+                ]
+            ])
 
             // isFreeShipping
+            ->add('isFreeShipping', ChoiceType::class,[
+                'label' => "Frais d'envoi offerts",
+                'required' => false,
+                'choices' => [
+                    'Je ne sais pas' => null,
+                    'Oui' => true,
+                    'Non' => false
+                ]
+            ])
 
             // isLocal
+            ->add('isLocal', ChoiceType::class,[
+                'label' => "Offre locale",
+                'required' => false,
+                'choices' => [
+                    'Je ne sais pas' => null,
+                    'Oui' => true,
+                    'Non' => false
+                ]
+            ])
 
             // localities
-
+            ->add('localities', TextType::class,[
+                'label' => "Ville",
+                'required' => false
+            ])
         ;
     }
 
