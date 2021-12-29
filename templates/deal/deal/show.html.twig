@@ -16,27 +16,67 @@
                 <td>{{ deal.title }}</td>
             </tr>
             <tr>
-                <th>CrossedOutPrice</th>
+                <th>Description</th>
+                <td>{{ deal.description }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ deal.url }}</td>
+            </tr>
+            <tr>
+                <th>Prix habituel</th>
                 <td>{{ deal.crossedOutPrice }}</td>
             </tr>
             <tr>
-                <th>DealPrice</th>
+                <th>Prix actuel</th>
                 <td>{{ deal.dealPrice }}</td>
             </tr>
             <tr>
-                <th>Discount</th>
+                <th>Montant réduction</th>
                 <td>{{ deal.discount }}</td>
             </tr>
             <tr>
-                <th>DiscountUnity</th>
-                <td>{{ deal.discountUnity }}</td>
+                <th>Unité de mesure</th>
+                <td>{{ deal.discountType }}</td>
+            </tr>
+            <tr>
+                <th>Code Promo</th>
+                <td>{{ deal.discountCode }}</td>
+            </tr>
+            <tr>
+                <th>Devise</th>
+                <td>{{ deal.currencyType }}</td>
+            </tr>
+            <tr>
+                <th>Date début offre</th>
+                <td>{{ deal.startAt }}</td>
+            </tr>
+            <tr>
+                <th>Date fin offre</th>
+                <td>{{ deal.endAt }}</td>
+            </tr>
+            <tr>
+                <th>Frais d'envoi</th>
+                <td>{{ deal.shippingCost }}</td>
+            </tr>
+            <tr>
+                <th>Frais d'envoi offerts</th>
+                <td>{{ deal.isFreeShipping }}</td>
+            </tr>
+            <tr>
+                <th>Offre locale</th>
+                <td>{{ deal.isLocal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ deal.localities }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('deal:index') }}">back to list</a>
+    <a href="{{ path('deal:index') }}">Retour</a>
 
-    <a href="{{ path('deal:edit', {'id': deal.id}) }}">edit</a>
+    <a href="{{ path('deal:edit', {'id': deal.id}) }}">Modifier</a>
 
     {{ include('deal/deal/_delete_form.html.twig') }}
 {% endblock %}

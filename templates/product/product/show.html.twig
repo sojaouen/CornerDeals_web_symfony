@@ -3,7 +3,7 @@
 {% block title %}Product{% endblock %}
 
 {% block body %}
-    <h1>Product</h1>
+    <h1>Produit</h1>
 
     <table class="table">
         <tbody>
@@ -12,19 +12,28 @@
                 <td>{{ product.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom</th>
                 <td>{{ product.name }}</td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>{{ product.description }}</td>
             </tr>
+            <tr>
+                <th>Illustration</th>
+                <td>{{ product.illustration }}</td>
+            </tr>
+{#            <tr>#}
+{#                <th>Categorie</th>#}
+{#                <td>{{ product.category.name }}</td>#}
+{#            </tr>#}
+
         </tbody>
     </table>
 
-    <a href="{{ path('product:index') }}">back to list</a>
+    <a href="{{ path('product:index') }}">Retour</a>
 
-    <a href="{{ path('product:edit', {'id': product.id}) }}">edit</a>
+    <a href="{{ path('product:edit', {'id': product.id}) }}">Modifier</a>
 
     {# TODO: Show Deals of this product #}
     {# TODO: Show DiscountCode of this product #}

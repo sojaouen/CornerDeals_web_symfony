@@ -26,10 +26,20 @@
         <tr>
                 <th>Id</th>
                 <th>Titre</th>
-                <th>Prix Barré</th>
-                <th>Nouveau Prix</th>
-                <th>Réduction</th>
+                <th>Description</th>
+                <th>Url</th>
+                <th>Prix habituel</th>
+                <th>Prix actuel</th>
+                <th>Montant réduction</th>
                 <th>Unité de mesure</th>
+                <th>Code Promo</th>
+                <th>Devise</th>
+                <th>Date début offre</th>
+                <th>Date fin offre</th>
+                <th>Frais d'envoi</th>
+                <th>Frais d'envoi offerts</th>
+                <th>Offre locale</th>
+                <th>Ville</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -38,18 +48,28 @@
             <tr>
                 <td>{{ deal.id }}</td>
                 <td>{{ deal.title }}</td>
+                <td>{{ deal.description }}</td>
+                <td>{{ deal.url }}</td>
                 <td>{{ deal.crossedOutPrice }}</td>
                 <td>{{ deal.dealPrice }}</td>
                 <td>{{ deal.discount }}</td>
-                <td>{{ deal.discountUnity }}</td>
+                <td>{{ deal.discountType }}</td>
+                <td>{{ deal.discountCode }}</td>
+                <td>{{ deal.currencyType }}</td>
+                <td>{{ deal.startAt }}</td>
+                <td>{{ deal.endAt }}</td>
+                <td>{{ deal.shippingCost }}</td>
+                <td>{{ deal.isFreeShipping }}</td>
+                <td>{{ deal.isLocal }}</td>
+                <td>{{ deal.localities }}</td>
                 <td>
-                    <a href="{{ path('deal:show', {'id': deal.id}) }}">show</a>
-                    <a href="{{ path('deal:edit', {'id': deal.id}) }}">edit</a>
+                    <a href="{{ path('deal:show', {'id': deal.id}) }}">Afficher</a>
+                    <a href="{{ path('deal:edit', {'id': deal.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">Aucun deal</td>
+                <td colspan="18">Aucun deal</td>
             </tr>
         {% endfor %}
         </tbody>

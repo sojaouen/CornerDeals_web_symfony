@@ -41,8 +41,8 @@
                 <td>{{ comment.creationDate ? comment.creationDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ comment.updateDate ? comment.updateDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('comment:show', {'id': comment.id}) }}">show</a>
-                    <a href="{{ path('comment:edit', {'id': comment.id}) }}">edit</a>
+                    <a href="{{ path('comment:show', {'id': comment.id}) }}">Afficher</a>
+                    <a href="{{ path('comment:edit', {'id': comment.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

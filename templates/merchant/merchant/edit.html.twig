@@ -3,11 +3,11 @@
 {% block title %}Edit Merchant{% endblock %}
 
 {% block body %}
-    <h1>Edit Merchant</h1>
+    <h1>Modifier une Boutique</h1>
 
     {{ include('merchant/merchant/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('merchant:index') }}">back to list</a>
+    <a href="{{ path('merchant:index') }}">Retour</a>
 
     {{ include('merchant/merchant/_delete_form.html.twig') }}
 {% endblock %}

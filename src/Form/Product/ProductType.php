@@ -38,7 +38,7 @@ class ProductType extends AbstractType
                 'required' => false
             ])
 
-//            // Product Categories
+            // Product Categories
 //            ->add('category', EntityType::class,[
 //                // On base le champ EntityType sur l'entité Category
 //                'class' => Category::class,

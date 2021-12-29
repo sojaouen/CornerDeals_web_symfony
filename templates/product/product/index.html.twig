@@ -36,9 +36,11 @@
                 <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
+                <td>{{ product.illustration }}</td>
+{#                <td>{{ product.category.name }}</td>#}
                 <td>
-                    <a href="{{ path('product:show', {'id': product.id}) }}">show</a>
-                    <a href="{{ path('product:edit', {'id': product.id}) }}">edit</a>
+                    <a href="{{ path('product:show', {'id': product.id}) }}">Afficher</a>
+                    <a href="{{ path('product:edit', {'id': product.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

@@ -3,7 +3,7 @@
 {% block title %}Merchant{% endblock %}
 
 {% block body %}
-    <h1>Merchant</h1>
+    <h1>Boutique</h1>
 
     <table class="table">
         <tbody>
@@ -20,15 +20,19 @@
                 <td>{{ merchant.description }}</td>
             </tr>
             <tr>
-                <th>Website</th>
+                <th>Site Internet</th>
                 <td>{{ merchant.website }}</td>
+            </tr>
+            <tr>
+                <th>Logo</th>
+                <td>{{ merchant.logo }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('merchant:index') }}">back to list</a>
+    <a href="{{ path('merchant:index') }}">Retour</a>
 
-    <a href="{{ path('merchant:edit', {'id': merchant.id}) }}">edit</a>
+    <a href="{{ path('merchant:edit', {'id': merchant.id}) }}">Modifier</a>
 
     {# TODO: Add Deals list #}
     {# TODO: Add DiscountCode list #}

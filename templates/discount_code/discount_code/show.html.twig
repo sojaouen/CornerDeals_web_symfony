@@ -12,7 +12,7 @@
                 <td>{{ discount_code.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ discount_code.title }}</td>
             </tr>
             <tr>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('discount_code:index') }}">back to list</a>
+    <a href="{{ path('discount_code:index') }}">Retour</a>
 
-    <a href="{{ path('discount_code:edit', {'id': discount_code.id}) }}">edit</a>
+    <a href="{{ path('discount_code:edit', {'id': discount_code.id}) }}">Modifier</a>
 
     {{ include('discount_code/discount_code/_delete_form.html.twig') }}
 {% endblock %}

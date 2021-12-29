@@ -12,51 +12,51 @@
                 <td>{{ address.id }}</td>
             </tr>
             <tr>
-                <th>StreetNumber</th>
+                <th>Numéro de rue</th>
                 <td>{{ address.streetNumber }}</td>
             </tr>
             <tr>
-                <th>StreetNumberExtension</th>
+                <th>Extension du numéro de rue</th>
                 <td>{{ address.streetNumberExtension }}</td>
             </tr>
             <tr>
-                <th>StreetType</th>
+                <th>Type de rue</th>
                 <td>{{ address.streetType }}</td>
             </tr>
             <tr>
-                <th>StreetName</th>
+                <th>Nom de la rue</th>
                 <td>{{ address.streetName }}</td>
             </tr>
             <tr>
-                <th>Building</th>
+                <th>Nom de l'immeuble</th>
                 <td>{{ address.building }}</td>
             </tr>
             <tr>
-                <th>Establishment</th>
+                <th>Nom de l'établissement</th>
                 <td>{{ address.establishment }}</td>
             </tr>
             <tr>
-                <th>Floor</th>
+                <th>Étage</th>
                 <td>{{ address.floor }}</td>
             </tr>
             <tr>
-                <th>FloorNumber</th>
+                <th>Numéro de l'étage</th>
                 <td>{{ address.floorNumber }}</td>
             </tr>
             <tr>
-                <th>PostalCode</th>
+                <th>Code Postal</th>
                 <td>{{ address.postalCode }}</td>
             </tr>
             <tr>
-                <th>PostalCodePrefix</th>
+                <th>Préfixe code postal</th>
                 <td>{{ address.postalCodePrefix }}</td>
             </tr>
             <tr>
-                <th>PostalCodeSuffix</th>
+                <th>Sufffixe code postal</th>
                 <td>{{ address.postalCodeSuffix }}</td>
             </tr>
             <tr>
-                <th>City</th>
+                <th>Ville</th>
                 <td>{{ address.city }}</td>
             </tr>
             <tr>
@@ -64,35 +64,35 @@
                 <td>{{ address.cedex }}</td>
             </tr>
             <tr>
-                <th>PostBoxCode</th>
+                <th>Numéro boite postale</th>
                 <td>{{ address.postBoxCode }}</td>
             </tr>
             <tr>
-                <th>Locality</th>
+                <th>Localité</th>
                 <td>{{ address.locality }}</td>
             </tr>
             <tr>
-                <th>AdminitrativeAreaLevel1</th>
+                <th>Zone administrative niveau 1</th>
                 <td>{{ address.adminitrativeAreaLevel1 }}</td>
             </tr>
             <tr>
-                <th>AdminitrativeAreaLevel2</th>
+                <th>Zone administrative niveau 2</th>
                 <td>{{ address.adminitrativeAreaLevel2 }}</td>
             </tr>
             <tr>
-                <th>AdminitrativeAreaLevel3</th>
+                <th>Zone administrative niveau 3</th>
                 <td>{{ address.adminitrativeAreaLevel3 }}</td>
             </tr>
             <tr>
-                <th>AdminitrativeAreaLevel4</th>
+                <th>Zone administrative niveau 4</th>
                 <td>{{ address.adminitrativeAreaLevel4 }}</td>
             </tr>
             <tr>
-                <th>AdminitrativeAreaLevel5</th>
+                <th>Zone administrative niveau 5</th>
                 <td>{{ address.adminitrativeAreaLevel5 }}</td>
             </tr>
             <tr>
-                <th>Country</th>
+                <th>Pays</th>
                 <td>{{ address.country }}</td>
             </tr>
             <tr>
@@ -108,27 +108,27 @@
                 <td>{{ address.altitude }}</td>
             </tr>
             <tr>
-                <th>IsFlat</th>
+                <th>Est un appartemment</th>
                 <td>{{ address.isFlat ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
-                <th>HasElevator</th>
+                <th>À un ascenseur</th>
                 <td>{{ address.hasElevator ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>Créé le</th>
                 <td>{{ address.createdAt ? address.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>UpdatedAt</th>
+                <th>Mis à jour le</th>
                 <td>{{ address.updatedAt ? address.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('address:index') }}">back to list</a>
+    <a href="{{ path('address:index') }}">Retour</a>
 
-    <a href="{{ path('address:edit', {'id': address.id}) }}">edit</a>
+    <a href="{{ path('address:edit', {'id': address.id}) }}">Modifier</a>
 
     {{ include('address/address/_delete_form.html.twig') }}
 {% endblock %}
