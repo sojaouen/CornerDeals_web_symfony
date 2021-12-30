@@ -9,8 +9,7 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    <body>
-
+        <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 
@@ -81,16 +80,15 @@
                     {% endif %}
 
                 <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Rechercher..." aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Rechercher</button>
                 </form>
 
                 </ul>
 
             </div>
-
-    </nav>
-
+        </nav>
+        </header>
 {#        <div class="container">#}
 
 {#        <header>#}
@@ -120,8 +118,17 @@
 {#                <a href="{{ url('comment:index') }}">Commentaires</a><br>#}
 {#            </nav>#}
 {#        </header>#}
-            {% block body %}{% endblock %}
-        </div>
+    <body>
+        <main class="container-fluid conteneur-base">
+        {% block body %}
+
+        {% endblock %}
+        </main>
+
+        <footer class="text-center py-4" style="background-color: lightgray">
+            &copy2022 - OSW3
+        </footer>
+
             {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
