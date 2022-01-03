@@ -6,6 +6,7 @@ use App\Repository\Deal\DealRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=DealRepository::class)
@@ -21,11 +22,27 @@ class Deal
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 50,
+     *      minMessage = "Votre titre est trop court",
+     *      maxMessage = "Votre titre est trop long"
+     * )
      */
     private $title;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $url;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
      */
     private $crossedOutPrice;
 
@@ -40,14 +57,9 @@ class Deal
     private $discount;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
-    private $url;
+    private $discountType;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -55,22 +67,17 @@ class Deal
     private $discountCode;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $discountType;
-
-    /**
      * @ORM\Column(type="string", length=10)
      */
     private $currencyType;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="date")
      */
     private $startAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
+     * @ORM\Column(type="date")
      */
     private $endAt;
 
@@ -80,24 +87,19 @@ class Deal
     private $shippingCost;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $isFreeShipping;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     */
-    private $shippingCountry;
-
-    /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $isLocal;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="string", length=30)
      */
-    private $localities = [];
+    private $localities;
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="deals")
@@ -130,7 +132,7 @@ class Deal
     // TODO: Add DiscountType : enum('percent', 'numerary') = A faire
     // TODO: Add StartAt = A faire
     // TODO: Add EndAt = A faire
-    
+
     // TODO: Add ShippingCost = A faire
     // TODO: Add IsFreeShipping = A faire
     // TODO: Add ShippingCountry = A faire
@@ -282,24 +284,24 @@ class Deal
         return $this;
     }
 
-    public function getStartAt(): ?\DateTimeImmutable
+    public function getStartAt(): ?\DateTimeInterface
     {
         return $this->startAt;
     }
 
-    public function setStartAt(\DateTimeImmutable $startAt): self
+    public function setStartAt(\DateTimeInterface $startAt): self
     {
         $this->startAt = $startAt;
 
         return $this;
     }
 
-    public function getEndAt(): ?\DateTimeImmutable
+    public function getEndAt(): ?\DateTimeInterface
     {
         return $this->endAt;
     }
 
-    public function setEndAt(\DateTimeImmutable $endAt): self
+    public function setEndAt(\DateTimeInterface $endAt): self
     {
         $this->endAt = $endAt;
 
@@ -354,12 +356,12 @@ class Deal
         return $this;
     }
 
-    public function getLocalities(): ?array
+    public function getLocalities(): ?string
     {
         return $this->localities;
     }
 
-    public function setLocalities(array $localities): self
+    public function setLocalities(string $localities): self
     {
         $this->localities = $localities;
 

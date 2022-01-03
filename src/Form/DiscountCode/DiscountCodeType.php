@@ -3,12 +3,14 @@
 namespace App\Form\DiscountCode;
 
 use App\Entity\DiscountCode;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use App\Entity\Merchant;
 
 class DiscountCodeType extends AbstractType
 {
@@ -28,6 +30,15 @@ class DiscountCodeType extends AbstractType
                         'message' => "Le titre est obligatoire"
                     ])
                 ],
+            ])
+
+            // Merchant
+            ->add('merchant', EntityType::class,[
+                // On base le champ EntityType sur l'entité Category
+                'class' => Merchant::class,
+                'label' => "Boutique",
+
+                'choice_label' => "name"
             ])
 
         // Code

@@ -56,8 +56,8 @@
                 <td>{{ deal.discountType }}</td>
                 <td>{{ deal.discountCode }}</td>
                 <td>{{ deal.currencyType }}</td>
-                <td>{{ deal.startAt }}</td>
-                <td>{{ deal.endAt }}</td>
+                <td>{{ deal.startAt|date('d/m/Y')}}</td>
+                <td>{{ deal.endAt|date('d/m/Y')}}</td>
                 <td>{{ deal.shippingCost }}</td>
                 <td>{{ deal.isFreeShipping }}</td>
                 <td>{{ deal.isLocal }}</td>

@@ -3,11 +3,13 @@
 namespace App\Form\Product;
 
 use App\Entity\Product;
+use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -39,17 +41,21 @@ class ProductType extends AbstractType
             ])
 
             // Product Categories
-//            ->add('category', EntityType::class,[
-//                // On base le champ EntityType sur l'entité Category
-//                'class' => Category::class,
-//
-//                'choice_label' => "name"
-//            ])
+            ->add('category', EntityType::class,[
+                // On base le champ EntityType sur l'entité Category
+                'class' => Category::class,
+                'label' => "Catégorie",
+
+                'choice_label' => "name"
+            ])
 
             // illustration
-            ->add('illustration', FileType::class,[
+            ->add('illustration', UrlType::class,[
                 'label' => "Photo du produit",
-                'required' => true
+                'required' => true,
+                'attr' => [
+                    'placeholder' => "Insérer ici l'Url de l'image du produit"
+                ]
             ])
         ;
     }

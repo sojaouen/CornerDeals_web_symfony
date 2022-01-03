@@ -3,6 +3,8 @@
 namespace App\Form\Deal;
 
 use App\Entity\Deal;
+use App\Entity\Merchant;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CurrencyType;
@@ -41,6 +43,15 @@ class DealType extends AbstractType
                 'required' => false
             ])
 
+            // Merchant
+            ->add('merchant', EntityType::class,[
+                // On base le champ EntityType sur l'entité Merchant
+                'class' => Merchant::class,
+                'label' => "Boutique",
+
+                'choice_label' => "name"
+            ])
+
             // URL
             ->add('url', TextType::class,[
                 'label' => "URL du deal",
@@ -52,7 +63,7 @@ class DealType extends AbstractType
             // crossedOutPrice
             ->add('crossedOutPrice', NumberType::class, [
                 'label' => "Prix habituel",
-                'required' => true,
+                'required' => false,
                 'attr' => [
                     'placeholder' => "Le prix avant la réduction"
                 ]
