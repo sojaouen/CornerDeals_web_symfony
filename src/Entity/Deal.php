@@ -22,12 +22,6 @@ class Deal
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(
-     *      min = 2,
-     *      max = 50,
-     *      minMessage = "Votre titre est trop court",
-     *      maxMessage = "Votre titre est trop long"
-     * )
      */
     private $title;
 
@@ -108,7 +102,7 @@ class Deal
 
     /**
      * @ORM\ManyToOne(targetEntity=Merchant::class, inversedBy="deals")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $merchant;
 
@@ -117,10 +111,16 @@ class Deal
      */
     private $products;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="deal", orphanRemoval=true)
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     // TODO: Add Title - OK
@@ -426,6 +426,36 @@ class Deal
     {
         if ($this->products->removeElement($product)) {
             $product->removeDeal($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setDeal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getDeal() === $this) {
+                $comment->setDeal(null);
+            }
         }
 
         return $this;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entity\Comment;
+namespace App\Entity;
 
 use App\Repository\Comment\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -36,6 +36,12 @@ class Comment
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $updateDate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Deal::class, inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $deal;
 
     // Définir des valeurs par défaut
     public function __construct()
@@ -93,6 +99,18 @@ class Comment
     public function setUpdateDate(?\DateTimeInterface $updateDate): self
     {
         $this->updateDate = $updateDate;
+
+        return $this;
+    }
+
+    public function getDeal(): ?Deal
+    {
+        return $this->deal;
+    }
+
+    public function setDeal(?Deal $deal): self
+    {
+        $this->deal = $deal;
 
         return $this;
     }

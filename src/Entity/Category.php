@@ -105,6 +105,7 @@ class Category
         return $this;
     }
 
+
     public function getIllustration(): ?string
     {
         return $this->illustration;
