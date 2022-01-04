@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Deal;
+use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -9,25 +11,21 @@ class DealFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
+        // J'importe la libraire Faker installée via composer
+        $faker = Faker\Factory::create('fr_FR');
 
-        // Création de 10 'faux' deals
-        for ($i = 1; $i <= 10; $i++)
+        // Création de 3 catégories
+        for($i = 1; $i <= 3; $i++)
         {
-            $deal = new Deal;
+            $category = new Category;
 
-            $deal-›setTitle("Titre du deal n° $i")
-                -›setDescription("<p>Contenu du deal $i</p>")
-                ->setDealPrice(new \float);
-                -›setImage("https://picsum.photos/600/400")
-                -›setStartAt (new \DateTime); // on instancie la classe DateTime afin d' avoir automatiquement la date et l'heure dans la BDD
+            $category -> setTitle($faker->sentence())
+                    -> setDescription($faker->paragraph());
 
-        $manager->persist($deal);
+
+            $manager -> persist($category);
+
         }
-
-        $manager->flush();
-
- //une fois les fixtures réaliseés, il faut les charger en BDD grace à doctrine (ORM) par la commande
- //php bin/console doctrine:fixtures:load
     }
 }
 
