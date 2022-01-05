@@ -49,11 +49,11 @@
             </tr>
             <tr>
                 <th>Date début offre</th>
-                <td>{{ deal.startAt }}</td>
+                <td>{{ deal.startAt|date('d/m/Y')}}</td>
             </tr>
             <tr>
                 <th>Date fin offre</th>
-                <td>{{ deal.endAt }}</td>
+                <td>{{ deal.endAt|date('d/m/Y')}}</td>
             </tr>
             <tr>
                 <th>Frais d'envoi</th>
@@ -74,6 +74,19 @@
         </tbody>
     </table>
 
+{#    <h4 class="my-5">Vos avis</h4>#}
+
+{#    <div class="row">#}
+
+{#         deal.comment : retourne tous les commentaires associés au deal (relation bi-directionnelle / relations entre les tables #}
+{#         Plusieurs commentaires assoiés au deal donc nous sommes obligés de boucler #}
+
+{#        {% for comment in deal.comments %}#}
+
+{#            {{ dump(comment) }}#}
+
+{#        {% endfor %}#}
+{#    </div>#}
     <a href="{{ path('deal:index') }}">Retour</a>
 
     <a href="{{ path('deal:edit', {'id': deal.id}) }}">Modifier</a>

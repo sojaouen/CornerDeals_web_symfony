@@ -47,8 +47,10 @@
         {% for deal in deals %}
             <tr>
                 <td>{{ deal.id }}</td>
-                <td>{{ deal.title }}</td>
-                <td>{{ deal.description }}</td>
+                {# striptags est un filtre Twig https://twig.symfony.com/doc/3.x/ qui permet de supprimer les balises HTML #}
+                {# slice() : filtre Twig qui permet de couper une partie de la chaine de caractères #}
+                <td>{{ deal.title|striptags|slice(0,25) }}...</td>
+                <td>{{ deal.description|striptags|slice(0,100) }}...</td>
                 <td>{{ deal.url }}</td>
                 <td>{{ deal.crossedOutPrice }}</td>
                 <td>{{ deal.dealPrice }}</td>
@@ -71,6 +73,9 @@
             <tr>
                 <td colspan="18">Aucun deal</td>
             </tr>
+
+            {{ dump(deal) }}
+
         {% endfor %}
         </tbody>
     </table>

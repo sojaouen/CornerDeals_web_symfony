@@ -53,6 +53,8 @@ class DealController extends AbstractController
      */
     public function show(Deal $deal): Response
     {
+//        dump($deal);
+
         return $this->render('deal/deal/show.html.twig', [
             'deal' => $deal,
         ]);
