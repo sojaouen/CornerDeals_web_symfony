@@ -39,6 +39,11 @@ class CommentController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
 
+            // Envoi d'un message de validation en session grâce à la méthode addFlash()
+            // 1 success : identifiant du message
+            // 2 Le message
+            $this->addFlash('success', "Le commentaire a bien été publié");
+
             return $this->redirectToRoute('comment:index', [], Response::HTTP_SEE_OTHER);
         }
 
