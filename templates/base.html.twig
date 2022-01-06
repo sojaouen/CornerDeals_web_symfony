@@ -60,11 +60,11 @@
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         {#Authenticated users#}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('profile') }}">Mon Profil</a>
+                            <a class="nav-link" href="{{ url('profile') }}">Mon Compte</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('app_logout') }}">Deconnexion</a>
+                            <a class="nav-link" href="{{ url('app_logout') }}"><i class="ri-shut-down-line"></i> Deconnexion</a>
                         </li>
 
                     {% else %}

@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfileController!{% endblock %}
+{% block title %}Mon Compte{% endblock %}
 
 {% block body %}
+
+    {%  for message in app.flashes('success') %}
+
+        <div class="col-md-3 bg-success p-4 rounded mx-auto text-center text-white mb-3">
+            {{ message }}
+        </div>
+
+    {% endfor %}
 <div class="container">
     <div class="row">
 
         <div class="col-3">
-            Sous menu de la page Profile
+            Sous menu de la page Mon Compte
         </div>
         <div class="col-9">
             Infos Utilisateur
