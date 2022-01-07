@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{%  block title %}
+    BACKOFFICE | Nodification Deal
+{% endblock %}
+
+{%  block body %}
+
+    <h1 class="display-4 text-center my-5">Modification Deal nº <span class="text-info">{{ idDeal }}</span></h1>
+
+    {{ form_start (formDeal, {'attr' : {'class': 'col-md-5 mx-auto'}})}}
+
+        {{ form_row(formDeal.title) }}
+{#        {{ form_row(formDeal.category) }}#}
+        {{ form_row(formDeal.description) }}
+        {{ form_row(formDeal.url) }}
+        {{ form_row(formDeal.crossedOutPrice) }}
+        {{ form_row(formDeal.dealPrice) }}
+        {{ form_row(formDeal.discount) }}
+        {{ form_row(formDeal.discountType) }}
+        {{ form_row(formDeal.currencyType) }}
+        {{ form_row(formDeal.startAt) }}
+        {{ form_row(formDeal.endAt) }}
+        {{ form_row(formDeal.shippingCost) }}
+        {{ form_row(formDeal.isFreeShipping) }}
+        {{ form_row(formDeal.isLocal) }}
+        {{ form_row(formDeal.localities) }}
+
+    <button class="btn btn-secondary mb-5">Modifier le deal</button>
+
+    {{ form_end(formDeal) }}
+
+{% endblock %}
