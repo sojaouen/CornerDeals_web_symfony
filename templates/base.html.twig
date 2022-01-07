@@ -10,7 +10,7 @@
         {% endblock %}
     </head>
         <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edede9">
 
 
             <a class="navbar-brand" href="{{ url('homepage') }}">CornerDeals</a>
@@ -23,7 +23,7 @@
 
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url('homepage') }}"><i class="ri-home-fill"></i>Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="{{ url('homepage') }}"><i class="ri-home-2-line"></i> Accueil</a>
                     </li>
 
                     <li class="nav-item">
@@ -60,7 +60,7 @@
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         {#Authenticated users#}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('profile') }}">Mon Compte</a>
+                            <a class="nav-link" href="{{ url('profile') }}"><i class="ri-user-3-line"></i> Mon Compte</a>
                         </li>
 
                         <li class="nav-item">
@@ -125,7 +125,7 @@
         {% endblock %}
         </main>
 
-        <footer class="text-center py-4" style="background-color: lightgray">
+        <footer class="text-center py-4" style="background-color: #edede9">
             &copy2022 - OSW3
         </footer>
 

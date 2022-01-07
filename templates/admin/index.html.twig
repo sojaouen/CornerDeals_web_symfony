@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BACKOFFICE{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1 class="display-4 text-center my-5">BACKOFFICE</h1>
+
+        <h4 class="text-center">Bienvenue
+
+        {# Si l'internaute est connecté, alors on affiche username en piochant directement dans la session (app.user) #}
+        {%  if app.user %}
+
+            <span class="text-info">{{ app.user.firstname }} {{ app.user.lastname }}</span>
+        {% endif %}
+
+        dans votre espace personnalisé
+        </h4>
+
+    </div>
+
+    <div class="display-4 text-center my-5 mx-auto">
+        <a class="btn btn-primary" href="{{ path('admin_deals')}}" role="button">GESTION DES DEALS</a>
+        <a class="btn btn-info" href="#" role="button">GESTION DES CATEGORIES</a><br>
+        <a class="btn btn-warning" href="#" role="button">GESTION DES COMMENTAIRES</a>
+        <a class="btn btn-success" href="#" role="button">GESTION DES MEMBRES</a>
+    </div>
+{% endblock %}
