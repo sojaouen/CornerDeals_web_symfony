@@ -11,3 +11,7 @@ body {
 .conteneur-base{
     min-height: 80vh;
 }
+
+tr, td, th {
+    vertical-align: middle ! important;
+}

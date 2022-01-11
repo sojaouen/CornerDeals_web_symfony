@@ -2,9 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b9b4de-8366-4371-8eab-184650d2fc80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/admin_edit_deal.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/admin_form_category.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/translations/security.en.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Deal.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Deal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +45,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -138,8 +155,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entity" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="actions.on.save" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -150,6 +169,7 @@
       <recent name="$PROJECT_DIR$/src/Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Entity" />
       <recent name="$PROJECT_DIR$/src/Entity/Merchant" />
       <recent name="$PROJECT_DIR$/src" />
@@ -189,6 +209,9 @@
       <workItem from="1640601681841" duration="72621000" />
       <workItem from="1640971841457" duration="128000" />
       <workItem from="1641195869969" duration="37631000" />
+      <workItem from="1641587458545" duration="2599000" />
+      <workItem from="1641662189552" duration="597000" />
+      <workItem from="1641801016941" duration="21984000" />
     </task>
     <servers />
   </component>
