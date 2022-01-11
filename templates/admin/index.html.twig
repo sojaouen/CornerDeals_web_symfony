@@ -19,12 +19,13 @@
         dans votre espace personnalisé
         </h4>
 
+    <div class="display-4 text-center my-5">
+        <a href="{{ path('admin_deals')}}" class="col-md-4 btn btn-primary mb-2">GESTION DES DEALS</a>
+        <a href="{{ path('admin_category')}}" class="col-md-4 btn btn-info mb-2">GESTION DES CATEGORIES</a><br>
+        <a href="#" class="col-md-4 btn btn-warning mb-2">GESTION DES COMMENTAIRES</a>
+        <a href="#" class="col-md-4 btn btn-success mb-2">GESTION DES MEMBRES</a>
     </div>
 
-    <div class="display-4 text-center my-5 mx-auto">
-        <a class="btn btn-primary" href="{{ path('admin_deals')}}" role="button">GESTION DES DEALS</a>
-        <a class="btn btn-info" href="#" role="button">GESTION DES CATEGORIES</a><br>
-        <a class="btn btn-warning" href="#" role="button">GESTION DES COMMENTAIRES</a>
-        <a class="btn btn-success" href="#" role="button">GESTION DES MEMBRES</a>
     </div>
+
 {% endblock %}

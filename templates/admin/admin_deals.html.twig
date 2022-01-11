@@ -10,7 +10,7 @@
 
     {% for message in app.flashes('success')%}
 
-    <div class="col-md-3 bg-success p-4 ronded mx-auto text-center text-white mb-3">
+    <div class="col-md-3 bg-success p-4 rounded mx-auto text-center text-white mb-3">
         {{ message }}
     </div>
 
@@ -28,7 +28,6 @@
         {# Si oneColumn contient le nom de colonne 'createdAt', alors on affiche dans l'entête du
         tableau 'DATE' #}
         {% if oneColumn == 'title' %}
-
             <th>TITRE</th>
 
         {% else %}
