@@ -29,7 +29,8 @@ class CategoryType extends AbstractType
 
                 'constraints' => [
                     new NotBlank([
-                        'message' => "Le nom de la catégorie est obligatoire"
+                        'message' => "Le nom de la catégorie est obligatoire",
+                        'groups' => "category"
                     ]),
                 ]
             ])
@@ -40,7 +41,8 @@ class CategoryType extends AbstractType
 
                 'constraints' => [
                     new NotBlank([
-                        'message' => "Une description est obligatoire"
+                        'message' => "Une description est obligatoire",
+                        'groups' => "category"
                     ]),
                 ]
             ])
@@ -59,6 +61,7 @@ class CategoryType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Category::class,
+            'validation_groups' => ['category']
         ]);
     }
 }

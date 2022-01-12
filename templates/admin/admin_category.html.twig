@@ -30,8 +30,13 @@
 
                 {%  if oneColumn == 'name' %}
                 <th>NOM</th>
+
+                {%  elseif oneColumn == 'color' %}
+                <th>COULEUR</th>
+
                 {% else %}
                 <th>{{ oneColumn| upper }}</th>
+
                 {% endif %}
 
             {% endfor %}

@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b9b4de-8366-4371-8eab-184650d2fc80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/admin_form_category.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/admin_comments.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Comment/CommentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Comment/CommentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin_edit_deal.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_edit_deal.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -205,7 +204,7 @@
       <workItem from="1641195869969" duration="37631000" />
       <workItem from="1641587458545" duration="2599000" />
       <workItem from="1641662189552" duration="597000" />
-      <workItem from="1641801016941" duration="25359000" />
+      <workItem from="1641801016941" duration="37866000" />
     </task>
     <servers />
   </component>

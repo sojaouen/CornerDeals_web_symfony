@@ -1,83 +1,121 @@
 {% extends 'base.html.twig' %}
 
-{%  block title %}
+{% block title %}
     BACKOFFICE | Gestion des deals
 {% endblock %}
 
 {% block body %}
 
-<h1 class="display-4 text-center my-5">BACKOFFICE | Gestion des deals</h1>
+    <h1 class="display-4 text-center my-5">BACKOFFICE | Gestion des deals</h1>
 
-    {% for message in app.flashes('success')%}
+    {% for message in app.flashes('success') %}
 
-    <div class="col-md-3 bg-success p-4 rounded mx-auto text-center text-white mb-3">
-        {{ message }}
-    </div>
-
-    {%  endfor %}
-
-<table class="table table-bordered text-center">
-
-    <tr>
-
-        {# columns :variable Twig envoyée via AdminController qui contient tous les noms des champs/
-        colonnes de la table Deal #}
-        {# oneColumn : variable de réception qui réceptionne le nom d'une colonne par tour de boucle FOR #}
-        {% for oneColumn in columns %}
-
-        {# Si oneColumn contient le nom de colonne 'createdAt', alors on affiche dans l'entête du
-        tableau 'DATE' #}
-        {% if oneColumn == 'title' %}
-            <th>TITRE</th>
-
-        {% else %}
-
-            {# upper filtre twig permettant d'afficher le nom des colonnes en majuscule #}
-            <th> {{ oneColumn|upper }}</th>
-        {% endif %}
-
-        {% endfor %}
-
-{#            <th>CATEGORIE</th>#}
-            <th>NB COMMENTAIRE</th>
-    </tr>
-
-
-    {# dealsBdd: variable Twig envoyée dans le template par AdminController qui contient tous les deals de la table SQl Deal #}
-    {#  oneDeal:  variable qui réceptionne un article de la BDD par tour de boucle #}
-    {%  for oneDeal in dealsBdd %}
-
-        <tr>
-            <td>{{ oneDeal.id }}</td>
-{#            <td>{{ oneDeal.category.name }}</td>#}
-            <td>{{ oneDeal.title }}</td>
-            <td>{{ oneDeal.description|striptags|slice(0,300) }}...</td>
-            <td>{{ oneDeal.url }}</td>
-            <td>{{ oneDeal.crossedOutPrice }}</td>
-            <td>{{ oneDeal.dealPrice }}</td>
-            <td>{{ oneDeal.discount }}</td>
-            <td>{{ oneDeal.discountType }}</td>
-            <td>{{ oneDeal.discountCode }}</td>
-            <td>{{ oneDeal.currencyType }}</td>
-            <td>{{ oneDeal.startAt|date('d/m/Y') }}</td>
-            <td>{{ oneDeal.endAt|date('d/m/Y') }}</td>
-            <td>{{ oneDeal.shippingCost }}</td>
-            <td>{{ oneDeal.isFreeShipping }}</td>
-            <td>{{ oneDeal.isLocal }}</td>
-            <td>{{ oneDeal.localities }}</td>
-
-            {#  Lorsque l'on sélectionne les deals en BDD, nous avons accès à toutes les correspondances dans les autres tables #}
-            {#  oneDeal.comments : retourne tous les commentaires de chaque deal #}
-            {#  length : filtre twig permettant de calculer la taille d'un array #}
-            <td>{{ oneDeal.comments|length }}</td>
-
-            <td><a href="{{ path('admin_edit_deal', {'id': oneDeal.id}) }}" class="btn btn-info"><i class="ri-edit-box-line"></i></a></td>
-
-            <td><a href="{{ path('admin_remove_deal', {'id': oneDeal.id}) }}" class="btn btn-danger" onclick="return(confirm('Voulez-vous vraiment supprimer ce deal ?'))"><i class="ri-delete-bin-6-line"></i></a></td>
-        </tr>
+        <div class="col-md-3 bg-success p-4 rounded mx-auto text-center text-white mb-3">
+            {{ message }}
+        </div>
 
     {% endfor %}
 
-</table>
+    <table class="table table-bordered text-center">
+
+        <tr>
+
+            {# columns :variable Twig envoyée via AdminController qui contient tous les noms des champs/
+        colonnes de la table Deal #}
+            {# oneColumn : variable de réception qui réceptionne le nom d'une colonne par tour de boucle FOR #}
+            {% for oneColumn in columns %}
+
+                {# Si oneColumn contient le nom de colonne 'createdAt', alors on affiche dans l'entête du
+        tableau 'DATE' #}
+                {% if oneColumn == 'title' %}
+                    <th>TITRE</th>
+
+                {% elseif oneColumn == 'crossedOutPrice' %}
+                    <th>PRIX HABITUEL</th>
+
+                {% elseif oneColumn == 'dealPrice' %}
+                    <th>PRIX ACTUEL</th>
+
+                {% elseif oneColumn == 'discount' %}
+                    <th>MONTANT DE LA REDUCTION</th>
+
+                {% elseif oneColumn == 'discountType' %}
+                    <th>UNITE DE MESURE</th>
+
+                {% elseif oneColumn == 'discountCode' %}
+                    <th>CODE PROMO</th>
+
+                {% elseif oneColumn == 'currencyType' %}
+                    <th>DEVISE</th>
+
+                {% elseif oneColumn == 'startAt' %}
+                    <th>DATE DEBUT DE L'OFFRE</th>
+
+                {% elseif oneColumn == 'endAt' %}
+                    <th>DATE FIN DE L'OFFRE</th>
+
+                {% elseif oneColumn == 'shippingCost' %}
+                    <th>FRAIS D'ENVOI</th>
+
+                {% elseif oneColumn == 'isFreeShipping' %}
+                    <th>FRAIS D'ENVOI OFFERTS</th>
+
+                {% elseif oneColumn == 'isLocal' %}
+                    <th>OFFRE LOCALE</th>
+
+                {% elseif oneColumn == 'localities' %}
+                    <th>VILLE</th>
+
+                {% else %}
+                    {# upper filtre twig permettant d'afficher le nom des colonnes en majuscule #}
+                    <th> {{ oneColumn|upper }}</th>
+                {% endif %}
+
+            {% endfor %}
+
+            {#            <th>CATEGORIE</th> #}
+            <th>NB COMMENTAIRE</th>
+        </tr>
+
+
+        {# dealsBdd: variable Twig envoyée dans le template par AdminController qui contient tous les deals de la table SQl Deal #}
+        {#  oneDeal:  variable qui réceptionne un article de la BDD par tour de boucle #}
+        {% for oneDeal in dealsBdd %}
+
+            <tr>
+                <td>{{ oneDeal.id }}</td>
+                {#            <td>{{ oneDeal.category.name }}</td> #}
+                <td>{{ oneDeal.title }}</td>
+                <td>{{ oneDeal.description|striptags|slice(0,300) }}...</td>
+                <td>{{ oneDeal.url }}</td>
+                <td>{{ oneDeal.crossedOutPrice }}</td>
+                <td>{{ oneDeal.dealPrice }}</td>
+                <td>{{ oneDeal.discount }}</td>
+                <td>{{ oneDeal.discountType }}</td>
+                <td>{{ oneDeal.discountCode }}</td>
+                <td>{{ oneDeal.currencyType }}</td>
+                <td>{{ oneDeal.startAt|date('d/m/Y') }}</td>
+                <td>{{ oneDeal.endAt|date('d/m/Y') }}</td>
+                <td>{{ oneDeal.shippingCost }}</td>
+                <td>{{ oneDeal.isFreeShipping }}</td>
+                <td>{{ oneDeal.isLocal }}</td>
+                <td>{{ oneDeal.localities }}</td>
+
+                {#  Lorsque l'on sélectionne les deals en BDD, nous avons accès à toutes les correspondances dans les autres tables #}
+                {#  oneDeal.comments : retourne tous les commentaires de chaque deal #}
+                {#  length : filtre twig permettant de calculer la taille d'un array #}
+                <td>{{ oneDeal.comments|length }}</td>
+
+                <td><a href="{{ path('admin_edit_deal', {'id': oneDeal.id}) }}" class="btn btn-info"><i
+                                class="ri-edit-box-line"></i></a></td>
+
+                <td><a href="{{ path('admin_remove_deal', {'id': oneDeal.id}) }}" class="btn btn-danger"
+                       onclick="return(confirm('Voulez-vous vraiment supprimer ce deal ?'))"><i
+                                class="ri-delete-bin-6-line"></i></a></td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
 
 {% endblock %}
