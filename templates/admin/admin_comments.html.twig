@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    BACKOFFICE | Gestion des commentaires
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="display-4 text-center my-5">BACKOFFICE | Gestion des commentaires</h1>
+
+
+    <table class="table table-bordered text-center">
+        <tr>
+            {% for oneColumn in columns %}
+
+                {% if oneColumn == 'title'%}
+                    <th>TITRE</th>
+
+                {% elseif oneColumn == 'commentText'%}
+                    <th>COMMENTAIRE</th>
+
+                {% elseif oneColumn == 'creationDate'%}
+                    <th>DATE DE CREATION</th>
+
+                {% elseif oneColumn == 'updateDate'%}
+                    <th>DATE DE MODIFICATION</th>
+
+                {% else %}
+                    <th>{{ oneColumn|upper }}</th>
+
+                {% endif %}
+
+            {% endfor %}
+
+                <th>A PROPOS DU DEAL</th>
+        </tr>
+
+        {% for oneComment in commentsBdd %}
+
+            <tr>
+                <td>{{ oneComment.id }}</td>
+                <td>{{ oneComment.title }}</td>
+                <td>{{ oneComment.commentText|striptags }}</td>
+                <td>{{ oneComment.creationDate| date('d/m/Y') }}</td>
+                <td>{{ oneComment.updateDate| date('d/m/Y') }}</td>
+                <td>{{ oneComment.deal.title }}</td>
+
+                {# lien modification #}
+                <td><a href="{{ path('admin_edit_comment', {'id' : oneComment.id}) }}" class="btn btn-info"><i class="ri-edit-box-line"></i></a></td>
+
+                {#  lien suppression #}
+                <td><a href="{{ path('admin_remove_comment', {'id' : oneComment.id}) }}" class="btn btn-danger"
+                       onclick="return(confirm('Voulez-vous vraiment supprimer ce commentaire ?'))"><i class="ri-delete-bin-6-line"></i></a></td>
+            </tr>
+
+        {% endfor %}
+    </table>
+{% endblock %}

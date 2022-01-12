@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Entity\Deal;
-use App\Form\Deal\DealType;
+use App\Entity\Comment;
 use App\Form\Category\CategoryType;
-use App\Repository\Deal\DealRepository;
+use App\Form\Deal\DealType;
 use App\Repository\Category\CategoryRepository;
+use App\Repository\Deal\DealRepository;
+use App\Repository\Comment\CommentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -113,22 +115,19 @@ class AdminController extends AbstractController
 
         // Si la variable $category retourne TRUE, cela veut dire qu'elle contient une catégorie de la BDD, alors on entre dans le IF et on tente d'executer la suppression
 
-        if($category)
-        {
+        if ($category) {
             // Il y a une relation entre la table Deal et Category et une contrainte d'intégrité en RESTRICT
             // Donc il est impossible de supprimer la catégorie si 1 deal lui est toujours associé
             // getDeals() de l'entité Category retourne tous les artciles asssociés à la catégorie (relation bi-directionnelle)
             // Si getDeals() retourne un résultat vide, cela veut dire qu'il n'y a plus aucun deal associé à la catégorie, il est donc possible de la supprimer
-            if($category->getDeals()->isEmpty())
-            {
-                $manager -> remove($category);
-                $manager -> flush();
+            if ($category->getDeals()->isEmpty()) {
+                $manager->remove($category);
+                $manager->flush();
 
-                $this->addFlash('success', "La catégorie " .$category->getName() . " a été supprimée avec succès !");
-            }
-            else // si des deals sont toujours associés à la catégorie on envoie un message d'erreur à l'utilisateur
+                $this->addFlash('success', "La catégorie " . $category->getName() . " a été supprimée avec succès !");
+            } else // si des deals sont toujours associés à la catégorie on envoie un message d'erreur à l'utilisateur
             {
-                $this->addFlash('danger', "Il n'est pas possible de supprimer la catégorie" .$category->getName() . " car un ou plusieurs deals lui sont toujours associés");
+                $this->addFlash('danger', "Il n'est pas possible de supprimer la catégorie" . $category->getName() . " car un ou plusieurs deals lui sont toujours associés");
             }
 
             return $this->redirectToRoute('admin_category');
@@ -150,16 +149,17 @@ class AdminController extends AbstractController
      */
     public function adminFormCategory(Request $request, EntityManagerInterface $manager, Category $category = null): Response
     {
-            // Si l' objet entité $category est null, cela veut dire que nous sommes sur la route '/admin/
-            // category/new', que nous souhaitons créer une nouvelle catégorie, alors on entre dans la condition IF
-            // Si l'objet entité $category return true, cela veut dire que nous sommes sur la route "/admin/category/{id}/
-            // edit", l'id envoyé dans l'URL a été selectionné en BDD, nous souhaitons modifier la catégorie existante
-        if(!$category)
-        {
+        // Si l' objet entité $category est null, cela veut dire que nous sommes sur la route '/admin/
+        // category/new', que nous souhaitons créer une nouvelle catégorie, alors on entre dans la condition IF
+        // Si l'objet entité $category return true, cela veut dire que nous sommes sur la route "/admin/category/{id}/
+        // edit", l'id envoyé dans l'URL a été selectionné en BDD, nous souhaitons modifier la catégorie existante
+        if (!$category) {
             $category = new Category;
         }
 
-        $formCategory = $this->createForm(CategoryType::class, $category);
+        $formCategory = $this->createForm(CategoryType::class, $category, [
+            'validation_groups' => ['category']
+        ]); // getForm()
 
         dump($request);
 
@@ -167,23 +167,19 @@ class AdminController extends AbstractController
 
         dump($category);
 
-        if ($formCategory->isSubmitted() && $formCategory->isValid())
-        {
-            if(!$category->getId())
-            {
-                $message = "La catégorie " .$category->getName() . " a été enregistrée avec succès !";
-            }
-            else
-            {
-                $message = "La catégorie "  .$category->getName() . " a été modifiée avec succès !";
+        if ($formCategory->isSubmitted() && $formCategory->isValid()) {
+            if (!$category->getId()) {
+                $message = "La catégorie " . $category->getName() . " a été enregistrée avec succès !";
+            } else {
+                $message = "La catégorie " . $category->getName() . " a été modifiée avec succès !";
             }
             $manager->persist($category); // on prépare et on garder en mémoire la requete INSERT
             $manager->flush();
 
             // On définit un message de validation après l'execution de la requete SQL INSERT
-            $this->addFlash ('success', $message) ;
+            $this->addFlash('success', $message);
 
-           // Après l'execution de la requête INSERT, on redirige l'utilisateur vers l'affichage des catégories dans le BackOffice
+            // Après l'execution de la requête INSERT, on redirige l'utilisateur vers l'affichage des catégories dans le BackOffice
             return $this->redirectToRoute('admin_category');
         }
 
@@ -191,5 +187,42 @@ class AdminController extends AbstractController
             'formCategory' => $formCategory->createView()
         ]);
     }
+
+    /**
+     * Méthode permettant d'afficher et de supprimer tous les commentaires des articles stockés en BDD
+     * Méthode permettant de supprimer un commentaire en BDD
+     *
+     * @Route("/admin/comments", name="admin_comments")
+     * @Route ("/admin/comments/{id}/remove", name="admin_remove_comment")
+     */
+
+    public function adminComment(EntityManagerInterface $manager, CommentRepository $repoComment, Comment $comment = null): Response
+    {
+        $columns = $manager->getClassMetadata(Comment::class)->getFieldNames();
+
+        dump($columns);
+
+        $commentsBdd = $repoComment->findAll();
+
+        dump($commentsBdd);
+        dump($comment);
+
+        return $this->render('admin/admin_comments.html.twig', [
+            'columns' => $columns,
+            'commentsBdd' => $commentsBdd
+        ]);
+    }
+
+    /**
+     * Méthode permettant de modifier un commentaire en BDD
+     *
+     * @Route ("/admin/comment/{id}/edit", name="admin_edit_comment")
+     */
+
+    public function editComment(): Response
+    {
+        return $this->render('admin/admin_edit_comment.html.twig');
+    }
 }
+
 
