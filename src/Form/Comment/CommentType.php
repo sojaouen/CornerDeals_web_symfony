@@ -2,7 +2,7 @@
 
 namespace App\Form\Comment;
 
-use App\Entity\Comment\Comment;
+use App\Entity\Comment;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -35,11 +35,11 @@ class CommentType extends AbstractType
             // CommentText
             ->add('commentText')
 
-            // CreationDate
-            ->add('creationDate')
-
-            // UpdateDate
-            ->add('updateDate')
+//            // CreationDate
+//            ->add('creationDate')
+//
+//            // UpdateDate
+//            ->add('updateDate')
         ;
     }
 

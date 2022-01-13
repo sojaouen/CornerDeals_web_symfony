@@ -8,21 +8,28 @@
 
     <h1 class="display-4 text-center my-5">BACKOFFICE | Gestion des commentaires</h1>
 
+    {% for message in app.flashes('success') %}
+
+        <div class="col-md-3 bg-success p-4 rounded mx-auto text-center text-white mb-3">
+            {{ message }}
+        </div>
+
+    {% endfor %}
 
     <table class="table table-bordered text-center">
         <tr>
             {% for oneColumn in columns %}
 
-                {% if oneColumn == 'title'%}
+                {% if oneColumn == 'title' %}
                     <th>TITRE</th>
 
-                {% elseif oneColumn == 'commentText'%}
+                {% elseif oneColumn == 'commentText' %}
                     <th>COMMENTAIRE</th>
 
-                {% elseif oneColumn == 'creationDate'%}
+                {% elseif oneColumn == 'creationDate' %}
                     <th>DATE DE CREATION</th>
 
-                {% elseif oneColumn == 'updateDate'%}
+                {% elseif oneColumn == 'updateDate' %}
                     <th>DATE DE MODIFICATION</th>
 
                 {% else %}
@@ -32,7 +39,7 @@
 
             {% endfor %}
 
-                <th>A PROPOS DU DEAL</th>
+            <th>A PROPOS DU DEAL</th>
         </tr>
 
         {% for oneComment in commentsBdd %}
@@ -46,11 +53,13 @@
                 <td>{{ oneComment.deal.title }}</td>
 
                 {# lien modification #}
-                <td><a href="{{ path('admin_edit_comment', {'id' : oneComment.id}) }}" class="btn btn-info"><i class="ri-edit-box-line"></i></a></td>
+                <td><a href="{{ path('admin_edit_comment', {'id' : oneComment.id}) }}" class="btn btn-info"><i
+                                class="ri-edit-box-line"></i></a></td>
 
                 {#  lien suppression #}
                 <td><a href="{{ path('admin_remove_comment', {'id' : oneComment.id}) }}" class="btn btn-danger"
-                       onclick="return(confirm('Voulez-vous vraiment supprimer ce commentaire ?'))"><i class="ri-delete-bin-6-line"></i></a></td>
+                       onclick="return(confirm('Voulez-vous vraiment supprimer ce commentaire ?'))"><i
+                                class="ri-delete-bin-6-line"></i></a></td>
             </tr>
 
         {% endfor %}

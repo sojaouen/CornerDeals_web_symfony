@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{%  block title %}
+    BACKOFFICE | Nodification utilisateur
+{% endblock %}
+
+{%  block body %}
+
+<h1 class="display-4 text-center my-5">Modification de l'utilisateur {# <span class="text-info">{{ user.firstname }}{{ user.lastname }}</span>#}</h1>
+
+    {{ form_start(formUser, {'attr' : {'class' : 'col-md-3 mx-auto'}}) }}
+
+        {{ form_row(formUser.firstname, {'label' : "Prénom"}) }}
+        {{ form_row(formUser.lastname, {'label' : "Nom"}) }}
+        {{ form_row(formUser.email) }}
+        {{ form_row(formUser.birthdate, {'label' : "Date de naissance"}) }}
+        {{ form_row(formUser.roles, {'label':false}) }}
+
+    <button type="submit" class="btn btn-secondary">Enregistrer les modifications</button>
+
+    {{ form_end(formUser) }}
+
+{% endblock %}
