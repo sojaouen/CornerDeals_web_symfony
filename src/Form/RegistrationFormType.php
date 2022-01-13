@@ -131,9 +131,11 @@ class RegistrationFormType extends AbstractType
                     'attr' => [
                         'placeholder' => "Veuillez saisir votre mot de passe"
                     ],
+
                     'constraints' => [
                         new NotBlank([
-                            'message' => "Le mot de passe est obligatoire"
+                            'message' => "Le mot de passe est obligatoire",
+                            'groups'=> "registration"
                         ]),
                     new Length([
                         'min' => 8,
@@ -152,10 +154,12 @@ class RegistrationFormType extends AbstractType
                     'label' => "Confirmation de votre mot de passe",
                     'attr' => [
                         'placeholder' => "Veuillez confirmer votre mot de passe"
-                    ]
+                    ],
+                    'groups'=> "registration"
 
                 ],
-                    'invalid_message' => "Les mots de passe ne sont pas identiques"
+                    'invalid_message' => "Les mots de passe ne sont pas identiques",
+                    'groups'=> "registration"
             ])
 
 //            // Password
@@ -184,6 +188,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'validation_groups' => ['registration']
         ]);
     }
 }

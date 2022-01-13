@@ -3,13 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Category;
-use App\Entity\Deal;
 use App\Entity\Comment;
+use App\Entity\Deal;
+use App\Entity\User;
 use App\Form\Category\CategoryType;
+use App\Form\Comment\CommentType;
 use App\Form\Deal\DealType;
+use App\Form\AdminRegistrationFormType;
 use App\Repository\Category\CategoryRepository;
-use App\Repository\Deal\DealRepository;
 use App\Repository\Comment\CommentRepository;
+use App\Repository\Deal\DealRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -173,7 +177,7 @@ class AdminController extends AbstractController
             } else {
                 $message = "La catégorie " . $category->getName() . " a été modifiée avec succès !";
             }
-            $manager->persist($category); // on prépare et on garder en mémoire la requete INSERT
+            $manager->persist($category); // on prépare et on garde en mémoire la requete INSERT
             $manager->flush();
 
             // On définit un message de validation après l'execution de la requete SQL INSERT
@@ -207,6 +211,20 @@ class AdminController extends AbstractController
         dump($commentsBdd);
         dump($comment);
 
+        if ($comment) {
+            // On stock l'id du commentaire supprimer avant d' executer la requete DELETE afin d'injecter 1'id du
+            // commentaire dans le message de validation
+            $id = $comment->getId();
+
+            $manager->remove($comment); // on prépare et on garde en mémoire la requête de suppression (DELETE)
+            $manager->flush(); // on exécute la requête de suppression
+
+            $this->addFlash('success', "Le commentaire nº$id a été supprimé avec succès !");
+
+            // Après la suppression, on redirige l'utilisateur vers l'affichage des commentaires
+            return $this->redirectToRoute('admin_comments');
+        }
+
         return $this->render('admin/admin_comments.html.twig', [
             'columns' => $columns,
             'commentsBdd' => $commentsBdd
@@ -219,9 +237,112 @@ class AdminController extends AbstractController
      * @Route ("/admin/comment/{id}/edit", name="admin_edit_comment")
      */
 
-    public function editComment(): Response
+    public function editComment(Comment $comment, Request $request, EntityManagerInterface $manager): Response
     {
+        dump($comment);
+
+        // On crée un formulaire via la classe CommentType qui a pour but de remplir l'entité $comment
+        $formComment = $this->createForm(CommentType::class, $comment);
+
+        dump($request);
+
+        $formComment->handleRequest($request); // $ POST['title'] --> $comment-›setTitle($ POST['title'])
+
+        if ($formComment->isSubmitted() && $formComment->isValid()) {
+            // Récupération des informations à injecter dans le message de validation
+            $id = $comment->getId();
+
+            $manager->persist($comment);
+            $manager->flush();
+
+            $this->addFlash('success', "le commentaire nº$id a bien été modifié avec succès !");
+
+            return $this->redirectToRoute('admin_comments');
+        }
+
+        return $this->render('admin/admin_edit_comment.html.twig', [
+            'idComment' => $comment->getId(),
+            'formComment' => $formComment->createView()
+        ]);
+
+
         return $this->render('admin/admin_edit_comment.html.twig');
+    }
+
+    /**
+     * Méthode permettant d'afficher les utilisateurs stockés en BDD sous forme de tableau HTML
+     * Méthode permettant de supprimer un utilisateur en BDD
+     *
+     * @Route ("/admin/users", name="admin_users")
+     * @Route ("/admin/user/{id}/remove", name="admin_remove_user")
+     */
+    public function adminUsers(EntityManagerInterface $manager, UserRepository $repoUser, User $user = null): Response
+    {
+        // On récupère les noms des champs / colonnes de la table User
+        $columns = $manager->getClassMetadata(User::class)->getFieldNames();
+
+        dump($columns);
+
+        // On selectionne en BDD toute la table 'user'
+        $usersBdd = $repoUser->findAll();
+
+        dump($usersBdd);
+        dump($user);
+
+        // Si la condition IF renvoie TRUE, cela veut dire que l'objet entity $user contient un utilisateur stocké en BDD
+        // que nous allons supprimer
+        if($user)
+        {
+            // On prépare et en garde en mémoire la requete de suppression DELETE
+            $manager->remove($user);
+            // On execute la requete de suppression en BDD
+            $manager->flush();
+
+            // ON définit un message de validation de suppression en session
+            $this->addFlash('success', "L'utilisateur a été supprimé avec succès !");
+
+            return $this->redirectToRoute('admin_users');
+        }
+
+
+        return $this->render('admin/admin_users.html.twig', [
+            'columns' => $columns,
+            'usersBdd' => $usersBdd
+        ]);
+    }
+
+    /**
+     * Méthode permettant de modifier un utilisateur en Bdd
+     *
+     * @Route ("/admin/user/{id}/edit", name="admin_edit_user")
+     */
+    public function adminUserEdit(User $user, EntityManagerInterface $manager, Request $request): Response
+    {
+        dump($user);
+
+        $formUser = $this->createForm(AdminRegistrationFormType::class, $user);
+
+        $formUser->handleRequest($request); // $_POST['username'] --> $user->setUsername($_POST['username'])
+
+        if($formUser->isSubmitted() && $formUser->isValid())
+        {
+            $id = $user->getId();
+            $firstname = $user->getFirstname();
+            $lastname = $user->getLastname();
+
+            $manager->persist($user); // On prépare et on garde en mémoire la requête de modification UPDATE
+            $manager->flush(); // on execute la requête SQL UPDATE en BDD
+
+            // On définit le message de validation de modification en session
+            $this->addFlash('success', "L'utilisateur Nº$id - $firstname $lastname a été modifié avec succès");
+
+            // On redirige l'utilisateur après la modification
+            return $this->redirectToRoute('admin_users');
+        }
+
+        return $this->render('admin/admin_edit_user.html.twig', [
+            'formUser' => $formUser->createView()
+        ]);
     }
 }
 
