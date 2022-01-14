@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\File;
 
 class CategoryType extends AbstractType
 {
@@ -53,7 +54,24 @@ class CategoryType extends AbstractType
             ])
 
             // Illustration
-            ->add('illustration', UrlType::class)
+            ->add('illustration', FileType::class, [
+                'data_class' => null,
+                'label' => "Image de la catégorie",
+                'mapped' => true, // signifie que le champ est associé à une propriété
+                'required' => true,
+
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/jpg'
+                        ],
+                        'mimeTypesMessage' => "Extensions acceptées : jpg/jpeg/png"
+                    ])
+                ]
+            ])
         ;
     }
 

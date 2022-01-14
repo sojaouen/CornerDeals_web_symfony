@@ -39,7 +39,7 @@
                 <td>{{ category.name }}</td>
                 <td>{{ category.description }}</td>
                 <td>{{ category.color }}</td>
-                <td>{{ category.illustration }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}" class="img-thumbnail"></td>
                 <td>
                     <a href="{{ path('category:show', {'id': category.id}) }}">Afficher</a>
                     <a href="{{ path('category:edit', {'id': category.id}) }}">Modifier</a>
@@ -52,5 +52,5 @@
         {% endfor %}
         </tbody>
     </table>
-
+</div>
 {% endblock %}
