@@ -48,7 +48,7 @@
             </tr>
             <tr>
                 <th>Illustration</th>
-                <td>{{ category.illustration }}</td>
+                <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}"></td>
             </tr>
         </tbody>
     </table>

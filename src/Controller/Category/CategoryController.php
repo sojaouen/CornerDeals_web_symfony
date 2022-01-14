@@ -7,9 +7,12 @@ use App\Form\Category\CategoryType;
 use App\Repository\Category\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/category", name="category:")
@@ -29,13 +32,43 @@ class CategoryController extends AbstractController
     /**
      * @Route("/new", name="new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            /** @var UploadedFile $illustrationFile */
+            $illustrationFile = $form->get('illustration')->getData(); // permet de récupérer les données de l'image uploadée
+            dump($illustrationFile);
+
+            if($illustrationFile)
+            {
+                $originalFilename = pathinfo($illustrationFile->getClientOriginalName(), PATHINFO_FILENAME);
+                dump($originalFilename); // permet de récupèrer le nom du fichier
+
+                $safeFilename = $slugger->slug($originalFilename);
+                dump($safeFilename);
+
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $illustrationFile->guessExtension();
+
+                try // on tente de copier l'image dans le bon dossier du serveur
+                {
+                    $illustrationFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                }
+                catch(FileException $e)
+                {
+
+                }
+                // On envoie l'image définitive dans le bon setter de l'objet afin que l'image soit stockée en BDD
+                $category->setIllustration($newFilename);
+            }
+
             $entityManager->persist($category);
             $entityManager->flush();
 

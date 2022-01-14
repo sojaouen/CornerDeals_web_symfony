@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b9b4de-8366-4371-8eab-184650d2fc80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/AdminRegistrationFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/admin_edit_comment.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/admin_edit_user.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin/admin_users.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/42638492-prestige-vehicule-automobile-vue-de-cote-icone-plat-pour-les-applications-et-sites-web-61e18d8a9cca1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1832857826.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1850849b3d.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1852666149.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/todd-quackenbush-IClZBVw5W5A-unsplash-resized-61e19394436c7.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Comment/CommentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Comment/CommentType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin_comments.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_comments.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Category/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Category/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +137,8 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
     </include_path>
   </component>
   <component name="ProjectId" id="225p6kFZtVoQE7DbKCJsRNsepKS" />
@@ -210,7 +214,8 @@
       <workItem from="1641587458545" duration="2599000" />
       <workItem from="1641662189552" duration="597000" />
       <workItem from="1641801016941" duration="38703000" />
-      <workItem from="1642061607556" duration="24289000" />
+      <workItem from="1642061607556" duration="25566000" />
+      <workItem from="1642154059187" duration="14544000" />
     </task>
     <servers />
   </component>
