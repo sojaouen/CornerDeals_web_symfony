@@ -16,10 +16,28 @@
         <h1 class="display-4 text-center mx-auto my-5">Bonjour <span class="text-success">{{ app.user.firstname }}</span></h1>
         <div class="card col-md-4 mx-auto shadow-lg mb-5 p-0" >
             <img src="https://picsum.photos/300/100" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h4>Vos Informations personnelles</h4><hr>
-                <a href="{{ path('profile_password') }}">Modifier mon mot de passe</a><br>
+            <div class="card-body text-center">
+                <h4>Vos Informations personnelles</h4>
+                <hr>
+                <p>Prénom : {{app.user.firstname}}</p>
+                <p>Nom : {{app.user.lastname}}</p>
+                <p>email : {{app.user.email}}</p>
+{#                <p>Prénom : {{app.user.firstname}}</p>#}
+
+                {# Si l'utilisateur est connecté en tant qu'Admin#}
+                {% if app.user.roles[0] == 'ROLE_ADMIN'%}
+                    <p class="card-text text-center">
+                        <a href="{{ path('admin') }}" class="btn btn-secondary text-white">Rejoindre l'espace BACKOFFICE</a>
+                    </p>
+                {# Si l'utilisateur est connecté en tant que User#}
+                {% else %}
 {#                {{dump(app.user.firstname)}}#}
+                <hr>
+                <p class="card-text text-center">
+                    <a href="{{ path('profile_password') }}" class="btn btn-secondary">Modifier mon mot de passe</a>
+                </p>
+                {% endif %}
+
 
 {#                <!-- La boucle FOREACH passe en revue les données de l'utilisateur stockées en session à l'indice 'user' dans la session | $_SESSION#}
 {#                ['user']-> retourne 1 ARRAY -->#}
@@ -35,10 +53,6 @@
 
 {#                <?php endforeach; ?>#}
 
-                <hr>
-                <p class="card-text text-center">
-                    <a href="" class="btn btn-secondary">MODIFIER</a>
-                </p>
             </div>
         </div>
     </div>

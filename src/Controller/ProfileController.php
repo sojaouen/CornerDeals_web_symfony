@@ -17,8 +17,6 @@ class ProfileController extends AbstractController
             return $this -> redirectToRoute('app_login');
         }
 
-
-
         return $this->render('profile/index.html.twig', [
             'controller_name' => 'ProfileController',
         ]);
