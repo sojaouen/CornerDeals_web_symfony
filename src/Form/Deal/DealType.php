@@ -2,6 +2,7 @@
 
 namespace App\Form\Deal;
 
+use App\Entity\Category;
 use App\Entity\Deal;
 use App\Entity\Merchant;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -9,11 +10,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CurrencyType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class DealType extends AbstractType
@@ -43,6 +46,14 @@ class DealType extends AbstractType
                 'required' => false
             ])
 
+            // Catégorie
+            ->add('category', EntityType::class,[
+                // On base le champ EntityType sur l'entité Category
+                'class' => Category::class,
+                'label' => "Catégorie",
+
+                'choice_label' => "name"
+            ])
             // Merchant
             ->add('merchant', EntityType::class,[
                 // On base le champ EntityType sur l'entité Merchant
@@ -50,6 +61,29 @@ class DealType extends AbstractType
                 'label' => "Boutique",
 
                 'choice_label' => "name"
+            ])
+
+            // Illustration
+            ->add('illustration', FileType::class, [
+                'data_class' => null,
+                'label' => "Image du deal",
+                'mapped' => false, // signifie que le champ est associé à une propriété
+                'required' => true,
+                'attr' => [
+                    'class' => 'dropify'
+                ],
+
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/jpg'
+                        ],
+                        'mimeTypesMessage' => "Extensions acceptées : jpg/jpeg/png"
+                    ])
+                ]
             ])
 
             // URL

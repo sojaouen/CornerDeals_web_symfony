@@ -1,7 +1,16 @@
 <!DOCTYPE html>
+<!--
+   ____                           _____             _
+ / ____|                         |  __ \           | |
+| |     ___  _ __ _ __   ___ _ __| |  | | ___  __ _| |___
+| |    / _ \| '__| '_ \ / _ \ '__| |  | |/ _ \/ _` | / __|
+| |___| (_) | |  | | | |  __/ |  | |__| |  __/ (_| | \__ \
+ \_____\___/|_|  |_| |_|\___|_|  |_____/ \___|\__,_|_|___/
+-->
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}CornerDeals{% endblock %}</title>
 {#        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">#}
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -10,84 +19,7 @@
         {% endblock %}
     </head>
         <header>
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edede9">
-
-
-            <a class="navbar-brand" href="{{ url('homepage') }}">CornerDeals</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ url('homepage') }}"><i class="ri-home-2-line"></i> Accueil</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('merchant:index') }}">Boutiques</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('discount_code:index') }}">Codes Promo</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('deal:index') }}">Deals</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{ url('category:index') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('product:index') }}">Produits</a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav ms-auto">
-
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        {#Authenticated users#}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('profile') }}"><i class="ri-user-3-line"></i> Mon Compte</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('app_logout') }}"><i class="ri-shut-down-line"></i> Deconnexion</a>
-                        </li>
-
-                    {% else %}
-                        {#Anonymous users#}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('app_register') }}">Inscription</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('app_login') }}">Connexion</a>
-                        </li>
-
-                    {% endif %}
-
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Rechercher..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Rechercher</button>
-                </form>
-
-                </ul>
-
-            </div>
-        </nav>
+            {% include 'components/_nav.html.twig' %}
         </header>
 {#        <div class="container">#}
 
@@ -119,18 +51,22 @@
 {#            </nav>#}
 {#        </header>#}
     <body>
-        <main class="container-fluid conteneur-base">
+        <main class="container">
         {% block body %}
 
         {% endblock %}
         </main>
 
-        <footer class="text-center py-4" style="background-color: #edede9">
-            &copy2022 - OSW3
-        </footer>
+        {% include 'components/_footer.html.twig' %}
+
 
             {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+{#                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"#}
+{#                        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="#}
+{#                        crossorigin="anonymous"#}
+{#                        referrerpolicy="no-referrer"></script>#}
         {% endblock %}
+
     </body>
 </html>

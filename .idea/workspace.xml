@@ -2,23 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b9b4de-8366-4371-8eab-184650d2fc80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/42638492-prestige-vehicule-automobile-vue-de-cote-icone-plat-pour-les-applications-et-sites-web-61e18d8a9cca1.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1832857826.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1850849b3d.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1852666149.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/todd-quackenbush-IClZBVw5W5A-unsplash-resized-61e19394436c7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20220429150505.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/Sante-cosmetique-scaled-626c108692078.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/apple-magic-mouse-2-626c133c75067.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/istockphoto-496730484-612x612-626c1ddb3044f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/javier-martinez-hUD0PUczwJQ-unsplash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ProfilePasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ChangePasswordType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/DealService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/_footer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/deal/deal/list.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile/password.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1832857826.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1850849b3d.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1852666149.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Category/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Category/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Deal/DealController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Deal/DealController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Deal.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Deal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Merchant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Merchant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Deal/DealType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Deal/DealType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Merchant/MerchantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Merchant/MerchantType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/Deal/DealRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Deal/DealRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Components/alert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/alert.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Components/card.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/card.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/address/address/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/address/address/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_form_category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_form_category.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/category/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/discount_code/discount_code/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discount_code/discount_code/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/merchant/merchant/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/merchant/merchant/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/product/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,25 +193,22 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
-    <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Entity" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="actions.on.save" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/CornerDeals2/web-symfony/public/uploads/images&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/uploads/images" />
       <recent name="$PROJECT_DIR$/src/Entity" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
@@ -215,7 +259,62 @@
       <workItem from="1641662189552" duration="597000" />
       <workItem from="1641801016941" duration="38703000" />
       <workItem from="1642061607556" duration="25566000" />
-      <workItem from="1642154059187" duration="15224000" />
+      <workItem from="1642154059187" duration="17391000" />
+      <workItem from="1643192060847" duration="598000" />
+      <workItem from="1643275619594" duration="5930000" />
+      <workItem from="1643282749811" duration="2829000" />
+      <workItem from="1643636904849" duration="711000" />
+      <workItem from="1643702181305" duration="5358000" />
+      <workItem from="1643883086266" duration="10299000" />
+      <workItem from="1644922345895" duration="598000" />
+      <workItem from="1645039130120" duration="593000" />
+      <workItem from="1645526823418" duration="643000" />
+      <workItem from="1645715815451" duration="7336000" />
+      <workItem from="1645829456258" duration="598000" />
+      <workItem from="1645886891023" duration="580000" />
+      <workItem from="1645891464009" duration="4945000" />
+      <workItem from="1646639226803" duration="22210000" />
+      <workItem from="1647027696164" duration="719000" />
+      <workItem from="1647096022075" duration="1639000" />
+      <workItem from="1647102585863" duration="261000" />
+      <workItem from="1647102915890" duration="3330000" />
+      <workItem from="1647274201185" duration="119000" />
+      <workItem from="1647274330804" duration="3048000" />
+      <workItem from="1647331627695" duration="598000" />
+      <workItem from="1647334344615" duration="17019000" />
+      <workItem from="1647543097611" duration="24965000" />
+      <workItem from="1648233209728" duration="3000" />
+      <workItem from="1648314331148" duration="598000" />
+      <workItem from="1648563776598" duration="597000" />
+      <workItem from="1648709357997" duration="595000" />
+      <workItem from="1648726718783" duration="1788000" />
+      <workItem from="1648819861317" duration="599000" />
+      <workItem from="1649055724105" duration="595000" />
+      <workItem from="1649141514564" duration="18437000" />
+      <workItem from="1650878433481" duration="74000" />
+      <workItem from="1650878552167" duration="573000" />
+      <workItem from="1650880791917" duration="530000" />
+      <workItem from="1650881567255" duration="85000" />
+      <workItem from="1650881878917" duration="13464000" />
+      <workItem from="1650989130536" duration="3317000" />
+      <workItem from="1650993987918" duration="459000" />
+      <workItem from="1651066742224" duration="1110000" />
+      <workItem from="1651070806730" duration="8451000" />
+      <workItem from="1651133047974" duration="1261000" />
+      <workItem from="1651150660949" duration="1278000" />
+      <workItem from="1651153111561" duration="5644000" />
+      <workItem from="1651161431037" duration="4524000" />
+      <workItem from="1651220928856" duration="5999000" />
+      <workItem from="1651246142389" duration="329000" />
+      <workItem from="1651246731154" duration="4193000" />
+      <workItem from="1651251113862" duration="1462000" />
+      <workItem from="1651252922346" duration="3520000" />
+      <workItem from="1651318672741" duration="19858000" />
+      <workItem from="1651400409212" duration="3481000" />
+      <workItem from="1651410542817" duration="2423000" />
+      <workItem from="1651413175892" duration="16665000" />
+      <workItem from="1651483215682" duration="6211000" />
+      <workItem from="1651567392843" duration="612000" />
     </task>
     <servers />
   </component>

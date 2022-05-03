@@ -48,6 +48,7 @@ class MerchantType extends AbstractType
             ->add('logo', FileType::class,[
                 'label' => "Logo",
                 'required' => false,
+                'data_class'=> null
             ])
         ;
     }

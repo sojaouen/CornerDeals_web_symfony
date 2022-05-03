@@ -27,6 +27,8 @@
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Description</th>
+                <th>Boutique</th>
+                <th>Photo</th>
                 <th>Url</th>
                 <th>Prix habituel</th>
                 <th>Prix actuel</th>
@@ -51,6 +53,8 @@
                 {# slice() : filtre Twig qui permet de couper une partie de la chaine de caractères #}
                 <td>{{ deal.title|striptags|slice(0,25) }}...</td>
                 <td>{{ deal.description|striptags|slice(0,100) }}...</td>
+                <td>{{ deal.merchant }}</td>
+                <td>{{ deal.illustration }}</td>
                 <td>{{ deal.url }}</td>
                 <td>{{ deal.crossedOutPrice }}</td>
                 <td>{{ deal.dealPrice }}</td>

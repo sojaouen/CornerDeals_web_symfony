@@ -4,38 +4,84 @@ namespace App\Controller\Deal;
 
 use App\Entity\Deal;
 use App\Form\Deal\DealType;
-use App\Repository\Deal\DealRepository;
+use App\Service\DealService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
  * @Route("/deals", name="deal:")
  */
 class DealController extends AbstractController
 {
+    private $dealService;
+
+    public function __construct(DealService $dealService)
+    {
+        $this->dealService = $dealService;
+    }
+
     /**
      * @Route("/", name="index", methods={"GET"})
      */
-    public function index(DealRepository $dealRepository): Response
+    public function index(Request $request): Response
     {
-        return $this->render('deal/deal/index.html.twig', [
-            'deals' => $dealRepository->findAll(),
+        $query = $request->query->get('q');
+        $sort = $request->query->get('sort');
+
+        $deals = $this->dealService->buildResult($query, $sort);
+        
+        return $this->render('deal/deal/list.html.twig', [
+            'deals' => $deals,
+            'query' => $query
         ]);
     }
 
     /**
      * @Route("/new", name="new", methods={"GET", "POST"})
      */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $deal = new Deal();
         $form = $this->createForm(DealType::class, $deal);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            /** @var UploadedFile $illustrationFile */
+            $illustrationFile = $form->get('illustration')->getData(); // permet de récupérer les données de l'image uploadée
+            dump($illustrationFile);
+
+            if($illustrationFile)
+            {
+                $originalFilename = pathinfo($illustrationFile->getClientOriginalName(), PATHINFO_FILENAME);
+                dump($originalFilename); // permet de récupèrer le nom du fichier
+
+                $safeFilename = $slugger->slug($originalFilename);
+                dump($safeFilename);
+
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $illustrationFile->guessExtension();
+
+                try // on tente de copier l'image dans le bon dossier du serveur
+                {
+                    $illustrationFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                }
+                catch(FileException $e)
+                {
+                    #TODO Notification, upload impossible
+                }
+                // On envoie l'image définitive dans le bon setter de l'objet afin que l'image soit stockée en BDD
+                $deal->setIllustration($newFilename);
+            }
+
             $entityManager->persist($deal);
             $entityManager->flush();
 
@@ -49,7 +95,7 @@ class DealController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/{id}", name="show", methods={"GET"}, requirements={"id"="\d+"})
      */
     public function show(Deal $deal): Response
     {

@@ -13,13 +13,86 @@
     {% endfor %}
 <div class="container">
     <div class="row">
+        <h1 class="display-4 text-center mx-auto my-5">Bonjour <span class="text-success">{{ app.user.firstname }}</span></h1>
+        <div class="card col-md-4 mx-auto shadow-lg mb-5 p-0" >
+            <img src="https://picsum.photos/300/100" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4>Vos Informations personnelles</h4><hr>
+                <a href="{{ path('profile_password') }}">Modifier mon mot de passe</a><br>
+{#                {{dump(app.user.firstname)}}#}
 
-        <div class="col-3">
-            Sous menu de la page Mon Compte
-        </div>
-        <div class="col-9">
-            Infos Utilisateur
+{#                <!-- La boucle FOREACH passe en revue les données de l'utilisateur stockées en session à l'indice 'user' dans la session | $_SESSION#}
+{#                ['user']-> retourne 1 ARRAY -->#}
+{#                <?php foreach ($_SESSION['user'] as $key => $value): ?> <!-- ":" pour remplacer "{" et endforeach pour remplacer "}" -->#}
+
+{#                <!-- La condition IF permet d'execlure l' id membre et le statut à l'affichage -->#}
+{#                <?php if($key != 'id_membre' && $key != 'statut'): ?>#}
+
+{#                <!-- ucfirst() fonction prédéfinie permettant de mettre en majuscule la première lettre de la chaine de caractères -->#}
+{#                <p class="card-text d-flex justify-content-between"><strong><?= ucfirst($key) ?></strong> <span><?= $value ?></span></p>#}
+
+{#                <?php endif; ?>#}
+
+{#                <?php endforeach; ?>#}
+
+                <hr>
+                <p class="card-text text-center">
+                    <a href="" class="btn btn-secondary">MODIFIER</a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
+
+{#<?php#}
+{#require_once('include/init.inc.php');#}
+
+{#//echo '<pre>'; print_r($_SESSION); echo '</pre>';#}
+
+
+{#// Si l' internaute N'EST PAS (!) identifié sur le site, donc que l'indice 'user' N'EST PAS définit dans la session, l'internaute n'a rien à#}
+{#// faire sur la page profil, on le redirige vers la page connexion#}
+{#if(!connect())#}
+{#{#}
+{#header('location: connexion.php');#}
+{#}#}
+
+
+{#require_once('include/header.inc.php');#}
+{#require_once('include/nav.inc.php');#}
+{#?>#}
+
+{#<!--Afficher-'Bonjour pseudo' en passant par la session e-l'utilisateur connecté $_SESSION-->#}
+{#<h1 class="display-4 text-center mx-auto my-5">Bonjour <span class="text-success"><?= $_SESSION['user']['pseudo']?></span></h1>#}
+
+{#<!--Exo: réaliser une page profil contenant toutes les informations personnelles de l'utilisateur en passant par son fichier de session-->#}
+
+{#<div class="card col-md-4 mx-auto shadow-lg mb-5 p-0" >#}
+{#    <img src="https://picsum.photos/300/100" class="card-img-top" alt="...">#}
+{#    <div class="card-body">#}
+{#        <h4>Vos Informations personnelles</h4><hr>#}
+
+{#        <!-- La boucle FOREACH passe en revue les données de l'utilisateur stockées en session à l'indice 'user' dans la session | $_SESSION#}
+{#        ['user']-> retourne 1 ARRAY -->#}
+{#        <?php foreach ($_SESSION['user'] as $key => $value): ?> <!-- ":" pour remplacer "{" et endforeach pour remplacer "}" -->#}
+
+{#        <!-- La condition IF permet d'execlure l' id membre et le statut à l'affichage -->#}
+{#        <?php if($key != 'id_membre' && $key != 'statut'): ?>#}
+
+{#        <!-- ucfirst() fonction prédéfinie permettant de mettre en majuscule la première lettre de la chaine de caractères -->#}
+{#        <p class="card-text d-flex justify-content-between"><strong><?= ucfirst($key) ?></strong> <span><?= $value ?></span></p>#}
+
+{#        <?php endif; ?>#}
+
+{#        <?php endforeach; ?>#}
+
+{#        <hr>#}
+{#        <p class="card-text text-center">#}
+{#            <a href="" class="btn btn-secondary">MODIFIER</a>#}
+{#        </p>#}
+{#    </div>#}
+{#</div>#}
+
+{#<?php#}
+{#require_once('include/footer.inc.php');#}

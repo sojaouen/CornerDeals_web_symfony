@@ -1,78 +1,135 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Deal{% endblock %}
+{% block title %}{{ deal.title }} - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h1>Deal</h1>
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="{{ asset('uploads/images/' ~ deal.illustration) }}" alt="Photo de {{ deal.title }}" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-6">
+                <h1>{{ deal.title }} <span class="text-danger d-flex justify-content my-5">{{ deal.dealprice ?? 'Gratuit' }} {{ deal.currencyType }}</span></h1>
+                <p class="my-5">Description: {{ deal.description }}</p>
+                <p>Proposé par: {{ deal.merchant }}</p>
+                <p>Ancien prix: {{ deal.crossedOutPrice }} {{ deal.currencyType}}</p>
+                <p>Frais de livraison: {{ deal.shippingCost }} {{ deal.currencyType}}</p>
+                <p>Livraison gratuite:
+                    {% if deal.isFreeShipping %}
+                        Oui
+                    {% elseif deal.isFreeShipping == null %}
+                        Non indiqué
+                    {% else %}
+                        Non
+                    {% endif %}</p>
+                <p>Offre locale:
+                    {% if deal.isLocal %}
+                        Oui
+                    {% elseif deal.isLocal == null %}
+                        Non indiqué
+                    {% else %}
+                        Non
+                    {% endif %}</p>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ deal.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ deal.title }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ deal.description }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ deal.url }}</td>
-            </tr>
-            <tr>
-                <th>Prix habituel</th>
-                <td>{{ deal.crossedOutPrice }}</td>
-            </tr>
-            <tr>
-                <th>Prix actuel</th>
-                <td>{{ deal.dealPrice }}</td>
-            </tr>
-            <tr>
-                <th>Montant réduction</th>
-                <td>{{ deal.discount }}</td>
-            </tr>
-            <tr>
-                <th>Unité de mesure</th>
-                <td>{{ deal.discountType }}</td>
-            </tr>
-            <tr>
-                <th>Code Promo</th>
-                <td>{{ deal.discountCode }}</td>
-            </tr>
-            <tr>
-                <th>Devise</th>
-                <td>{{ deal.currencyType }}</td>
-            </tr>
-            <tr>
-                <th>Date début offre</th>
-                <td>{{ deal.startAt|date('d/m/Y')}}</td>
-            </tr>
-            <tr>
-                <th>Date fin offre</th>
-                <td>{{ deal.endAt|date('d/m/Y')}}</td>
-            </tr>
-            <tr>
-                <th>Frais d'envoi</th>
-                <td>{{ deal.shippingCost }}</td>
-            </tr>
-            <tr>
-                <th>Frais d'envoi offerts</th>
-                <td>{{ deal.isFreeShipping }}</td>
-            </tr>
-            <tr>
-                <th>Offre locale</th>
-                <td>{{ deal.isLocal }}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ deal.localities }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <div class="d-flex justify-content-end">
+                    <a href="{{ deal.url }}" class="btn btn-primary">Accéder à l'offre</a>
+                </div>
+            </div>
+            <div class="col-12 bg-secondary text-white mx-2 py-2 d-flex justify-content-around">
+                <span>
+                    <i class="ri-shopping-bag-line"></i>
+                    {{ deal.url }}
+                </span>
+                <span>
+                    <i class="ri-calendar-line"></i>
+                   Du {{ deal.startAt|date('d/m/Y') }} au {{ deal.endAt|date('d/m/Y') }}
+                </span>
+                <span>
+                    <i class="ri-map-pin-line"></i>
+                    {{ deal.localities }}
+                </span>
+            </div>
+            <h4 class="py-5">Les commentaires sur ce deal</h4>
+        </div>
+    </div>
+{#    <h1>Deal</h1>#}
+
+{#    <table class="table">#}
+{#        <tbody>#}
+{#            <tr>#}
+{#                <th>Id</th>#}
+{#                <td>{{ deal.id }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Title</th>#}
+{#                <td>{{ deal.title }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Description</th>#}
+{#                <td>{{ deal.description }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Boutique</th>#}
+{#                <td>{{ deal.merchant }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Photo</th>#}
+{#                <td>{{ deal.illustration }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Url</th>#}
+{#                <td>{{ deal.url }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Prix habituel</th>#}
+{#                <td>{{ deal.crossedOutPrice }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Prix actuel</th>#}
+{#                <td>{{ deal.dealPrice }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Montant réduction</th>#}
+{#                <td>{{ deal.discount }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Unité de mesure</th>#}
+{#                <td>{{ deal.discountType }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Code Promo</th>#}
+{#                <td>{{ deal.discountCode }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Devise</th>#}
+{#                <td>{{ deal.currencyType }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Date début offre</th>#}
+{#                <td>{{ deal.startAt|date('d/m/Y')}}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Date fin offre</th>#}
+{#                <td>{{ deal.endAt|date('d/m/Y')}}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Frais d'envoi</th>#}
+{#                <td>{{ deal.shippingCost }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Frais d'envoi offerts</th>#}
+{#                <td>{{ deal.isFreeShipping }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Offre locale</th>#}
+{#                <td>{{ deal.isLocal }}</td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <th>Ville</th>#}
+{#                <td>{{ deal.localities }}</td>#}
+{#            </tr>#}
+{#        </tbody>#}
+{#    </table>#}
 
 {#    <h4 class="my-5">Vos avis</h4>#}
 

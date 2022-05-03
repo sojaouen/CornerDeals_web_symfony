@@ -7,16 +7,52 @@
 {# Page Title #}
 {% block title %}{{ title }} - {{ parent() }}{% endblock %}
 
+{% block javascript %} //Pour ajouter barre d'édition de texte au dessus du champ description
+{{  parent() }}
+<script src="https://cdn.ckeditor.com/ckeditor5/33.0.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor.create( document.querySelector( '#category_description' ));
+</script>
 
+{# Dropify Pour ajout d'un effet drag and drop#}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+        integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
+        crossorigin="anonymous"
+         referrerpolicy="no-referrer"></script>
+<script>
+    $('.dropify').dropify({
+        messages: {
+            default: 'GLissez-d&eacute;posez un fichier ici ou cliquez',
+            replace: 'Glissez-d&eacute;posez un fichier OU cliquez pour remplacer',
+            remove: 'Supprimer',
+            error: 'D&eacute; sol&eacute;, le fichier est trop volumineux'
+        }
+    });
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
+          integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+    <style>
+        .custom-file-label { display: none; }
+        .dropify-wrapper .dropify-message p {
+            font-size: 15px;
+        }
+    </style>
+{% endblock %}
 {# Page Content #}
 {% block body %}
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 offset-lg-4">
+        <div class="col-lg-6 offset-lg-3">
 
             {# Header / Titre de la page #}
             <header class="page-header">
-                <h1 class="page-title">{{ title }}</h1>
+                <h1 class="text-center py-5">{{ title }}</h1>
             </header>
 
             {# Formulaire de creation du produit #}

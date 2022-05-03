@@ -63,7 +63,7 @@ class CategoryController extends AbstractController
                 }
                 catch(FileException $e)
                 {
-
+                    #TODO Notification, upload impossible
                 }
                 // On envoie l'image définitive dans le bon setter de l'objet afin que l'image soit stockée en BDD
                 $category->setIllustration($newFilename);
