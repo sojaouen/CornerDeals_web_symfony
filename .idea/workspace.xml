@@ -2,70 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b9b4de-8366-4371-8eab-184650d2fc80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20220429150505.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/Sante-cosmetique-scaled-626c108692078.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/apple-magic-mouse-2-626c133c75067.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/istockphoto-496730484-612x612-626c1ddb3044f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/javier-martinez-hUD0PUczwJQ-unsplash.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/ProfilePasswordController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/ChangePasswordType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/DealService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/_footer.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/deal/deal/list.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile/password.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/64117a82-98e2-4aab-8a2f-0c8744d9a3ea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1832857826.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1850849b3d.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/Contrato-ARCOR-UBEECOM-2022-61e1852666149.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Category/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Category/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Deal/DealController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Deal/DealController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Deal.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Deal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Merchant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Merchant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Deal/DealType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Deal/DealType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Merchant/MerchantType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Merchant/MerchantType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/Deal/DealRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/Deal/DealRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Components/alert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/alert.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Components/card.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/card.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/address/address/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/address/address/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin_form_category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_form_category.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/category/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/category/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/category/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/deal/deal/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/discount_code/discount_code/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discount_code/discount_code/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/merchant/merchant/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/merchant/merchant/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/product/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,6 +256,8 @@
       <workItem from="1651413175892" duration="16665000" />
       <workItem from="1651483215682" duration="6211000" />
       <workItem from="1651567392843" duration="612000" />
+      <workItem from="1651585138675" duration="300000" />
+      <workItem from="1651586431943" duration="4734000" />
     </task>
     <servers />
   </component>
