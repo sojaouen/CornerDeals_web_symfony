@@ -8,7 +8,6 @@ use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -59,6 +58,9 @@ class CategoryType extends AbstractType
                 'label' => "Image de la catégorie",
                 'mapped' => true, // signifie que le champ est associé à une propriété
                 'required' => true,
+                'attr' => [
+                    'class' => 'dropify'
+                ],
 
                 'constraints' => [
                     new File([
@@ -82,4 +84,6 @@ class CategoryType extends AbstractType
             'validation_groups' => ['category']
         ]);
     }
+
+
 }

@@ -1,131 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="corner_deals@localhost">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.31">
-    <root id="1">
-      <DefaultCasing>mixed/mixed</DefaultCasing>
-      <DefaultEngine>InnoDB</DefaultEngine>
-      <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <Grants>|root||mamp|localhost|ALTER|G
-|root||root|127.0.0.1|ALTER|G
-|root||root|::1|ALTER|G
-|root||root|localhost|ALTER|G
-|root||mamp|localhost|ALTER ROUTINE|G
-|root||root|127.0.0.1|ALTER ROUTINE|G
-|root||root|::1|ALTER ROUTINE|G
-|root||root|localhost|ALTER ROUTINE|G
-|root||mamp|localhost|CREATE|G
-|root||root|127.0.0.1|CREATE|G
-|root||root|::1|CREATE|G
-|root||root|localhost|CREATE|G
-|root||mamp|localhost|CREATE ROUTINE|G
-|root||root|127.0.0.1|CREATE ROUTINE|G
-|root||root|::1|CREATE ROUTINE|G
-|root||root|localhost|CREATE ROUTINE|G
-|root||mamp|localhost|CREATE TABLESPACE|G
-|root||root|127.0.0.1|CREATE TABLESPACE|G
-|root||root|::1|CREATE TABLESPACE|G
-|root||root|localhost|CREATE TABLESPACE|G
-|root||mamp|localhost|CREATE TEMPORARY TABLES|G
-|root||root|127.0.0.1|CREATE TEMPORARY TABLES|G
-|root||root|::1|CREATE TEMPORARY TABLES|G
-|root||root|localhost|CREATE TEMPORARY TABLES|G
-|root||mamp|localhost|CREATE USER|G
-|root||root|127.0.0.1|CREATE USER|G
-|root||root|::1|CREATE USER|G
-|root||root|localhost|CREATE USER|G
-|root||mamp|localhost|CREATE VIEW|G
-|root||root|127.0.0.1|CREATE VIEW|G
-|root||root|::1|CREATE VIEW|G
-|root||root|localhost|CREATE VIEW|G
-|root||mamp|localhost|DELETE|G
-|root||root|127.0.0.1|DELETE|G
-|root||root|::1|DELETE|G
-|root||root|localhost|DELETE|G
-|root||mamp|localhost|DROP|G
-|root||root|127.0.0.1|DROP|G
-|root||root|::1|DROP|G
-|root||root|localhost|DROP|G
-|root||mamp|localhost|EVENT|G
-|root||root|127.0.0.1|EVENT|G
-|root||root|::1|EVENT|G
-|root||root|localhost|EVENT|G
-|root||mamp|localhost|EXECUTE|G
-|root||root|127.0.0.1|EXECUTE|G
-|root||root|::1|EXECUTE|G
-|root||root|localhost|EXECUTE|G
-|root||mamp|localhost|FILE|G
-|root||root|127.0.0.1|FILE|G
-|root||root|::1|FILE|G
-|root||root|localhost|FILE|G
-|root||mamp|localhost|INDEX|G
-|root||root|127.0.0.1|INDEX|G
-|root||root|::1|INDEX|G
-|root||root|localhost|INDEX|G
-|root||mamp|localhost|INSERT|G
-|root||root|127.0.0.1|INSERT|G
-|root||root|::1|INSERT|G
-|root||root|localhost|INSERT|G
-|root||mamp|localhost|LOCK TABLES|G
-|root||root|127.0.0.1|LOCK TABLES|G
-|root||root|::1|LOCK TABLES|G
-|root||root|localhost|LOCK TABLES|G
-|root||mamp|localhost|PROCESS|G
-|root||root|127.0.0.1|PROCESS|G
-|root||root|::1|PROCESS|G
-|root||root|localhost|PROCESS|G
-|root||mamp|localhost|REFERENCES|G
-|root||root|127.0.0.1|REFERENCES|G
-|root||root|::1|REFERENCES|G
-|root||root|localhost|REFERENCES|G
-|root||mamp|localhost|RELOAD|G
-|root||root|127.0.0.1|RELOAD|G
-|root||root|::1|RELOAD|G
-|root||root|localhost|RELOAD|G
-|root||mamp|localhost|REPLICATION CLIENT|G
-|root||root|127.0.0.1|REPLICATION CLIENT|G
-|root||root|::1|REPLICATION CLIENT|G
-|root||root|localhost|REPLICATION CLIENT|G
-|root||mamp|localhost|REPLICATION SLAVE|G
-|root||root|127.0.0.1|REPLICATION SLAVE|G
-|root||root|::1|REPLICATION SLAVE|G
-|root||root|localhost|REPLICATION SLAVE|G
-|root||mamp|localhost|SELECT|G
-|root||root|127.0.0.1|SELECT|G
-|root||root|::1|SELECT|G
-|root||root|localhost|SELECT|G
-|root||mamp|localhost|SHOW DATABASES|G
-|root||root|127.0.0.1|SHOW DATABASES|G
-|root||root|::1|SHOW DATABASES|G
-|root||root|localhost|SHOW DATABASES|G
-|root||mamp|localhost|SHOW VIEW|G
-|root||root|127.0.0.1|SHOW VIEW|G
-|root||root|::1|SHOW VIEW|G
-|root||root|localhost|SHOW VIEW|G
-|root||mamp|localhost|SHUTDOWN|G
-|root||root|127.0.0.1|SHUTDOWN|G
-|root||root|::1|SHUTDOWN|G
-|root||root|localhost|SHUTDOWN|G
-|root||mamp|localhost|SUPER|G
-|root||mysql.session|localhost|SUPER|G
-|root||root|127.0.0.1|SUPER|G
-|root||root|::1|SUPER|G
-|root||root|localhost|SUPER|G
-|root||mamp|localhost|TRIGGER|G
-|root||root|127.0.0.1|TRIGGER|G
-|root||root|::1|TRIGGER|G
-|root||root|localhost|TRIGGER|G
-|root||mamp|localhost|UPDATE|G
-|root||root|127.0.0.1|UPDATE|G
-|root||root|::1|UPDATE|G
-|root||root|localhost|UPDATE|G
-|root||mamp|localhost|grant option|G
-|root||root|127.0.0.1|grant option|G
-|root||root|::1|grant option|G
-|root||root|localhost|grant option|G
-performance_schema|schema||mysql.session|localhost|SELECT|G
-sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
-      <ServerVersion>5.7.34</ServerVersion>
-    </root>
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.38">
+    <root id="1"/>
     <collation id="2" parent="1" name="big5_chinese_ci">
       <Charset>big5</Charset>
       <DefaultForCharset>1</DefaultForCharset>
@@ -834,26 +710,26 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Charset>gb18030</Charset>
     </collation>
     <schema id="224" parent="1" name="corner_deals">
-      <Collation>utf8_general_ci</Collation>
       <Current>1</Current>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="225" parent="1" name="epotager">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="226" parent="1" name="information_schema">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="227" parent="1" name="laBoutiqueFrancaise">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="228" parent="1" name="mysql">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="229" parent="1" name="performance_schema">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <schema id="230" parent="1" name="sys">
-      <Collation>utf8_general_ci</Collation>
+      <CollationName>utf8_general_ci</CollationName>
     </schema>
     <user id="231" parent="1" name="root">
       <Host>localhost</Host>
@@ -874,58 +750,58 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Host>::1</Host>
     </user>
     <table id="237" parent="224" name="address">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="238" parent="224" name="category">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="239" parent="224" name="comment">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="240" parent="224" name="deal">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="241" parent="224" name="deal_category">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="242" parent="224" name="deal_comment">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="243" parent="224" name="discount_code">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="244" parent="224" name="discount_code_category">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="245" parent="224" name="discount_code_comment">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="246" parent="224" name="discount_code_product">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="247" parent="224" name="doctrine_migration_versions">
-      <Collation>utf8_unicode_ci</Collation>
+      <CollationName>utf8_unicode_ci</CollationName>
     </table>
     <table id="248" parent="224" name="merchant">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="249" parent="224" name="page">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="250" parent="224" name="product">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="251" parent="224" name="product_deal">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <table id="252" parent="224" name="user">
-      <Collation>utf8mb4_unicode_ci</Collation>
+      <CollationName>utf8mb4_unicode_ci</CollationName>
     </table>
     <column id="253" parent="237" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="254" parent="237" name="street_number">
       <DataType>varchar(10)|0s</DataType>
@@ -1050,10 +926,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
     </key>
     <column id="283" parent="238" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="284" parent="238" name="name">
       <DataType>varchar(255)|0s</DataType>
@@ -1078,10 +954,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
     </key>
     <column id="289" parent="239" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="290" parent="239" name="title">
       <DataType>varchar(45)|0s</DataType>
@@ -1121,10 +997,10 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
     </key>
     <column id="298" parent="240" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="299" parent="240" name="title">
       <DataType>varchar(255)|0s</DataType>
@@ -1250,10 +1126,10 @@ category_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="325" parent="242" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="326" parent="242" name="title">
       <DataType>varchar(255)|0s</DataType>
@@ -1271,10 +1147,10 @@ category_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="329" parent="243" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="330" parent="243" name="title">
       <DataType>varchar(255)|0s</DataType>
@@ -1346,10 +1222,10 @@ category_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="344" parent="245" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="345" parent="245" name="title">
       <DataType>varchar(255)|0s</DataType>
@@ -1421,10 +1297,10 @@ product_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="359" parent="248" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="360" parent="248" name="name">
       <DataType>varchar(255)|0s</DataType>
@@ -1449,10 +1325,10 @@ product_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="365" parent="249" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="366" parent="249" name="type">
       <DataType>varchar(255)|0s</DataType>
@@ -1468,10 +1344,10 @@ product_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="369" parent="250" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="370" parent="250" name="name">
       <DataType>varchar(255)|0s</DataType>
@@ -1542,10 +1418,10 @@ deal_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="384" parent="252" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="385" parent="252" name="email">
       <DataType>varchar(180)|0s</DataType>

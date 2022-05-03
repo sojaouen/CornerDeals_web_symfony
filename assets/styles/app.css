@@ -15,3 +15,26 @@ body {
 tr, td, th {
     vertical-align: middle ! important;
 }
+
+.deal .deal-info{
+    display: flex;
+    align-items: center;
+}
+
+.deal .deal-info span{
+    padding: 0 10px;
+}
+
+.deal .deal-info .spacer{
+    flex: 1;
+}
+
+.deal .deal-picture{
+    position: relative;
+}
+
+.deal .deal-timer{
+    position:absolute;
+    top: 10px;
+    right: 10px;
+}

@@ -6,8 +6,6 @@ use App\Repository\Deal\DealRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use App\Entity\Categry;
 
 /**
  * @ORM\Entity(repositoryClass=DealRepository::class)
@@ -30,6 +28,11 @@ class Deal
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $illustration;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -100,6 +103,7 @@ class Deal
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="deals")
      */
     private $categories;
+    private ?Category $category;
 
     /**
      * @ORM\ManyToOne(targetEntity=Merchant::class, inversedBy="deals")
@@ -116,6 +120,7 @@ class Deal
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="deal", orphanRemoval=true)
      */
     private $comments;
+
 
     public function __construct()
     {
@@ -164,6 +169,21 @@ class Deal
 
         return $this;
     }
+
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+
+    public function setIllustration($illustration): self
+    {
+        $this->illustration = $illustration;
+
+        return $this;
+    }
+    
 
     public function getCrossedOutPrice(): ?float
     {
@@ -217,6 +237,7 @@ class Deal
     {
         return $this->category;
     }
+    
 
     public function setCategory(?Category $category): self
     {
@@ -461,4 +482,5 @@ class Deal
 
         return $this;
     }
+
 }

@@ -9,6 +9,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'remixicon/fonts/remixicon.css';
 import './styles/app.css';
+import 'dropify/dist/css/dropify.min.css';
 
 // start the Stimulus application
 import './bootstrap';
@@ -16,6 +17,9 @@ import './bootstrap';
 
 // import jQuery
 import 'jquery';
+
+// import de Dropify.js
+import 'dropify/dist/js/dropify.min'
 
 // import de Popper.js
 import 'popper.js';

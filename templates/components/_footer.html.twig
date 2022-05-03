@@ -1,0 +1,42 @@
+{#<footer class="text-center py-4" style="background-color: #edede9">#}
+{#    &copy{{ 'now'|date('Y')}} - Stéphane Jaouen#}
+{#</footer>#}
+
+
+<footer class="mt-4 pt-4 ">
+    <div class="container border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <h5>CornerDeals</h5>
+                <small class="d-block text-muted">&copy{{ 'now'|date('Y')}}</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Catégories</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-muted">High-Tech</a></li>
+                    <li><a href="#" class="text-muted">Consoles & Jeux vidéo</a></li>
+                    <li><a href="#" class="text-muted">Épicerie & Courses</a></li>
+                    <li><a href="#" class="text-muted">Mode & Accessoires</a></li>
+                    <li><a href="#" class="text-muted">Santé & Cosmétiques</a></li>
+                    <li><a href="#" class="text-muted">Famille & Enfants</a></li>
+                    <li><a href="#" class="text-muted">Maison & Habitat</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-muted">Mentions légales</a></li>
+                    <li><a href="#" class="text-muted">Politique de confidentialité</a></li>
+                    <li><a href="#" class="text-muted">Plan du site</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark">
+        <div class="row">
+            <div class="col">
+                {# {{ 'now'|date('Y')}} pour avoir l'année en cours dans le footer #}
+                <p class="text-center text-white">&copy{{ 'now'|date('Y')}} - Stéphane Jaouen</p>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #edede9">
+
+
+    <a class="navbar-brand" href="{{ path('homepage') }}">CornerDeals</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ path('homepage') }}"><i class="ri-home-2-line"></i> Accueil</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('merchant:index') }}">Boutiques</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('discount_code:index') }}">Codes Promo</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('deal:index') }}">Deals</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{{ path('category:index') }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                    Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('product:index') }}">Produits</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {#Authenticated users#}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('profile') }}"><i class="ri-user-3-line"></i> Mon Compte <small>({{ app.user.firstname}})</small></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_logout') }}"><i class="ri-shut-down-line"></i> Deconnexion</a>
+                </li>
+
+            {% else %}
+                {#Anonymous users#}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                </li>
+
+            {% endif %}
+
+            <form method="get" action="{{ path('deal:index') }}" class="d-flex ms-auto">
+                <input class="form-control me-2" name="q" type="search" placeholder="Rechercher..." aria-label="Search" value="{{ app.request.query.get('q') }}"> {# ou value="{{ app.request.query.get('q') }} // Pour conserver la recherche en cours dans la barre de recherche#}
+                <button class="btn btn-outline-success" type="submit">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+
+        </ul>
+
+    </div>
+</nav>

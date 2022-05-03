@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -14,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -44,7 +42,7 @@ class RegistrationFormType extends AbstractType
 
                 'constraints' => [
                     new NotBlank([
-                       'message' => "L'adresse email est obligatoire"
+                        'message' => "L'adresse email est obligatoire"
                     ]),
                     new Email([
                         'message' => "L'adresse email n'est pas valide"
@@ -131,21 +129,19 @@ class RegistrationFormType extends AbstractType
                     'attr' => [
                         'placeholder' => "Veuillez saisir votre mot de passe"
                     ],
-
                     'constraints' => [
                         new NotBlank([
-                            'message' => "Le mot de passe est obligatoire",
-                            'groups'=> "registration"
+                            'message' => "Le mot de passe est obligatoire"
                         ]),
-                    new Length([
-                        'min' => 8,
-                        'minMessage' => "Le mot de passe doit contenir au moins 8 caractères",
-                        'max' => 32,
-                        'maxMessage' => "Le mot de passe ne peut contenir plus de 32 caractères"
-                    ]),
-                    new Regex([
-                        'pattern' => "/^[A-Za-z0-9]\w{7,32}$/",
-                        'message' => "Le mot de passe doit contenir entre 8 et 32 caractères sans aucun caractère spécial"
+                        new Length([
+                            'min' => 8,
+                            'minMessage' => "Le mot de passe doit contenir au moins 8 caractères",
+                            'max' => 32,
+                            'maxMessage' => "Le mot de passe ne peut contenir plus de 32 caractères"
+                        ]),
+                        new Regex([
+                            'pattern' => "/^[A-Za-z0-9]\w{7,32}$/",
+                            'message' => "Le mot de passe doit contenir entre 8 et 32 caractères sans aucun caractère spécial"
                         ])
                     ]
                 ],
@@ -154,12 +150,10 @@ class RegistrationFormType extends AbstractType
                     'label' => "Confirmation de votre mot de passe",
                     'attr' => [
                         'placeholder' => "Veuillez confirmer votre mot de passe"
-                    ],
-                    'groups'=> "registration"
+                    ]
 
                 ],
-                    'invalid_message' => "Les mots de passe ne sont pas identiques",
-                    'groups'=> "registration"
+                'invalid_message' => "Les mots de passe ne sont pas identiques"
             ])
 
 //            // Password
@@ -188,7 +182,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'validation_groups' => ['registration']
         ]);
     }
 }
+
