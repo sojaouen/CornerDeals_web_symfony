@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set controller_name = "Liste des Deals"  %}
+{% set controller_name = "Liste des Deals" %}
 {% set title = "Deals" %}
 
 {% block title %}{{ title }} - {{ parent() }}{% endblock %}
@@ -16,7 +16,8 @@
 
     {# Barre d'actions (ajouter un produit) #}
     <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('deal:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter un deal</a>
+        <a href="{{ path('deal:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter un
+            deal</a>
     </div>
 
     {# Tableau de la liste des produits #}
@@ -24,26 +25,26 @@
         {# Entete du tableau HTML #}
         <thead class="thead-dark">
         <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Boutique</th>
-                <th>Photo</th>
-                <th>Url</th>
-                <th>Prix habituel</th>
-                <th>Prix actuel</th>
-                <th>Montant réduction</th>
-                <th>Unité de mesure</th>
-                <th>Code Promo</th>
-                <th>Devise</th>
-                <th>Date début offre</th>
-                <th>Date fin offre</th>
-                <th>Frais d'envoi</th>
-                <th>Frais d'envoi offerts</th>
-                <th>Offre locale</th>
-                <th>Ville</th>
-                <th>actions</th>
-            </tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Boutique</th>
+            <th>Photo</th>
+            <th>Url</th>
+            <th>Prix habituel</th>
+            <th>Prix actuel</th>
+            <th>Montant réduction</th>
+            <th>Unité de mesure</th>
+            <th>Code Promo</th>
+            <th>Devise</th>
+            <th>Date début offre</th>
+            <th>Date fin offre</th>
+            <th>Frais d'envoi</th>
+            <th>Frais d'envoi offerts</th>
+            <th>Offre locale</th>
+            <th>Ville</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for deal in deals %}
@@ -62,8 +63,8 @@
                 <td>{{ deal.discountType }}</td>
                 <td>{{ deal.discountCode }}</td>
                 <td>{{ deal.currencyType }}</td>
-                <td>{{ deal.startAt|date('d/m/Y')}}</td>
-                <td>{{ deal.endAt|date('d/m/Y')}}</td>
+                <td>{{ deal.startAt|date('d/m/Y') }}</td>
+                <td>{{ deal.endAt|date('d/m/Y') }}</td>
                 <td>{{ deal.shippingCost }}</td>
                 <td>{{ deal.isFreeShipping }}</td>
                 <td>{{ deal.isLocal }}</td>
@@ -84,4 +85,4 @@
         </tbody>
     </table>
 
-{% endblock %}
+    {% endblock %}

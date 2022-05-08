@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DealService extends AbstractController
 {
-    private $repository;
+    private DealRepository $repository;
 
     public function __construct(DealRepository $repository)
     {

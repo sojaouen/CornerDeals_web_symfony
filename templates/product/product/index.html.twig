@@ -15,16 +15,17 @@
     </header>
 
     {# Barre d'actions (ajouter un produit) #}
+    {% if app.user %}
     <div class="page-toolbar text-right mt-3">
         <a href="{{ path('product:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter un produit</a>
     </div>
+    {% endif %}
 
     {# Tableau de la liste des produits #}
     <table class="table table-hover mt-5">
         {# Entete du tableau HTML #}
         <thead class="thead-dark">
         <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Photo</th>
@@ -34,7 +35,6 @@
         <tbody>
         {% for product in products %}
             <tr>
-                <td>{{ product.id }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.illustration }}</td>

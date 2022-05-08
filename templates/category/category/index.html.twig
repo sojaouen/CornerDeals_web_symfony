@@ -15,16 +15,17 @@
     </header>
 
     {# Barre d'actions (ajouter un produit) #}
+    {% if app.user %}
     <div class="page-toolbar text-right mt-3">
         <a href="{{ path('category:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter une catégorie</a>
     </div>
+    {% endif %}
 
     {# Tableau de la liste des produits #}
     <table class="table table-hover mt-5">
         {# Entete du tableau HTML #}
         <thead class="thead-dark">
         <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Couleur</th>
@@ -35,14 +36,15 @@
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
                 <td>{{ category.description }}</td>
                 <td>{{ category.color }}</td>
                 <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}" class="img-thumbnail"></td>
                 <td>
                     <a href="{{ path('category:show', {'id': category.id}) }}">Afficher</a>
+                    {% if app.user %}
                     <a href="{{ path('category:edit', {'id': category.id}) }}">Modifier</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}

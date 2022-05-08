@@ -1,48 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{%  block title %}
+{% block title %}
     BACKOFFICE | Gestion des catégories
 {% endblock %}
 
 {% block body %}
 
-<h1 class="display-4 text-center my-5">BACKOFFICE | Gestion des catégories</h1>
+    <h1 class="display-4 text-center my-5">BACKOFFICE | Gestion des catégories</h1>
 
-    {% for label, messages in app.flashes(['success', 'danger'])%}
+    {% for label, messages in app.flashes(['success', 'danger']) %}
 
-        {%  for oneMessage in messages %}
+        {% for oneMessage in messages %}
 
-        <div class="col-md-3 bg-{{ label }} p-4 rounded mx-auto text-center text-white mb-3">
-            {{ oneMessage }}
-        </div>
+            <div class="col-md-3 bg-{{ label }} p-4 rounded mx-auto text-center text-white mb-3">
+                {{ oneMessage }}
+            </div>
 
-    {%  endfor %}
+        {% endfor %}
 
     {% endfor %}
 
     <p class="text-center">
-    <small><a href="{{ path('admin_new_category') }}" class="btn btn-secondary btn-sm">Nouvelle catégorie</a> </small>
+        <small><a href="{{ path('admin_new_category') }}" class="btn btn-secondary btn-sm">Nouvelle catégorie</a>
+        </small>
     </p>
 
-    <table class="table table-bordered text-center col-lg-6 d-flex justify-content-lg-center">
+    <table class="table table-striped table-bordered text-center col-lg-6 d-flex justify-content-lg-center">
         <tr>
             {% for oneColumn in columns %}
 
-                {%  if oneColumn == 'name' %}
-                <th>NOM</th>
+                {% if oneColumn == 'name' %}
+                    <th>NOM</th>
 
-                {%  elseif oneColumn == 'color' %}
-                <th>COULEUR</th>
+                {% elseif oneColumn == 'color' %}
+                    <th>COULEUR</th>
 
                 {% else %}
-                <th>{{ oneColumn| upper }}</th>
+                    <th>{{ oneColumn| upper }}</th>
 
                 {% endif %}
 
             {% endfor %}
 
             <th>NB DEAL</th>
-
+            <th>MODIFIER</th>
+            <th>SUPPRIMER</th>
         </tr>
 
         {% for oneCategory in categoryBdd %}
@@ -56,11 +58,13 @@
             <td>{{ oneCategory.deals|length }}</td>
 
             {# lien modification #}
-            <td><a href="{{ path('admin_edit_category', {'id' : oneCategory.id}) }}" class="btn btn-info"><i class="ri-edit-box-line"></i></a></td>
+            <td><a href="{{ path('admin_edit_category', {'id' : oneCategory.id}) }}" class="btn btn-info"><i
+                            class="ri-edit-box-line"></i></a></td>
 
             {#  lien suppression #}
             <td><a href="{{ path('admin_remove_category', {'id' : oneCategory.id}) }}" class="btn btn-danger"
-                   onclick="return(confirm('Voulez-vous vraiment supprimer cette catégorie ?'))"><i class="ri-delete-bin-6-line"></i></a></td>
+                   onclick="return(confirm('Voulez-vous vraiment supprimer cette catégorie ?'))"><i
+                            class="ri-delete-bin-6-line"></i></a></td>
 
 
             {% endfor %}

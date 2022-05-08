@@ -16,7 +16,7 @@
 
     {% endfor %}
 
-    <table class="table table-bordered text-center">
+    <table class="table table-striped table-bordered text-center">
         <tr>
             {% for oneColumn in columns %}
 
@@ -40,6 +40,8 @@
             {% endfor %}
 
             <th>A PROPOS DU DEAL</th>
+            <th>MODIFIER</th>
+            <th>SUPPRIMER</th>
         </tr>
 
         {% for oneComment in commentsBdd %}

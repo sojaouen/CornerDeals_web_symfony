@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set controller_name = "Liste des Codes Promo"  %}
+{% set controller_name = "Liste des Codes Promo" %}
 {% set title = "Codes Promo" %}
 
 {% block title %}{{ title }} - {{ parent() }}{% endblock %}
@@ -15,43 +15,45 @@
     </header>
 
     {# Barre d'actions (ajouter un produit) #}
-    <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('discount_code:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter un code promo</a>
-    </div>
-
+    {% if app.user %}
+        <div class="page-toolbar text-right mt-3">
+            <a href="{{ path('discount_code:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i>
+                Ajouter un code promo</a>
+        </div>
+    {% endif %}
     {# Tableau de la liste des produits #}
     <table class="table table-hover mt-5">
         {# Entete du tableau HTML #}
         <thead class="thead-dark">
 
-    <table class="table">
-        <thead>
+        <table class="table">
+            <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Code</th>
                 <th>Description</th>
                 <th>actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for discount_code in discount_codes %}
-            <tr>
-                <td>{{ discount_code.id }}</td>
-                <td>{{ discount_code.title }}</td>
-                <td>{{ discount_code.code }}</td>
-                <td>{{ discount_code.description }}</td>
-                <td>
-                    <a href="{{ path('discount_code:show', {'id': discount_code.id}) }}">Afficher</a>
-                    <a href="{{ path('discount_code:edit', {'id': discount_code.id}) }}">Modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Aucun code promo</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for discount_code in discount_codes %}
+                <tr>
+                    <td>{{ discount_code.title }}</td>
+                    <td>{{ discount_code.code }}</td>
+                    <td>{{ discount_code.description }}</td>
+                    <td>
+                        <a href="{{ path('discount_code:show', {'id': discount_code.id}) }}">Afficher</a>
+                        {% if app.user %}
+                            <a href="{{ path('discount_code:edit', {'id': discount_code.id}) }}">Modifier</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun code promo</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-{% endblock %}
+        {% endblock %}
