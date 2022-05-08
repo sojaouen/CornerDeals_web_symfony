@@ -3,16 +3,16 @@
 {% block title %}New Deal{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-    <h1 class="text-center py-5">Créer un nouveau deal</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <h1 class="text-center py-5">Créer un nouveau deal</h1>
 
-    {{ include('deal/deal/_form.html.twig') }}
+                {{ include('deal/deal/_form.html.twig') }}
 
-    <a href="{{ path('deal:index') }}">Retour</a>
+                <a href="{{ path('deal:index') }}">Retour</a>
 
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

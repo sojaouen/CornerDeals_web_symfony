@@ -20,41 +20,45 @@
 
 
     {# Barre d'actions (ajouter un produit) #}
-    <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('category:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter une catégorie</a>
-        <a href="{{ path('category:edit', {id: category.id})}}" class="btn btn-warning btn-sm">Modifier la catégorie</a>
-        <a href="{{ path('category:delete', {id: category.id}) }}" class="btn btn-danger btn-sm">Supprimer la catégorie</a>
-    </div>
+    {% if app.user %}
+        <div class="page-toolbar text-right mt-3">
+            <a href="{{ path('category:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i>
+                Ajouter une catégorie</a>
+            <a href="{{ path('category:edit', {id: category.id}) }}" class="btn btn-warning btn-sm">Modifier la
+                catégorie</a>
+            <a href="{{ path('category:delete', {id: category.id}) }}" class="btn btn-danger btn-sm">Supprimer la
+                catégorie</a>
+        </div>
+    {% endif %}
 
 
     {# Info du Produit #}
     <table class="table table-hover mt-5">
         <tbody>
         <tr>
-                <th>Id</th>
-                <td>{{ category.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ category.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ category.description }}</td>
-            </tr>
-            <tr>
-                <th>Color</th>
-                <td>{{ category.color }}</td>
-            </tr>
-            <tr>
-                <th>Illustration</th>
-                <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}"></td>
-            </tr>
+            <th>Nom</th>
+            <td>{{ category.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ category.description }}</td>
+        </tr>
+        <tr>
+            <th>Couleur</th>
+            <td>{{ category.color }}</td>
+        </tr>
+        <tr>
+            <th>Illustration</th>
+            <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}"></td>
+        </tr>
         </tbody>
     </table>
 
     <a href="{{ path('category:index') }}">Retour</a>
 
+    {% if app.user %}
     <a href="{{ path('category:edit', {'id': category.id}) }}">Modifier</a>
+    {% endif %}
 
-{% endblock %}
+
+    {% endblock %}

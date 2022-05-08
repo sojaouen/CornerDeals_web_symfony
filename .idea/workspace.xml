@@ -2,11 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b9b4de-8366-4371-8eab-184650d2fc80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2346294-1-6277b5cfad404.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2346294-1-6277b64e05807.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2346756-1-MConverter-eu-6276b2308b5dc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2346756-1-MConverter-eu-6276b248d3647.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2346959-1-MConverter-eu-6276b349308f8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2346959-1-MConverter-eu-6276b3647bccb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2346959-1-MConverter-eu-6276b3730c2fd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2347131-1-6276b00185b13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2347512-1-6276b9879b158.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2347557-1-6276aeddd9545.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2347557-1-6276aef579e0e.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/DealFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/DealFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Category/CategoryType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Deal/DealType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Deal/DealType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Product/ProductType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Product/ProductType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/DealService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/DealService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_category.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_comments.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_comments.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_deals.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/admin_users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_users.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/comment/comment/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/comment/comment/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/_delete_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/_delete_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/discount_code/discount_code/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discount_code/discount_code/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/discount_code/discount_code/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/discount_code/discount_code/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/homepage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/merchant/merchant/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/merchant/merchant/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/merchant/merchant/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/merchant/merchant/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/product/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/product/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/product/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +168,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="225p6kFZtVoQE7DbKCJsRNsepKS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -138,22 +180,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/CornerDeals2/web-symfony/public/uploads/images&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "TODO_SCOPE": "All Places",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Applications/MAMP/htdocs/CornerDeals2/web-symfony/public/build/images",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/build/images" />
       <recent name="$PROJECT_DIR$/public/uploads/images" />
       <recent name="$PROJECT_DIR$/src/Entity" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -258,6 +301,17 @@
       <workItem from="1651567392843" duration="612000" />
       <workItem from="1651585138675" duration="300000" />
       <workItem from="1651586431943" duration="4734000" />
+      <workItem from="1651596658791" duration="5400000" />
+      <workItem from="1651654752226" duration="285000" />
+      <workItem from="1651655241952" duration="603000" />
+      <workItem from="1651671555011" duration="1162000" />
+      <workItem from="1651685554287" duration="595000" />
+      <workItem from="1651743923094" duration="94000" />
+      <workItem from="1651744180905" duration="2186000" />
+      <workItem from="1651830042664" duration="4085000" />
+      <workItem from="1651851185214" duration="1189000" />
+      <workItem from="1651858282523" duration="1682000" />
+      <workItem from="1651925239528" duration="30620000" />
     </task>
     <servers />
   </component>

@@ -26,7 +26,7 @@ class DealType extends AbstractType
         $builder
 
             // Title
-            ->add('title', TextType::class,[
+            ->add('title', TextType::class, [
                 'label' => "Titre",
                 'required' => true,
                 'attr' => [
@@ -47,7 +47,7 @@ class DealType extends AbstractType
             ])
 
             // Catégorie
-            ->add('category', EntityType::class,[
+            ->add('category', EntityType::class, [
                 // On base le champ EntityType sur l'entité Category
                 'class' => Category::class,
                 'label' => "Catégorie",
@@ -55,7 +55,7 @@ class DealType extends AbstractType
                 'choice_label' => "name"
             ])
             // Merchant
-            ->add('merchant', EntityType::class,[
+            ->add('merchant', EntityType::class, [
                 // On base le champ EntityType sur l'entité Merchant
                 'class' => Merchant::class,
                 'label' => "Boutique",
@@ -87,7 +87,7 @@ class DealType extends AbstractType
             ])
 
             // URL
-            ->add('url', TextType::class,[
+            ->add('url', TextType::class, [
                 'label' => "URL du deal",
                 'required' => true,
                 'attr' => [
@@ -104,7 +104,7 @@ class DealType extends AbstractType
             ])
 
             // dealPrice
-            ->add('dealPrice',NumberType::class, [
+            ->add('dealPrice', NumberType::class, [
                 'label' => "Prix actuel",
                 'required' => true,
                 'attr' => [
@@ -112,13 +112,13 @@ class DealType extends AbstractType
                 ]
             ])
             // discount
-            ->add('discount',NumberType::class, [
+            ->add('discount', NumberType::class, [
                 'label' => "Montant de la réduction",
                 'required' => true
             ])
 
             // discountType
-            -> add('discountType', ChoiceType::class,[
+            ->add('discountType', ChoiceType::class, [
                 'label' => "Unité de mesure",
                 'choices' => [
                     'Numéraire' => 'nbr',
@@ -127,7 +127,7 @@ class DealType extends AbstractType
             ])
 
             // discountCode
-            ->add('discountCode', TextType::class,[
+            ->add('discountCode', TextType::class, [
                 'label' => "Code Promo",
                 'required' => false,
                 'attr' => [
@@ -136,7 +136,7 @@ class DealType extends AbstractType
             ])
 
             // currencyType
-            ->add('currencyType', CurrencyType::class,[
+            ->add('currencyType', CurrencyType::class, [
                 'label' => "Devise",
                 'required' => true,
                 'attr' => [
@@ -145,17 +145,17 @@ class DealType extends AbstractType
             ])
 
             // startAt
-            ->add('startAt', DateType::class,[
-                'label' => "Date du début de l'offre"
-            ])
+            ->add('startAt', DateType::class, [
+                'label' => "Date du début de l'offre",
+                ])
 
             // endAt
-            ->add('endAt', DateType::class,[
+            ->add('endAt', DateType::class, [
                 'label' => "Date de fin de l'offre"
             ])
 
             // shippingCost
-            ->add('shippingCost', NumberType::class,[
+            ->add('shippingCost', NumberType::class, [
                 'label' => "Frais d'envoi",
                 'required' => false,
                 'attr' => [
@@ -164,7 +164,7 @@ class DealType extends AbstractType
             ])
 
             // isFreeShipping
-            ->add('isFreeShipping', ChoiceType::class,[
+            ->add('isFreeShipping', ChoiceType::class, [
                 'label' => "Frais d'envoi offerts",
                 'required' => false,
                 'choices' => [
@@ -175,7 +175,7 @@ class DealType extends AbstractType
             ])
 
             // isLocal
-            ->add('isLocal', ChoiceType::class,[
+            ->add('isLocal', ChoiceType::class, [
                 'label' => "Offre locale",
                 'required' => false,
                 'choices' => [
@@ -186,11 +186,10 @@ class DealType extends AbstractType
             ])
 
             // localities
-            ->add('localities', TextType::class,[
+            ->add('localities', TextType::class, [
                 'label' => "Ville",
                 'required' => false
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

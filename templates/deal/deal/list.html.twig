@@ -1,32 +1,37 @@
-{% extends 'base.html.twig'%}
+{% extends 'base.html.twig' %}
 
 {% block title %}Les Deals - {{ parent() }} {% endblock %}
 
-{#{% block stylesheets %}#}
-{#    <link rel="stylesheet" href="{{ asset('styles/pages/list.css') }}">#}
-{#{% endblock %}#}
+{# {% block stylesheets %} #}
+{#    <link rel="stylesheet" href="{{ asset('styles/pages/list.css') }}"> #}
+{# {% endblock %} #}
 
 {% block body %}
     <div class="container mt-4"></div>
     <h1 class="text-center py-5">Les Deals proposés par notre communauté</h1>
-    <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('deal:new') }}" class="btn btn-primary btn-sm mb-5"><i class="ri-add-circle-line"></i>Ajouter un deal</a>
-    </div>
-    <div class="deals">
-        <div class="mb-3">Actuellement {{ deals|length}} deals en ligne</div> {# Nbr total de deals #}
-        <div class="d-flex justify-content-end my-2">
-            <a href="{{path('deal:index', {sort:'createdAt', q: query}) }}" class="btn btn-dark mx-1">Les plus récents</a> {# {sort:'createdAt', q: query}), on passe q: query afin de pouvoir réaliser le filtrage sur la recherche précédemment effectuée#}
-            <a href="{{path('deal:index', {sort:'startAt', q: query}) }}" class="btn btn-dark mx-1">À venir</a>
-            <a href="{{path('deal:index', {sort:'title', q: query}) }}" class="btn btn-dark mx-1">Par ordre alphabétique</a>
+    {% if app.user %}
+        <div class="page-toolbar text-right mt-3">
+            <a href="{{ path('deal:new') }}" class="btn btn-primary btn-sm mb-5"><i class="ri-add-circle-line"></i>Ajouter
+                un deal</a>
         </div>
-    {% for deal in deals %}
-        {% if deal.endAt < date() %}
-            {% set status = {color: 'danger', text:'Terminé'} %}
-        {% elseif deal.startAt < date() %}
-            {% set status = {color: 'success', text:'En cours'} %}
-        {% else %}
-            {% set status = {color: 'warning', text:'Prochainement'} %}
-        {% endif %}
+    {% endif %}
+    <div class="deals">
+        <div class="mb-3">Actuellement {{ deals|length }} deals en ligne</div> {# Nbr total de deals #}
+        <div class="d-flex justify-content-end my-2">
+            <a href="{{ path('deal:index', {sort:'createdAt', q: query}) }}" class="btn btn-dark mx-1">Les plus
+                récents</a> {# {sort:'createdAt', q: query}), on passe q: query afin de pouvoir réaliser le filtrage sur la recherche précédemment effectuée #}
+            <a href="{{ path('deal:index', {sort:'startAt', q: query}) }}" class="btn btn-dark mx-1">À venir</a>
+            <a href="{{ path('deal:index', {sort:'title', q: query}) }}" class="btn btn-dark mx-1">Par ordre
+                alphabétique</a>
+        </div>
+        {% for deal in deals %}
+            {% if deal.endAt < date() %}
+                {% set status = {color: 'danger', text:'Terminé'} %}
+            {% elseif deal.startAt < date() %}
+                {% set status = {color: 'success', text:'En cours'} %}
+            {% else %}
+                {% set status = {color: 'warning', text:'Prochainement'} %}
+            {% endif %}
 
             <div class="card mb-3 deal">
                 <div class="row g-0">
@@ -34,7 +39,8 @@
                         <span class="deal-timer badge rounded-pill bg-{{ status.color }}">
                             {{ status.text }}
                         </span>
-                        <img src="{{ asset('uploads/images/' ~ deal.illustration) }}" alt="Photo de {{ deal.title }}" class="img-fluid">
+                        <img src="{{ asset('uploads/images/' ~ deal.illustration) }}" alt="Photo de {{ deal.title }}"
+                             class="img-fluid">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -42,20 +48,20 @@
                                 <h2>{{ deal.title }}</h2>
                                 <div class="align-content-center">
                                     {% for category in deal.categories %}
-                                        {{ category.color}} {{category.name}}
+                                        {{ category.color }} {{ category.name }}
                                     {% endfor %}
                                 </div>
                             </div>
                             <p class="card-text">{{ deal.description }}</p>
+                            <h4 class="text-danger text-bold my-3">
+                                {#                                    <i class="ri-money-euro-circle-line"></i> #}
+                                {# Si dealprice n'est pas null on prend la 1ère opérande, si dealprice est null on affiche "gratuit" #}
+                                {{ deal.dealprice ?? 'Gratuit' }} {{ deal.currencyType }}
+                            </h4>
                             <p class="card-text deal-info">
-                                <span class="text-danger text-bold">
-{#                                    <i class="ri-money-euro-circle-line"></i>#}
-                                    {# Si dealprice n'est pas null on prend la 1ère opérande, si dealprice est null on affiche "gratuit"#}
-                                    {{ deal.dealprice ?? 'Gratuit' }} {{ deal.currencyType }}
-                                </span>
-                                <span>
+                                <span class="p-0">
                                     <i class="ri-calendar-line"></i>
-                                    {{ deal.startAt|date('d/m/Y H:i') }} - {{ deal.endAt|date('d/m/Y H:i') }}
+                                    Du {{ deal.startAt|date('d/m/Y') }} au {{ deal.endAt|date('d/m/Y') }}
                                 </span>
                                 <span>
                                     <i class="ri-map-pin-line"></i>
@@ -70,7 +76,7 @@
                     </div>
                 </div>
             </div>
-        {# Si aucun tour de boucle ne se produit -> Affichage du else, on évite ainsi de faire une surcondition#}
+            {# Si aucun tour de boucle ne se produit -> Affichage du else, on évite ainsi de faire une surcondition #}
         {% else %}
             <p>Aucun deal ne correspond à votre recherche</p>
         {% endfor %}

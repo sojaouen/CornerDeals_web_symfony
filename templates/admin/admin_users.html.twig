@@ -16,7 +16,12 @@
 
     {% endfor %}
 
-    <table class="table table-bordered text-center">
+    <p class="text-center">
+        <small><a href="{{ path('app_register') }}" class="btn btn-secondary btn-sm">Ajouter un nouvel utilisateur</a>
+        </small>
+    </p>
+
+    <table class="table table-striped table-bordered text-center">
 
         <tr>
             {% for oneColumn in columns %}
@@ -30,6 +35,8 @@
                 {% endif %}
 
             {% endfor %}
+            <th>MODIFIER</th>
+            <th>SUPPRIMER</th>
         </tr>
 
         {% for oneUser in usersBdd %}
@@ -38,7 +45,7 @@
                 <td>{{ oneUser.id }}</td>
                 <td>{{ oneUser.email }}</td>
 
-                {% if oneUser.roles[0] == 'ROLE_ADMIN'%}
+                {% if oneUser.roles[0] == 'ROLE_ADMIN' %}
                     <td class="text-danger">Administrateur</td>
                 {% else %}
                     <td>Utilisateur</td>

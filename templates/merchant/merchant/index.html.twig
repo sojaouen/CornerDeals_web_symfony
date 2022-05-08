@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set controller_name = "Liste des Boutiques"  %}
+{% set controller_name = "Liste des Boutiques" %}
 {% set title = "Boutiques" %}
 
 {% block title %}{{ title }} - {{ parent() }}{% endblock %}
@@ -15,34 +15,37 @@
     </header>
 
     {# Barre d'actions (ajouter un produit) #}
-    <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('merchant:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter une boutique</a>
-    </div>
+    {% if app.user %}
+        <div class="page-toolbar text-right mt-3">
+            <a href="{{ path('merchant:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i>
+                Ajouter une boutique</a>
+        </div>
+    {% endif %}
 
     {# Tableau de la liste des produits #}
     <table class="table table-hover mt-5">
         {# Entete du tableau HTML #}
         <thead class="thead-dark">
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Site Internet</th>
-                <th>Logo</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Site Internet</th>
+            <th>Logo</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for merchant in merchants %}
             <tr>
-                <td>{{ merchant.id }}</td>
                 <td>{{ merchant.name }}</td>
                 <td>{{ merchant.description }}</td>
                 <td>{{ merchant.website }}</td>
                 <td>{{ merchant.logo }}</td>
                 <td>
                     <a href="{{ path('merchant:show', {'id': merchant.id}) }}">Afficher</a>
-                    <a href="{{ path('merchant:edit', {'id': merchant.id}) }}">Modifier</a>
+                    {% if app.user %}
+                        <a href="{{ path('merchant:edit', {'id': merchant.id}) }}">Modifier</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -53,4 +56,4 @@
         </tbody>
     </table>
 
-{% endblock %}
+    {% endblock %}
