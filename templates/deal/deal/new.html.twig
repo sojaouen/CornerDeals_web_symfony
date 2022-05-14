@@ -1,15 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Deal{% endblock %}
+{% block title %}Créer un deal - {{ parent() }}{% endblock %}
 
 {% block body %}
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="row">
                 <h1 class="text-center py-5">Créer un nouveau deal</h1>
 
-                {{ include('deal/deal/_form.html.twig') }}
+                {{ form_start( form ) }}
+                <div class="col-12">
+                    {{ form_row( form.title ) }}
+                </div>
+                <div class="col-12">
+                    {{ form_row( form.description ) }}
+                </div>
+                <div class="col-12">
+                    {{ form_row( form.category ) }}
+                </div>
+                <div class="col-12">
+                    {{ form_row( form.merchant ) }}
+                </div>
+                <div class="col-6">
+                    {{ form_row( form.startAt ) }}
+                    {{ form_row( form.endAt ) }}
+                </div>
+                <div class="col-12">
+                    {{ form_row( form.illustration ) }}
+                </div>
+                <div class="col-12">
+                    {{ form_row( form.url ) }}
+                </div>
+                <div class="col-12">
+                    {{ form_row( form.discountCode ) }}
+                </div>
+                <div class="col-6">
+                    {{ form_row( form.dealPrice ) }}
+                    {{ form_row( form.currencyType ) }}
+                    {{ form_row( form.crossedOutPrice ) }}
+                </div>
+                <div class="col-6">
+                    {{ form_row( form.discount ) }}
+                    {{ form_row( form.discountType ) }}
+                </div>
 
+                {{ form_widget( form ) }}
+
+                <button type="submit" class="btn btn-primary col-12 my-4 py-3">Créer</button><br>
+
+                {{ form_end( form ) }}
                 <a href="{{ path('deal:index') }}">Retour</a>
 
             </div>

@@ -6,6 +6,7 @@ use App\Entity\Deal;
 use App\Form\Deal\DealType;
 use App\Service\DealService;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -21,7 +22,7 @@ class DealController extends AbstractController
 {
     private $dealService;
 
-    public function __construct(DealService $dealService)
+    public function __construct(DealService $dealService, ManagerRegistry $doctrine)
     {
         $this->dealService = $dealService;
     }
@@ -52,6 +53,9 @@ class DealController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+//            $userRepository = $this->getDoctrine()->getRepository(User::class);
+//            $user = $userRepository->find($this->getUser());
+//            $deal->setOwner($user);
 
             /** @var UploadedFile $illustrationFile */
             $illustrationFile = $form->get('illustration')->getData(); // permet de récupérer les données de l'image uploadée
@@ -85,7 +89,9 @@ class DealController extends AbstractController
             $entityManager->persist($deal);
             $entityManager->flush();
 
-            return $this->redirectToRoute('deal:index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('deal:show', [
+                'id' => $deal->getId(),
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('deal/deal/new.html.twig', [
