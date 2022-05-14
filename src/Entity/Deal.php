@@ -95,7 +95,7 @@ class Deal
     private $isLocal;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $localities;
 
@@ -121,6 +121,11 @@ class Deal
      */
     private $comments;
 
+//    /**
+//     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="deals")
+//     * @ORM\JoinColumn(nullabe=false)
+//     */
+//    private $owner;
 
     public function __construct()
     {

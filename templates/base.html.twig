@@ -7,66 +7,37 @@
 | |___| (_) | |  | | | |  __/ |  | |__| |  __/ (_| | \__ \
  \_____\___/|_|  |_| |_|\___|_|  |_____/ \___|\__,_|_|___/
 -->
+
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}CornerDeals{% endblock %}</title>
-{#        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">#}
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-        <header>
-            {% include 'components/_nav.html.twig' %}
-        </header>
-{#        <div class="container">#}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}CornerDeals{% endblock %}</title>
 
-{#        <header>#}
-{#            <h1>Corner Deals</h1>#}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
 
-{#            <nav>#}
-{#                <a href="{{ url('homepage') }}"><i class="ri-home-fill"></i>Home</a><br>#}
+<header>
+    {% include 'components/_nav.html.twig' %}
+</header>
 
-{#                <br>#}
+<body>
+<main class="container">
+    {% block body %}
 
-{#                Menu quand l'utilisateur est anonyme#}
-{#                <a href="{{ url('app_register') }}">Inscription</a> -#}
-{#                <a href="{{ url('app_login') }}">Connexion</a>#}
+    {% endblock %}
+</main>
 
-{#                Menu quand l'utilisateur est identifié#}
-{#                <a href="#">Mon Profil</a> -#}
-{#                <a href="#">Deconnexion</a><br>#}
+<footer>
+    {% include 'components/_footer.html.twig' %}
+</footer>
 
-{#                <br>#}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 
-{#                <a href="{{ url('merchant:index') }}">Boutiques</a><br>#}
-{#                <a href="{{ url('discount_code:index') }}">Codes Promo</a><br>#}
-{#                <a href="{{ url('deal:index') }}">Deals</a><br>#}
-{#                <a href="{{ url('category:index') }}">Categories</a><br>#}
-{#                <a href="{{ url('product:index') }}">Produits</a><br>#}
-{#                <a href="{{ url('address:index') }}">Adresses</a><br>#}
-{#                <a href="{{ url('comment:index') }}">Commentaires</a><br>#}
-{#            </nav>#}
-{#        </header>#}
-    <body>
-        <main class="container">
-        {% block body %}
+{% endblock %}
+</body>
 
-        {% endblock %}
-        </main>
-
-        {% include 'components/_footer.html.twig' %}
-
-
-            {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-{#                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"#}
-{#                        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="#}
-{#                        crossorigin="anonymous"#}
-{#                        referrerpolicy="no-referrer"></script>#}
-        {% endblock %}
-
-    </body>
 </html>

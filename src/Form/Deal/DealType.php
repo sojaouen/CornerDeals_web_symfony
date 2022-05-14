@@ -5,12 +5,14 @@ namespace App\Form\Deal;
 use App\Entity\Category;
 use App\Entity\Deal;
 use App\Entity\Merchant;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CurrencyType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -43,14 +45,24 @@ class DealType extends AbstractType
             // Description
             ->add('description', TextareaType::class, [
                 'label' => "Description",
-                'required' => false
+                'required' => false,
+                'attr'=> [
+                    'rows' => 5
+                ],
+                'help' => 'Entre 20 et 600 caractères'
             ])
 
             // Catégorie
             ->add('category', EntityType::class, [
                 // On base le champ EntityType sur l'entité Category
                 'class' => Category::class,
+                // On classe les catégories par ordre alphabétique
+                'query_builder' => function (EntityRepository $er){
+                    return $er->createQueryBuilder('c')
+                        ->orderBy('c.name', 'ASC');
+                },
                 'label' => "Catégorie",
+
 
                 'choice_label' => "name"
             ])
@@ -58,7 +70,13 @@ class DealType extends AbstractType
             ->add('merchant', EntityType::class, [
                 // On base le champ EntityType sur l'entité Merchant
                 'class' => Merchant::class,
+                // On classe les boutiques par ordre alphabétique
+                'query_builder' => function (EntityRepository $er){
+                    return $er->createQueryBuilder('b')
+                        ->orderBy('b.name', 'ASC');
+                },
                 'label' => "Boutique",
+                'expanded' => true,
 
                 'choice_label' => "name"
             ])
@@ -72,6 +90,7 @@ class DealType extends AbstractType
                 'attr' => [
                     'class' => 'dropify'
                 ],
+                'help' => "Extensions en .jpg, .jpeg ou .png / taille max autorisée de 2Mo",
 
                 'constraints' => [
                     new File([
@@ -81,7 +100,7 @@ class DealType extends AbstractType
                             'image/png',
                             'image/jpg'
                         ],
-                        'mimeTypesMessage' => "Extensions acceptées : jpg/jpeg/png"
+                        'mimeTypesMessage' => "Extensions acceptées : jpg/jpeg/png",
                     ])
                 ]
             ])
@@ -90,13 +109,14 @@ class DealType extends AbstractType
             ->add('url', TextType::class, [
                 'label' => "URL du deal",
                 'required' => true,
+                'invalid_message' => "L'adresse URL saisie n'est pas valide",
                 'attr' => [
                     'placeholder' => "Veuillez copier ici l'adresse url du deal"
                 ],
             ])
             // crossedOutPrice
-            ->add('crossedOutPrice', NumberType::class, [
-                'label' => "Prix habituel",
+            ->add('crossedOutPrice', MoneyType::class, [
+                'label' => "Prix avant réduction",
                 'required' => false,
                 'attr' => [
                     'placeholder' => "Le prix avant la réduction"
@@ -104,8 +124,8 @@ class DealType extends AbstractType
             ])
 
             // dealPrice
-            ->add('dealPrice', NumberType::class, [
-                'label' => "Prix actuel",
+            ->add('dealPrice', MoneyType::class, [
+                'label' => "Prix",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Le prix après la réduction"
@@ -119,11 +139,12 @@ class DealType extends AbstractType
 
             // discountType
             ->add('discountType', ChoiceType::class, [
-                'label' => "Unité de mesure",
+                'label' => "Type de réduction :",
                 'choices' => [
-                    'Numéraire' => 'nbr',
-                    'Pourcentage' => '%',
-                ]
+                    'En chiffre' => 'nbr',
+                    'En pourcentage' => '%',
+                ],
+                'expanded' => true,
             ])
 
             // discountCode
@@ -147,11 +168,13 @@ class DealType extends AbstractType
             // startAt
             ->add('startAt', DateType::class, [
                 'label' => "Date du début de l'offre",
+                'widget' => "single_text",
                 ])
 
             // endAt
             ->add('endAt', DateType::class, [
-                'label' => "Date de fin de l'offre"
+                'label' => "Date de fin de l'offre",
+                'widget' => "single_text",
             ])
 
             // shippingCost
