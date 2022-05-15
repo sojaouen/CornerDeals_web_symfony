@@ -6,6 +6,7 @@ use App\Repository\Deal\DealRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=DealRepository::class)
@@ -20,12 +21,26 @@ class Deal
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Vous devez saisir un nom pour le titre du deal")
+     * @Assert\Length(
+     *     min=5,
+     *     max=255,
+     *     minMessage="Le titre doit contenir au moins {{ limit }} caractères",
+     *     maxMessage="Le titre doit contenir au maximum {{ limit }} caractères"
+     * )
+     * @Assert\Regex("/^[0-9]+$/", match=false, message="Le nom doit contenir des lettres")
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(
+     *     min=20,
+     *     max=600,
+     *     minMessage="La description doit contenir au moins {{ limit }} caractères",
+     *     maxMessage="La description doit contenir au maximum {{ limit }} caractères"
+     * )
+     * @ORM\Column(type="string", length=600, nullable=true)
      */
     private $description;
 
@@ -35,16 +50,21 @@ class Deal
     private $illustration;
 
     /**
+     * @Assert\NotBlank(message="Vous devez saisir une URL")
+     * @Assert\Url(message="Vous devez saisir une URL valide")
      * @ORM\Column(type="string", length=255)
      */
     private $url;
 
     /**
+     * @Assert\GreaterThanOrEqual(propertyPath="dealPrice", message="Le prix habituel ne peut pas être supérieur au prix après réduction")
      * @ORM\Column(type="float", nullable=true)
      */
     private $crossedOutPrice;
 
     /**
+     * @Assert\NotBlank(message="Le prix de l'article doit être indiqué")
+     * @Assert\GreaterThanOrEqual(1, message="Le prix minimum doit être d'un euro")
      * @ORM\Column(type="float")
      */
     private $dealPrice;
@@ -70,11 +90,13 @@ class Deal
     private $currencyType;
 
     /**
+     * @Assert\GreaterThanOrEqual("today UTC", message="Vous ne pouvez pas choisir une date antérieure à celle d'aujourd'hui")
      * @ORM\Column(type="date")
      */
     private $startAt;
 
     /**
+     * @Assert\GreaterThanOrEqual(propertyPath="startAt", message="Vous devez saisir une date supérieure ou égale à celle du début de l'offre")
      * @ORM\Column(type="date")
      */
     private $endAt;
@@ -133,30 +155,6 @@ class Deal
         $this->products = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
-
-    // TODO: Add Title - OK
-    // TODO: Add Description - A faire
-    // TODO: Add URL - A faire
-    // TODO: Add NewPrice = dealPrice
-    // TODO: Add UsualPrice = crossedOutPrice
-    // TODO: Add DiscountCode =  A faire
-    // TODO: Add DiscountType : enum('percent', 'numerary') = A faire
-    // TODO: Add StartAt = A faire
-    // TODO: Add EndAt = A faire
-
-    // TODO: Add ShippingCost = A faire
-    // TODO: Add IsFreeShipping = A faire
-    // TODO: Add ShippingCountry = A faire
-
-    // TODO: Add IsLocalDeal = A faire
-    // TODO: Add Localities (collection) = A faire
-
-    // TODO: discountUnity = OK
-
-    // TODO: Add relationship Merchant OK
-    // TODO: Add relationship Product OK
-    // TODO: Add relationship Category/group OK
-    // TODO: Add relationship Medias (collection)
 
     public function getId(): ?int
     {
@@ -316,7 +314,7 @@ class Deal
         return $this->startAt;
     }
 
-    public function setStartAt(\DateTimeInterface $startAt): self
+    public function setStartAt(?\DateTimeInterface $startAt): self
     {
         $this->startAt = $startAt;
 
@@ -328,7 +326,7 @@ class Deal
         return $this->endAt;
     }
 
-    public function setEndAt(\DateTimeInterface $endAt): self
+    public function setEndAt(?\DateTimeInterface $endAt): self
     {
         $this->endAt = $endAt;
 

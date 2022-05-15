@@ -6,53 +6,59 @@
 {% block title %}{{ title }} - {{ parent() }}{% endblock %}
 
 {% block body %}
-<div class="container">
-
-
+<div class="container-fluid">
     {# Header / Titre de la page #}
     <header class="page-header">
         <h1 class="display-4 text-center my-5">{{ title }}</h1>
     </header>
 
-    {# Barre d'actions (ajouter un produit) #}
-    {% if app.user %}
-    <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('category:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter une catégorie</a>
-    </div>
-    {% endif %}
-
-    {# Tableau de la liste des produits #}
-    <table class="table table-hover mt-5">
-        {# Entete du tableau HTML #}
-        <thead class="thead-dark">
-        <tr>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Couleur</th>
-                <th>Illustration</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="album py-5 bg-light">
+        <div class="d-flex justify-content-end my-2">
+            <a href="" class="btn btn-dark mx-1">Par ordre alphabétique</a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         {% for category in categories %}
-            <tr>
-                <td>{{ category.name }}</td>
-                <td>{{ category.description }}</td>
-                <td>{{ category.color }}</td>
-                <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}" class="img-thumbnail"></td>
-                <td>
-                    <a href="{{ path('category:show', {'id': category.id}) }}">Afficher</a>
-                    {% if app.user %}
-                    <a href="{{ path('category:edit', {'id': category.id}) }}">Modifier</a>
-                    {% endif %}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucune catégorie</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}" width="100%" height="225">
+
+                    <div class="card-body">
+                        <p class="card-text">{{  category.name }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary"><a style="text-decoration: none; color: inherit;" href="{{ path('category:show', {'id': category.id}) }}">En savoir plus</a></button>
+                            </div>
+                            <small class="text-muted">{{ category.description | slice(0,40) }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    {# Tableau de la liste des produits #}
+{#    <table class="table table-hover mt-5">#}
+{#        #}{# Entete du tableau HTML #}
+{#        <thead class="thead-dark">#}
+{#        <tr>#}
+{#                <th>Nom</th>#}
+{#                <th>Description</th>#}
+{#                <th>Illustration</th>#}
+{#                <th>actions</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+
+{#            <tr>#}
+{#                <td>{{ category.name }}</td>#}
+{#                <td>{{ category.description }}</td>#}
+{#                <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}" class="img-thumbnail"></td>#}
+{#                <td>#}
+{#                    <a href="{{ path('category:show', {'id': category.id}) }}">Afficher</a>#}
+{#                </td>#}
+{#            </tr>#}
+
+{#        </tbody>#}
+{#    </table>#}
+{#</div>#}
+{#</div>#}
+{#</div>#}
 {% endblock %}
