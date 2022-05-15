@@ -11,21 +11,22 @@
 {# Page Content #}
 {% block body %}
 <div class="container">
-
+    <div class="col-lg-8 offset-lg-2">
 
     {# Header / Titre de la page #}
     <header class="page-header">
         <h1 class="page-title text-center py-5">{{ title }}</h1>
     </header>
 
-    {# Barre d'actions (ajouter un produit) #}
-    <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('category:index', {id: category.id}) }}" class="btn btn-secondary btn-sm">Annuler</a>
-        <a href="{{ path('category:delete', {id: category.id}) }}" class="btn btn-danger btn-sm">Supprimer la catégorie</a>
-    </div>
+    {{ form_start( form ) }}
+    {{ form_widget( form ) }}
+    {{ form_end( form ) }}
 
-    {{ include('category/category/_form.html.twig', {'button_label': 'Update'}) }}
+    <button type="submit" class="btn btn-primary col-12 my-4 py-3">Modifier</button><br>
 
     <a href="{{ path('category:index') }}">Retour</a>
 
+
+     </div>
+</div>
 {% endblock %}

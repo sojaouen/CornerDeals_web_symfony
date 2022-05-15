@@ -1,64 +1,49 @@
 {% extends 'base.html.twig' %}
 
 {# Page Settings #}
-{% set title = "Info sur la catégorie : " ~ category.name %}
+{% block title %}{{ category.name }} - {{ parent() }}{% endblock %}
 
 
-{# Page Title #}
-{% block title %}{{ title }} - {{ parent() }}{% endblock %}
-
-
-{# Page Content #}
 {% block body %}
-<div class="container">
-
-
-    {# Header / Titre de la page #}
-    <header class="page-header">
-        <h1 class="page-title text-center py-5">{{ title }}</h1>
-    </header>
-
-
-    {# Barre d'actions (ajouter un produit) #}
-    {% if app.user %}
-        <div class="page-toolbar text-right mt-3">
-            <a href="{{ path('category:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i>
-                Ajouter une catégorie</a>
-            <a href="{{ path('category:edit', {id: category.id}) }}" class="btn btn-warning btn-sm">Modifier la
-                catégorie</a>
-            <a href="{{ path('category:delete', {id: category.id}) }}" class="btn btn-danger btn-sm">Supprimer la
-                catégorie</a>
+<div class="container my-4">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="Photo de {{ category.name }}"
+                 class="img-fluid">
         </div>
-    {% endif %}
 
+        <div class="col-12 col-md-6">
+            <h1>{{ category.name }}</h1>
 
-    {# Info du Produit #}
-    <table class="table table-hover mt-5">
-        <tbody>
-        <tr>
-            <th>Nom</th>
-            <td>{{ category.name }}</td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td>{{ category.description }}</td>
-        </tr>
-        <tr>
-            <th>Couleur</th>
-            <td>{{ category.color }}</td>
-        </tr>
-        <tr>
-            <th>Illustration</th>
-            <td><img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="{{ category.name }}"></td>
-        </tr>
-        </tbody>
-    </table>
+            <p class="my-5">Description: {{ category.description }}</p>
+        {# Info du Produit #}
 
     <a href="{{ path('category:index') }}">Retour</a>
 
-    {% if app.user %}
-    <a href="{{ path('category:edit', {'id': category.id}) }}">Modifier</a>
-    {% endif %}
-
-
-    {% endblock %}
+    </div>
+</div>
+    <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+            Deals postés dans la catégorie {{ category.name }}
+        </div>
+        {% for deal in category.id %}
+        <div class="card-body">
+            <p>{{ deal.name }}</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            {% endfor %}
+{#            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique#}
+{#                necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi#}
+{#                mollitia, necessitatibus quae sint natus.</p>#}
+{#            <small class="text-muted">Posted by Anonymous on 3/1/17</small>#}
+{#            <hr>#}
+{#            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique#}
+{#                necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi#}
+{#                mollitia, necessitatibus quae sint natus.</p>#}
+{#            <small class="text-muted">Posted by Anonymous on 3/1/17</small>#}
+{#            <hr>#}
+{#            <a href="{{ path('comment:new') }}" class="btn btn-secondary">Donner votre avis</a>#}
+        </div>
+    </div>
+</div>
+{% endblock %}

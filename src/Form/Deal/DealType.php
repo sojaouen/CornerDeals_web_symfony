@@ -118,8 +118,10 @@ class DealType extends AbstractType
             ->add('crossedOutPrice', MoneyType::class, [
                 'label' => "Prix avant réduction",
                 'required' => false,
+                'invalid_message' => "Le prix n'est pas valide",
                 'attr' => [
                     'placeholder' => "Le prix avant la réduction"
+
                 ]
             ])
 
@@ -127,6 +129,7 @@ class DealType extends AbstractType
             ->add('dealPrice', MoneyType::class, [
                 'label' => "Prix",
                 'required' => true,
+                'invalid_message' => "Le prix n'est pas valide",
                 'attr' => [
                     'placeholder' => "Le prix après la réduction"
                 ]
@@ -168,12 +171,14 @@ class DealType extends AbstractType
             // startAt
             ->add('startAt', DateType::class, [
                 'label' => "Date du début de l'offre",
+                'invalid_message' => "La date de début n'est pas valide",
                 'widget' => "single_text",
                 ])
 
             // endAt
             ->add('endAt', DateType::class, [
                 'label' => "Date de fin de l'offre",
+                'invalid_message' => "La date de fin n'est pas valide",
                 'widget' => "single_text",
             ])
 
@@ -219,6 +224,9 @@ class DealType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Deal::class,
+            'attr' => [
+                'novalidate' => 'novalidate'
+            ]
         ]);
     }
 }

@@ -2,21 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3b9b4de-8366-4371-8eab-184650d2fc80" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20220514142636.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/2349912-1-MConverter-eu-627fe4c02b1f8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/2349938-1-MConverter-eu-627fb90043dfd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/2349938-1-MConverter-eu-627fb91619003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/images/2349938-1-MConverter-eu-627fbcddbbcf9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/2350451-1-62811caa8f0c3.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/CornerDeals2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Deal/DealController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Deal/DealController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Deal.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Deal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/Deal/DealType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Deal/DealType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/admin_edit_deal.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/admin_edit_deal.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/category/category/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category/category/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components/_nav.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components/_nav.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/list.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/deal/deal/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
