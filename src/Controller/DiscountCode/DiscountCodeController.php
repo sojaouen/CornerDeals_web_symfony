@@ -2,7 +2,7 @@
 
 namespace App\Controller\DiscountCode;
 
-use App\Entity\DiscountCode;
+use App\Entity\DiscountCode\DiscountCode;
 use App\Form\DiscountCode\DiscountCodeType;
 use App\Repository\DiscountCode\DiscountCodeRepository;
 use Doctrine\ORM\EntityManagerInterface;

@@ -55,11 +55,11 @@
                 <td>{{ oneComment.deal.title }}</td>
 
                 {# lien modification #}
-                <td><a href="{{ path('admin_edit_comment', {'id' : oneComment.id}) }}" class="btn btn-info"><i
+                <td><a href="{{ path('admin:edit_comment', {'id' : oneComment.id}) }}" class="btn btn-info"><i
                                 class="ri-edit-box-line"></i></a></td>
 
                 {#  lien suppression #}
-                <td><a href="{{ path('admin_remove_comment', {'id' : oneComment.id}) }}" class="btn btn-danger"
+                <td><a href="{{ path('admin:remove_comment', {'id' : oneComment.id}) }}" class="btn btn-danger"
                        onclick="return(confirm('Voulez-vous vraiment supprimer ce commentaire ?'))"><i
                                 class="ri-delete-bin-6-line"></i></a></td>
             </tr>

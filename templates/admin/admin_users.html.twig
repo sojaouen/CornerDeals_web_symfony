@@ -56,10 +56,10 @@
                 <td>{{ oneUser.birthdate|date('d/m/Y') }}</td>
 
 
-                <td><a href="{{ path('admin_edit_user', {'id' : oneUser.id}) }}" class="btn btn-info"><i
+                <td><a href="{{ path('admin:edit_user', {'id' : oneUser.id}) }}" class="btn btn-info"><i
                                 class="ri-edit-box-line"></i></a></td>
 
-                <td><a href="{{ path('admin_remove_user', {'id' : oneUser.id}) }}" class="btn btn-danger"
+                <td><a href="{{ path('admin:remove_user', {'id' : oneUser.id}) }}" class="btn btn-danger"
                        onclick="return(confirm('Voulez-vous vraiment supprimer cet utilisateur ?'))"><i
                                 class="ri-delete-bin-6-line"></i></a></td>
 

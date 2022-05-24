@@ -115,10 +115,10 @@
                 {#  length : filtre twig permettant de calculer la taille d'un array #}
                 <td>{{ oneDeal.comments|length }}</td>
 
-                <td><a href="{{ path('admin_edit_deal', {'id': oneDeal.id}) }}" class="btn btn-info"><i
+                <td><a href="{{ path('admin:edit_deal', {'id': oneDeal.id}) }}" class="btn btn-info"><i
                                 class="ri-edit-box-line"></i></a></td>
 
-                <td><a href="{{ path('admin_remove_deal', {'id': oneDeal.id}) }}" class="btn btn-danger"
+                <td><a href="{{ path('admin:remove_deal', {'id': oneDeal.id}) }}" class="btn btn-danger"
                        onclick="return(confirm('Voulez-vous vraiment supprimer ce deal ?'))"><i
                                 class="ri-delete-bin-6-line"></i></a></td>
             </tr>

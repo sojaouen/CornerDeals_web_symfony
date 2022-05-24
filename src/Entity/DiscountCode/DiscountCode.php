@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\DiscountCode;
 
+use App\Entity\Category\Category;
+use App\Entity\Merchant\Merchant;
+use App\Entity\Product\Product;
 use App\Repository\DiscountCode\DiscountCodeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

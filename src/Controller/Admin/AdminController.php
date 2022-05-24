@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
-use App\Entity\Category;
-use App\Entity\Comment;
-use App\Entity\Deal;
+use App\Entity\Category\Category;
+use App\Entity\Comment\Comment;
+use App\Entity\Deal\Deal;
 use App\Entity\User;
-use App\Form\AdminRegistrationFormType;
+use App\Form\Admin\AdminRegistrationFormType;
 use App\Form\Category\CategoryType;
 use App\Form\Comment\CommentType;
 use App\Form\Deal\DealType;
 use App\Repository\Category\CategoryRepository;
 use App\Repository\Comment\CommentRepository;
 use App\Repository\Deal\DealRepository;
-use App\Repository\UserRepository;
+use App\Repository\User\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +23,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
 //    Méthode permettant d'afficher l'accueil du BackOffice
-    #[Route('/admin', name: 'admin')]
+    #[Route('/admin', name: 'admin:index')]
     public function index(): Response
     {
         return $this->render('admin/index.html.twig');
@@ -33,8 +33,8 @@ class AdminController extends AbstractController
      * Méthode permettant d'afficher toute la liste des articles sous formes de tableau HTML dans le BackOffice
      * 2ème route pour supprimer un deal existant de la BDD
      *
-     * @Route("/admin/deals", name="admin_deals")
-     * @Route("/admin/{id}/remove", name="admin_remove_deal")
+     * @Route("/admin/deals", name="admin:deals")
+     * @Route("/admin/{id}/remove", name="admin:remove_deal")
      */
 
     public function adminDeals(EntityManagerInterface $manager, DealRepository $repoDeal, Deal $deal = null): Response
@@ -61,7 +61,7 @@ class AdminController extends AbstractController
 
             $this->addFlash('success', "le deal nº$id a bien été supprimé");
 
-            return $this->redirectToRoute('admin_deals');
+            return $this->redirectToRoute('admin:deals');
         }
 
         return $this->render('admin/admin_deals.html.twig', [
@@ -75,7 +75,7 @@ class AdminController extends AbstractController
     /**
      * Méthode permettant de modifier un deal existant dans le backoffice
      *
-     * @Route("/admin/{id}/edit-deal", name="admin_edit_deal")
+     * @Route("/admin/{id}/edit-deal", name="admin:edit_deal")
      */
 
     public function adminEditDeal(Deal $deal, Request $request, EntityManagerInterface $manager)
@@ -95,7 +95,7 @@ class AdminController extends AbstractController
 
             $this->addFlash('success', "le deal nº" . $deal->getID() . " a bien été modifié");
 
-            return $this->redirectToRoute('admin_deals');
+            return $this->redirectToRoute('admin:deals');
         }
 
         return $this->render('admin/admin_edit_deal.html.twig', [
@@ -107,8 +107,8 @@ class AdminController extends AbstractController
     /**
      * Méthode permettant d'afficher sous forme de tableau HTML les catégories stockées en BDD
      *
-     * @Route("/admin/categories", name="admin_category")
-     * @Route("/admin/category/{id}/remove", name="admin_remove_category")
+     * @Route("/admin/categories", name="admin:category")
+     * @Route("/admin/category/{id}/remove", name="admin:remove_category")
      */
     public function adminCategory(EntityManagerInterface $manager, CategoryRepository $repoCategory, Category $category = null): Response
     {
@@ -134,7 +134,7 @@ class AdminController extends AbstractController
                 $this->addFlash('danger', "Il n'est pas possible de supprimer la catégorie" . $category->getName() . " car un ou plusieurs deals lui sont toujours associés");
             }
 
-            return $this->redirectToRoute('admin_category');
+            return $this->redirectToRoute('admin:category');
         }
 
         $categoryBdd = $repoCategory->findAll(); // SELECT * FROM category + FETCH_ALL
@@ -148,8 +148,8 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/category/new", name="admin_new_category")
-     * @Route("/admin/category/{id}/edit", name="admin_edit_category")
+     * @Route("/admin/category/new", name="admin:new_category")
+     * @Route("/admin/category/{id}/edit", name="admin:edit_category")
      */
     public function adminFormCategory(Request $request, EntityManagerInterface $manager, Category $category = null): Response
     {
@@ -184,7 +184,7 @@ class AdminController extends AbstractController
             $this->addFlash('success', $message);
 
             // Après l'execution de la requête INSERT, on redirige l'utilisateur vers l'affichage des catégories dans le BackOffice
-            return $this->redirectToRoute('admin_category');
+            return $this->redirectToRoute('admin:category');
         }
 
         return $this->render('admin/admin_form_category.html.twig', [
@@ -196,8 +196,8 @@ class AdminController extends AbstractController
      * Méthode permettant d'afficher et de supprimer tous les commentaires des articles stockés en BDD
      * Méthode permettant de supprimer un commentaire en BDD
      *
-     * @Route("/admin/comments", name="admin_comments")
-     * @Route ("/admin/comments/{id}/remove", name="admin_remove_comment")
+     * @Route("/admin/comments", name="admin:comments")
+     * @Route ("/admin/comments/{id}/remove", name="admin:remove_comment")
      */
 
     public function adminComment(EntityManagerInterface $manager, CommentRepository $repoComment, Comment $comment = null): Response
@@ -222,7 +222,7 @@ class AdminController extends AbstractController
             $this->addFlash('success', "Le commentaire nº$id a été supprimé avec succès !");
 
             // Après la suppression, on redirige l'utilisateur vers l'affichage des commentaires
-            return $this->redirectToRoute('admin_comments');
+            return $this->redirectToRoute('admin:comments');
         }
 
         return $this->render('admin/admin_comments.html.twig', [
@@ -234,7 +234,7 @@ class AdminController extends AbstractController
     /**
      * Méthode permettant de modifier un commentaire en BDD
      *
-     * @Route ("/admin/comment/{id}/edit", name="admin_edit_comment")
+     * @Route ("/admin/comment/{id}/edit", name="admin:edit_comment")
      */
 
     public function editComment(Comment $comment, Request $request, EntityManagerInterface $manager): Response
@@ -257,7 +257,7 @@ class AdminController extends AbstractController
 
             $this->addFlash('success', "le commentaire nº$id a bien été modifié avec succès !");
 
-            return $this->redirectToRoute('admin_comments');
+            return $this->redirectToRoute('admin:comments');
         }
 
         return $this->render('admin/admin_edit_comment.html.twig', [
@@ -273,8 +273,8 @@ class AdminController extends AbstractController
      * Méthode permettant d'afficher les utilisateurs stockés en BDD sous forme de tableau HTML
      * Méthode permettant de supprimer un utilisateur en BDD
      *
-     * @Route ("/admin/users", name="admin_users")
-     * @Route ("/admin/user/{id}/remove", name="admin_remove_user")
+     * @Route ("/admin/users", name="admin:users")
+     * @Route ("/admin/user/{id}/remove", name="admin:remove_user")
      */
     public function adminUsers(EntityManagerInterface $manager, UserRepository $repoUser, User $user = null): Response
     {
@@ -301,7 +301,7 @@ class AdminController extends AbstractController
             // ON définit un message de validation de suppression en session
             $this->addFlash('success', "L'utilisateur a été supprimé avec succès !");
 
-            return $this->redirectToRoute('admin_users');
+            return $this->redirectToRoute('admin:users');
         }
 
 
@@ -314,7 +314,7 @@ class AdminController extends AbstractController
     /**
      * Méthode permettant de modifier un utilisateur en Bdd
      *
-     * @Route ("/admin/user/{id}/edit", name="admin_edit_user")
+     * @Route ("/admin/user/{id}/edit", name="admin:edit_user")
      */
     public function adminUserEdit(User $user, EntityManagerInterface $manager, Request $request): Response
     {
@@ -337,7 +337,7 @@ class AdminController extends AbstractController
             $this->addFlash('success', "L'utilisateur Nº$id - $firstname $lastname a été modifié avec succès");
 
             // On redirige l'utilisateur après la modification
-            return $this->redirectToRoute('admin_users');
+            return $this->redirectToRoute('admin:users');
         }
 
         return $this->render('admin/admin_edit_user.html.twig', [

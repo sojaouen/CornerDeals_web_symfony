@@ -2,9 +2,9 @@
 
 namespace App\Form\Deal;
 
-use App\Entity\Category;
-use App\Entity\Deal;
-use App\Entity\Merchant;
+use App\Entity\Category\Category;
+use App\Entity\Deal\Deal;
+use App\Entity\Merchant\Merchant;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

@@ -1,7 +1,11 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Deal;
 
+use App\Entity\Category\Category;
+use App\Entity\Comment\Comment;
+use App\Entity\Merchant\Merchant;
+use App\Entity\Product\Product;
 use App\Repository\Deal\DealRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;

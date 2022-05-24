@@ -2,7 +2,7 @@
 
 namespace App\Controller\Deal;
 
-use App\Entity\Deal;
+use App\Entity\Deal\Deal;
 use App\Form\Deal\DealType;
 use App\Service\DealService;
 use Doctrine\ORM\EntityManagerInterface;

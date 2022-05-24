@@ -27,14 +27,14 @@
                 {# Si l'utilisateur est connecté en tant qu'Admin#}
                 {% if app.user.roles[0] == 'ROLE_ADMIN'%}
                     <p class="card-text text-center">
-                        <a href="{{ path('admin') }}" class="btn btn-secondary text-white">Rejoindre l'espace BACKOFFICE</a>
+                        <a href="{{ path('admin:index') }}" class="btn btn-secondary text-white">Rejoindre l'espace BACKOFFICE</a>
                     </p>
                 {# Si l'utilisateur est connecté en tant que User#}
                 {% else %}
 {#                {{dump(app.user.firstname)}}#}
                 <hr>
                 <p class="card-text text-center">
-                    <a href="{{ path('profile_password') }}" class="btn btn-secondary">Modifier mon mot de passe</a>
+                    <a href="{{ path('profile:password') }}" class="btn btn-secondary">Modifier mon mot de passe</a>
                 </p>
                 {% endif %}
 
