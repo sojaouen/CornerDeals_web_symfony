@@ -2,7 +2,7 @@
 
 namespace App\Repository\DiscountCode;
 
-use App\Entity\DiscountCode;
+use App\Entity\DiscountCode\DiscountCode;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

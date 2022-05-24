@@ -2,7 +2,7 @@
 
 namespace App\Repository\Merchant;
 
-use App\Entity\Merchant;
+use App\Entity\Merchant\Merchant;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

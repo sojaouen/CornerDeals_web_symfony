@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Profile;
 
-use App\Form\ChangePasswordType;
+use App\Form\Profile\ChangePasswordType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,7 +22,7 @@ class ProfilePasswordController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/profile/modifier-mot-de-passe', name: 'profile_password')]
+    #[Route('/profile/modifier-mot-de-passe', name: 'profile:password')]
     public function index(Request $request, UserPasswordHasherInterface $encoder): Response
     {
         $notification = null;

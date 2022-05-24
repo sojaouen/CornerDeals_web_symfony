@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Category;
 
-use App\Repository\Merchant\MerchantRepository;
+use App\Entity\Deal\deal;
+use App\Entity\DiscountCode\DiscountCode;
+use App\Entity\Product\Product;
+use App\Repository\Category\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=MerchantRepository::class)
+ * @ORM\Entity(repositoryClass=CategoryRepository::class)
  */
-class Merchant
+class Category
 {
     /**
      * @ORM\Id
@@ -30,35 +33,39 @@ class Merchant
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=7, options={"fixed" = true}, nullable=true)
      */
-    private $website;
+    private $color;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", nullable=true)
      */
-    private $logo;
+    private $illustration;
 
     /**
-     * @ORM\OneToMany(targetEntity=Deal::class, mappedBy="merchant")
+     * @ORM\ManyToMany(targetEntity=Deal::class, mappedBy="categories")
      */
     private $deals;
 
     /**
-     * @ORM\OneToMany(targetEntity=DiscountCode::class, mappedBy="merchant")
+     * @ORM\ManyToMany(targetEntity=DiscountCode::class, mappedBy="categories")
      */
     private $discountCodes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Product::class, mappedBy="category")
+     */
+    private $products;
+
 
     public function __construct()
     {
         $this->deals = new ArrayCollection();
         $this->discountCodes = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
-    // TODO: Add the "logo" property OK
-    // TODO: Add Deal relationship OK
-    // TODO: Add DiscountCode relationship OK
-    // TODO: Add location (internet, country, region, locality,...)
+    // TODO: Add parent property OK
 
     public function getId(): ?int
     {
@@ -89,54 +96,55 @@ class Merchant
         return $this;
     }
 
-    public function getWebsite(): ?string
+    public function getColor(): ?string
     {
-        return $this->website;
+        return $this->color;
     }
 
-    public function setWebsite(?string $website): self
+    public function setColor(?string $color): self
     {
-        $this->website = $website;
+        $this->color = $color;
 
         return $this;
     }
 
-    public function getLogo(): ?string
+
+    public function getIllustration(): ?string
     {
-        return $this->logo;
+        return $this->illustration;
     }
 
-    public function setLogo(?string $logo): self
+    public function setIllustration(?string $illustration): self
     {
-        $this->logo = $logo;
+        $this->illustration = $illustration;
 
         return $this;
     }
 
     /**
-     * @return Collection|Deal[]
+     * @return Collection|deal[]
      */
     public function getDeals(): Collection
     {
         return $this->deals;
     }
 
-    public function addDeal(Deal $deal): self
+    public function addDeal(deal $deal): self
     {
         if (!$this->deals->contains($deal)) {
             $this->deals[] = $deal;
-            $deal->setMerchant($this);
+            $deal->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeDeal(Deal $deal): self
+    public function removeDeal(deal $deal): self
     {
         if ($this->deals->removeElement($deal)) {
             // set the owning side to null (unless already changed)
-            if ($deal->getMerchant() === $this) {
-                $deal->setMerchant(null);
+            if ($deal->getCategory() === $this) {
+                $deal->setCategory(null);
             }
         }
 
@@ -155,7 +163,7 @@ class Merchant
     {
         if (!$this->discountCodes->contains($discountCode)) {
             $this->discountCodes[] = $discountCode;
-            $discountCode->setMerchant($this);
+            $discountCode->addCategory($this);
         }
 
         return $this;
@@ -164,17 +172,39 @@ class Merchant
     public function removeDiscountCode(DiscountCode $discountCode): self
     {
         if ($this->discountCodes->removeElement($discountCode)) {
-            // set the owning side to null (unless already changed)
-            if ($discountCode->getMerchant() === $this) {
-                $discountCode->setMerchant(null);
-            }
+            $discountCode->removeCategory($this);
         }
 
         return $this;
     }
 
-    public function __toString()
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
     {
-        return (string) $this->getName();
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->removeElement($product)) {
+            // set the owning side to null (unless already changed)
+            if ($product->getCategory() === $this) {
+                $product->setCategory(null);
+            }
+        }
+
+        return $this;
     }
 }

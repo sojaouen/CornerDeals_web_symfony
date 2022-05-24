@@ -2,9 +2,9 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Category;
-use App\Entity\Comment;
-use App\Entity\Deal;
+use App\Entity\Category\Category;
+use App\Entity\Comment\Comment;
+use App\Entity\Deal\Deal;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;

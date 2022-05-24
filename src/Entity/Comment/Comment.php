@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Comment;
 
+use App\Entity\Deal\Deal;
 use App\Repository\Comment\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
 
