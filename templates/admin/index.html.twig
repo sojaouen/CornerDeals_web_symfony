@@ -10,21 +10,21 @@
 
         <h4 class="text-center">Bienvenue
 
-        {# Si l'internaute est connecté, alors on affiche username en piochant directement dans la session (app.user) #}
-        {%  if app.user %}
+            {# Si l'internaute est connecté, alors on affiche username en piochant directement dans la session (app.user) #}
+            {% if app.user %}
 
-            <span class="text-info">{{ app.user.firstname }} {{ app.user.lastname }}</span>
-        {% endif %}
+                <span class="text-info">{{ app.user.firstname }} {{ app.user.lastname }}</span>
+            {% endif %}
 
-        dans votre espace administrateur
+            dans votre espace administrateur
         </h4>
 
-    <div class="display-4 text-center my-5">
-        <a href="{{ path('admin:deals')}}" class="col-md-4 btn btn-primary py-4 mb-2 me-1">GESTION DES DEALS</a>
-        <a href="{{ path('admin:category')}}" class="col-md-4 btn btn-info py-4 mb-2">GESTION DES CATEGORIES</a><br>
-        <a href="{{ path('admin:comments')}}" class="col-md-4 btn btn-warning py-4 mt-2 me-1">GESTION DES COMMENTAIRES</a>
-        <a href="{{ path('admin:users')}}" class="col-md-4 btn btn-success py-4 mt-2">GESTION DES UTILISATEURS</a>
-    </div>
+        <div class="display-4 text-center my-5">
+            <a href="{{ path('admin:deals') }}" class="col-md-4 btn btn-primary py-4 mb-2 me-1">GESTION DES DEALS</a>
+            <a href="{{ path('admin:category') }}" class="col-md-4 btn btn-info py-4 mb-2">GESTION DES CATEGORIES</a><br>
+            <a href="{{ path('admin:comments') }}" class="col-md-4 btn btn-warning py-4 mt-2 me-1">GESTION DES COMMENTAIRES</a>
+            <a href="{{ path('admin:users') }}" class="col-md-4 btn btn-success py-4 mt-2">GESTION DES UTILISATEURS</a>
+        </div>
 
     </div>
 

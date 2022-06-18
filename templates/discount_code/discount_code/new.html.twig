@@ -3,17 +3,17 @@
 {% block title %}New DiscountCode{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
 
-        <h1 class="text-center py-5">Créer un nouveau Code Promo</h1>
+                <h1 class="text-center py-5">Créer un nouveau Code Promo</h1>
 
-    {{ include('discount_code/discount_code/_form.html.twig') }}
+                {{ include('discount_code/discount_code/_form.html.twig') }}
 
-    <a href="{{ path('discount_code:index') }}">Retour</a>
+                <a href="{{ path('discount_code:index') }}">Retour</a>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

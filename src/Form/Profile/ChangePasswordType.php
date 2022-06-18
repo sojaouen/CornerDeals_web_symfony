@@ -36,14 +36,13 @@ class ChangePasswordType extends AbstractType
                     'placeholder' => 'Veuillez saisir votre mot de passe actuel'
                 ]
             ])
-
             ->add('new_password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'mapped' => false,
                 'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques.',
                 'label' => 'Mon nouveau mot de passe',
                 'required' => true,
-                'first_options'=> [
+                'first_options' => [
                     'label' => 'Mon nouveau mot de passe',
                     'attr' => [
                         'placeholder' => 'Merci de saisir votre nouveau mot de passe'
@@ -58,8 +57,7 @@ class ChangePasswordType extends AbstractType
             ])
             ->add('submit', SubmitType::class, [
                 'label' => "Mettre à jour"
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

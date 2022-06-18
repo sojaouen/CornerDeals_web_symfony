@@ -61,6 +61,7 @@ class CategoryType extends AbstractType
                 'attr' => [
                     'class' => 'dropify'
                 ],
+                'help' => "Extensions en .jpg, .jpeg ou .png / taille max autorisée de 2Mo",
 
                 'constraints' => [
                     new File([
@@ -73,8 +74,7 @@ class CategoryType extends AbstractType
                         'mimeTypesMessage' => "Extensions acceptées : jpg/jpeg/png"
                     ])
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -44,8 +44,7 @@ class CategoryController extends AbstractController
             $illustrationFile = $form->get('illustration')->getData(); // permet de récupérer les données de l'image uploadée
             dump($illustrationFile);
 
-            if($illustrationFile)
-            {
+            if ($illustrationFile) {
                 $originalFilename = pathinfo($illustrationFile->getClientOriginalName(), PATHINFO_FILENAME);
                 dump($originalFilename); // permet de récupèrer le nom du fichier
 
@@ -60,9 +59,7 @@ class CategoryController extends AbstractController
                         $this->getParameter('images_directory'),
                         $newFilename
                     );
-                }
-                catch(FileException $e)
-                {
+                } catch (FileException $e) {
                     #TODO Notification, upload impossible
                 }
                 // On envoie l'image définitive dans le bon setter de l'objet afin que l'image soit stockée en BDD
@@ -100,6 +97,7 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager->flush();
 
             return $this->redirectToRoute('category:index', [], Response::HTTP_SEE_OTHER);
@@ -116,7 +114,7 @@ class CategoryController extends AbstractController
      */
     public function delete(Request $request, Category $category, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $category->getId(), $request->request->get('_token'))) {
             $entityManager->remove($category);
             $entityManager->flush();
         }

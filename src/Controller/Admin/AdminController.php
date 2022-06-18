@@ -291,8 +291,7 @@ class AdminController extends AbstractController
 
         // Si la condition IF renvoie TRUE, cela veut dire que l'objet entity $user contient un utilisateur stocké en BDD
         // que nous allons supprimer
-        if($user)
-        {
+        if ($user) {
             // On prépare et en garde en mémoire la requete de suppression DELETE
             $manager->remove($user);
             // On execute la requete de suppression en BDD
@@ -324,8 +323,7 @@ class AdminController extends AbstractController
 
         $formUser->handleRequest($request); // $_POST['username'] --> $user->setUsername($_POST['username'])
 
-        if($formUser->isSubmitted() && $formUser->isValid())
-        {
+        if ($formUser->isSubmitted() && $formUser->isValid()) {
             $id = $user->getId();
             $firstname = $user->getFirstname();
             $lastname = $user->getLastname();

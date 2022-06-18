@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         // Définition de la liste des années
-        $years = range(date('Y') - 100, date('Y') -18);
+        $years = range(date('Y') - 100, date('Y') - 18);
 
         // Pour inverser les années dans la liste
         rsort($years);
@@ -115,7 +115,6 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
 
@@ -126,7 +125,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
 
                 'first_options' => [
-                    'label'=> "Mot de passe",
+                    'label' => "Mot de passe",
                     'attr' => [
                         'placeholder' => "Veuillez saisir votre mot de passe"
                     ],

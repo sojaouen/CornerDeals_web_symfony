@@ -6,21 +6,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2">
-    <h1 class="display-5 text-center my-5">Créez votre compte</h1>
+                <h1 class="display-5 text-center my-5">Créez votre compte</h1>
 
-{#                Pour bloquer la validation du front#}
-    {{ form_start(registrationForm, {
-        attr: {
-            novalidate: "novalidate"
-        }})
-    }}
-{#        {{ form_row(registrationForm.email) }}#}
-{#        {{ form_row(registrationForm.plainPassword, {#}
-{#            label: 'Mot de passe'#}
-{#        }) }}#}
-{#        {{ form_row(registrationForm.agreeTerms, {#}
-{#            label: 'Accepter les CGU'#}
-{#        }) }}#}
+                {#                Pour bloquer la validation du front #}
+                {{ form_start(registrationForm, {
+                    attr: {
+                        novalidate: "novalidate"
+                    }}) }}
+                {#        {{ form_row(registrationForm.email) }} #}
+                {#        {{ form_row(registrationForm.plainPassword, { #}
+                {#            label: 'Mot de passe' #}
+                {#        }) }} #}
+                {#        {{ form_row(registrationForm.agreeTerms, { #}
+                {#            label: 'Accepter les CGU' #}
+                {#        }) }} #}
 
                 <div class="form-group">
                     {{ form_label(registrationForm.firstname) }}
@@ -71,7 +70,7 @@
                 <button class="btn btn-lg btn-primary col-lg-12" type="submit">
                     Valider
                 </button>
-    {{ form_end(registrationForm) }}
+                {{ form_end(registrationForm) }}
 
                 <a href="{{ url('app_login') }}">J'ai déjà un compte</a>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Security;
 
+use LogicException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,12 +16,15 @@ class SecurityController extends AbstractController
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // Si l'utilisateur est déjà connecté il sera redirigé vers son compte
-         if ($this->getUser()) {
-             return $this->redirectToRoute('profile');
-         }
+        if ($this->getUser()) {
+            return $this->redirectToRoute('profile');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
+        if ($error) {
+            $this->addFlash('danger', "Erreur lors de la connexion");
+        }
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
@@ -32,6 +36,6 @@ class SecurityController extends AbstractController
      */
     public function logout(): void
     {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        throw new LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 }

@@ -7,122 +7,122 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ address.id }}</td>
-            </tr>
-            <tr>
-                <th>Numéro de rue</th>
-                <td>{{ address.streetNumber }}</td>
-            </tr>
-            <tr>
-                <th>Extension du numéro de rue</th>
-                <td>{{ address.streetNumberExtension }}</td>
-            </tr>
-            <tr>
-                <th>Type de rue</th>
-                <td>{{ address.streetType }}</td>
-            </tr>
-            <tr>
-                <th>Nom de la rue</th>
-                <td>{{ address.streetName }}</td>
-            </tr>
-            <tr>
-                <th>Nom de l'immeuble</th>
-                <td>{{ address.building }}</td>
-            </tr>
-            <tr>
-                <th>Nom de l'établissement</th>
-                <td>{{ address.establishment }}</td>
-            </tr>
-            <tr>
-                <th>Étage</th>
-                <td>{{ address.floor }}</td>
-            </tr>
-            <tr>
-                <th>Numéro de l'étage</th>
-                <td>{{ address.floorNumber }}</td>
-            </tr>
-            <tr>
-                <th>Code Postal</th>
-                <td>{{ address.postalCode }}</td>
-            </tr>
-            <tr>
-                <th>Préfixe code postal</th>
-                <td>{{ address.postalCodePrefix }}</td>
-            </tr>
-            <tr>
-                <th>Sufffixe code postal</th>
-                <td>{{ address.postalCodeSuffix }}</td>
-            </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ address.city }}</td>
-            </tr>
-            <tr>
-                <th>Cedex</th>
-                <td>{{ address.cedex }}</td>
-            </tr>
-            <tr>
-                <th>Numéro boite postale</th>
-                <td>{{ address.postBoxCode }}</td>
-            </tr>
-            <tr>
-                <th>Localité</th>
-                <td>{{ address.locality }}</td>
-            </tr>
-            <tr>
-                <th>Zone administrative niveau 1</th>
-                <td>{{ address.adminitrativeAreaLevel1 }}</td>
-            </tr>
-            <tr>
-                <th>Zone administrative niveau 2</th>
-                <td>{{ address.adminitrativeAreaLevel2 }}</td>
-            </tr>
-            <tr>
-                <th>Zone administrative niveau 3</th>
-                <td>{{ address.adminitrativeAreaLevel3 }}</td>
-            </tr>
-            <tr>
-                <th>Zone administrative niveau 4</th>
-                <td>{{ address.adminitrativeAreaLevel4 }}</td>
-            </tr>
-            <tr>
-                <th>Zone administrative niveau 5</th>
-                <td>{{ address.adminitrativeAreaLevel5 }}</td>
-            </tr>
-            <tr>
-                <th>Pays</th>
-                <td>{{ address.country }}</td>
-            </tr>
-            <tr>
-                <th>Latitude</th>
-                <td>{{ address.latitude }}</td>
-            </tr>
-            <tr>
-                <th>Longitude</th>
-                <td>{{ address.longitude }}</td>
-            </tr>
-            <tr>
-                <th>Altitude</th>
-                <td>{{ address.altitude }}</td>
-            </tr>
-            <tr>
-                <th>Est un appartemment</th>
-                <td>{{ address.isFlat ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>À un ascenseur</th>
-                <td>{{ address.hasElevator ? 'Yes' : 'No' }}</td>
-            </tr>
-            <tr>
-                <th>Créé le</th>
-                <td>{{ address.createdAt ? address.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Mis à jour le</th>
-                <td>{{ address.updatedAt ? address.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ address.id }}</td>
+        </tr>
+        <tr>
+            <th>Numéro de rue</th>
+            <td>{{ address.streetNumber }}</td>
+        </tr>
+        <tr>
+            <th>Extension du numéro de rue</th>
+            <td>{{ address.streetNumberExtension }}</td>
+        </tr>
+        <tr>
+            <th>Type de rue</th>
+            <td>{{ address.streetType }}</td>
+        </tr>
+        <tr>
+            <th>Nom de la rue</th>
+            <td>{{ address.streetName }}</td>
+        </tr>
+        <tr>
+            <th>Nom de l'immeuble</th>
+            <td>{{ address.building }}</td>
+        </tr>
+        <tr>
+            <th>Nom de l'établissement</th>
+            <td>{{ address.establishment }}</td>
+        </tr>
+        <tr>
+            <th>Étage</th>
+            <td>{{ address.floor }}</td>
+        </tr>
+        <tr>
+            <th>Numéro de l'étage</th>
+            <td>{{ address.floorNumber }}</td>
+        </tr>
+        <tr>
+            <th>Code Postal</th>
+            <td>{{ address.postalCode }}</td>
+        </tr>
+        <tr>
+            <th>Préfixe code postal</th>
+            <td>{{ address.postalCodePrefix }}</td>
+        </tr>
+        <tr>
+            <th>Sufffixe code postal</th>
+            <td>{{ address.postalCodeSuffix }}</td>
+        </tr>
+        <tr>
+            <th>Ville</th>
+            <td>{{ address.city }}</td>
+        </tr>
+        <tr>
+            <th>Cedex</th>
+            <td>{{ address.cedex }}</td>
+        </tr>
+        <tr>
+            <th>Numéro boite postale</th>
+            <td>{{ address.postBoxCode }}</td>
+        </tr>
+        <tr>
+            <th>Localité</th>
+            <td>{{ address.locality }}</td>
+        </tr>
+        <tr>
+            <th>Zone administrative niveau 1</th>
+            <td>{{ address.adminitrativeAreaLevel1 }}</td>
+        </tr>
+        <tr>
+            <th>Zone administrative niveau 2</th>
+            <td>{{ address.adminitrativeAreaLevel2 }}</td>
+        </tr>
+        <tr>
+            <th>Zone administrative niveau 3</th>
+            <td>{{ address.adminitrativeAreaLevel3 }}</td>
+        </tr>
+        <tr>
+            <th>Zone administrative niveau 4</th>
+            <td>{{ address.adminitrativeAreaLevel4 }}</td>
+        </tr>
+        <tr>
+            <th>Zone administrative niveau 5</th>
+            <td>{{ address.adminitrativeAreaLevel5 }}</td>
+        </tr>
+        <tr>
+            <th>Pays</th>
+            <td>{{ address.country }}</td>
+        </tr>
+        <tr>
+            <th>Latitude</th>
+            <td>{{ address.latitude }}</td>
+        </tr>
+        <tr>
+            <th>Longitude</th>
+            <td>{{ address.longitude }}</td>
+        </tr>
+        <tr>
+            <th>Altitude</th>
+            <td>{{ address.altitude }}</td>
+        </tr>
+        <tr>
+            <th>Est un appartemment</th>
+            <td>{{ address.isFlat ? 'Yes' : 'No' }}</td>
+        </tr>
+        <tr>
+            <th>À un ascenseur</th>
+            <td>{{ address.hasElevator ? 'Yes' : 'No' }}</td>
+        </tr>
+        <tr>
+            <th>Créé le</th>
+            <td>{{ address.createdAt ? address.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Mis à jour le</th>
+            <td>{{ address.updatedAt ? address.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
         </tbody>
     </table>
 

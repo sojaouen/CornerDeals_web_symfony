@@ -4,6 +4,8 @@ namespace App\Entity\Comment;
 
 use App\Entity\Deal\Deal;
 use App\Repository\Comment\CommentRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,8 +49,8 @@ class Comment
     // Définir des valeurs par défaut
     public function __construct()
     {
-    // Définir une valeur par défaut pour la date de création du commentaire
-    $this->creationDate = new \DateTime('now');
+        // Définir une valeur par défaut pour la date de création du commentaire
+        $this->creationDate = new DateTime('now');
     }
 
     public function getId(): ?int
@@ -80,24 +82,24 @@ class Comment
         return $this;
     }
 
-    public function getCreationDate(): ?\DateTimeInterface
+    public function getCreationDate(): ?DateTimeInterface
     {
         return $this->creationDate;
     }
 
-    public function setCreationDate(\DateTimeInterface $creationDate): self
+    public function setCreationDate(DateTimeInterface $creationDate): self
     {
         $this->creationDate = $creationDate;
 
         return $this;
     }
 
-    public function getUpdateDate(): ?\DateTimeInterface
+    public function getUpdateDate(): ?DateTimeInterface
     {
         return $this->updateDate;
     }
 
-    public function setUpdateDate(?\DateTimeInterface $updateDate): self
+    public function setUpdateDate(?DateTimeInterface $updateDate): self
     {
         $this->updateDate = $updateDate;
 

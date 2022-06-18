@@ -19,7 +19,7 @@ class MerchantType extends AbstractType
         $builder
 
             // Name
-            ->add('name',TextType::class, [
+            ->add('name', TextType::class, [
                 'label' => "Nom",
                 'required' => true,
                 'attr' => [
@@ -29,28 +29,27 @@ class MerchantType extends AbstractType
                     new NotBlank([
                         'message' => "Le nom est obligatoire"
                     ])
-                 ],
+                ],
             ])
 
             // Description
-            ->add('description', TextareaType::class,[
+            ->add('description', TextareaType::class, [
                 'label' => "Description",
                 'required' => false,
-                ])
+            ])
 
             // Website
-            ->add('website', UrlType::class,[
+            ->add('website', UrlType::class, [
                 'label' => "Site internet",
                 'required' => false,
             ])
 
             // Logo
-            ->add('logo', FileType::class,[
+            ->add('logo', FileType::class, [
                 'label' => "Logo",
                 'required' => false,
-                'data_class'=> null
-            ])
-        ;
+                'data_class' => null
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

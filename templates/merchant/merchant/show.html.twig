@@ -7,31 +7,31 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ merchant.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ merchant.description }}</td>
-            </tr>
-            <tr>
-                <th>Site Internet</th>
-                <td>{{ merchant.website }}</td>
-            </tr>
-            <tr>
-                <th>Logo</th>
-                <td>{{ merchant.logo }}</td>
-            </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ merchant.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ merchant.description }}</td>
+        </tr>
+        <tr>
+            <th>Site Internet</th>
+            <td>{{ merchant.website }}</td>
+        </tr>
+        <tr>
+            <th>Logo</th>
+            <td>{{ merchant.logo }}</td>
+        </tr>
         </tbody>
     </table>
 
     <a href="{{ path('merchant:index') }}">Retour</a>
 
     {% if app.user %}
-    <a href="{{ path('merchant:edit', {'id': merchant.id}) }}">Modifier</a>
-    {{ include('merchant/merchant/_delete_form.html.twig') }}
-    {%endif%}
+        <a href="{{ path('merchant:edit', {'id': merchant.id}) }}">Modifier</a>
+        {{ include('merchant/merchant/_delete_form.html.twig') }}
+    {% endif %}
     {# TODO: Add Deals list #}
     {# TODO: Add DiscountCode list #}
 

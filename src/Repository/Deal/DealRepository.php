@@ -25,8 +25,7 @@ class DealRepository extends ServiceEntityRepository
         $stmt = $this->createQueryBuilder('d');
 
         // si la query est vide il n'y aura pas de filtrage donc cela sera équivalent à SELECT * FROM deals
-        if( !empty( $query ))
-        {
+        if (!empty($query)) {
             // Recherche sur le titre du deal
             // Recherche sur le nom de la catégorie
             // Recherche en fonction du nom de la boutique
@@ -40,22 +39,21 @@ class DealRepository extends ServiceEntityRepository
         }
 
         // Pour filtrage sur la liste des deals
-      switch ($sort)
-      {
-          // Plus récents
-          case 'createdAt': //
-              $stmt->orderBy('d.startAt', 'DESC');
-              $stmt->andWhere('d.startAt < CURRENT_TIMESTAMP() ');
-              $stmt->andWhere('d.endAt > CURRENT_TIMESTAMP() ');
-              break;
-          // Ordre alphabétique
-          case 'title':
-              $stmt->orderBy('d.'. $sort, 'ASC');
-              break;
-          // À venir
-          case 'startAt':
-              $stmt->andWhere('d.startAt > CURRENT_TIMESTAMP() ');
-      }
+        switch ($sort) {
+            // Plus récents
+            case 'createdAt': //
+                $stmt->orderBy('d.startAt', 'DESC');
+                $stmt->andWhere('d.startAt < CURRENT_TIMESTAMP() ');
+                $stmt->andWhere('d.endAt > CURRENT_TIMESTAMP() ');
+                break;
+            // Ordre alphabétique
+            case 'title':
+                $stmt->orderBy('d.' . $sort, 'ASC');
+                break;
+            // À venir
+            case 'startAt':
+                $stmt->andWhere('d.startAt > CURRENT_TIMESTAMP() ');
+        }
 
         // On récupère la requête puis le résultat
         return $stmt->getQuery()->getResult();

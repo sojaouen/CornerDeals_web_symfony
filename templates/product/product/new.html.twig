@@ -3,17 +3,17 @@
 {% block title %}New Product{% endblock %}
 
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
 
-        <h1 class="text-center py-5">Créer un nouveau produit</h1>
+                <h1 class="text-center py-5">Créer un nouveau produit</h1>
 
-    {{ include('product/product/_form.html.twig') }}
+                {{ include('product/product/_form.html.twig') }}
 
-    <a href="{{ path('product:index') }}">Retour</a>
+                <a href="{{ path('product:index') }}">Retour</a>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

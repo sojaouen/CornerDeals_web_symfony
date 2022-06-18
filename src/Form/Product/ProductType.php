@@ -40,7 +40,7 @@ class ProductType extends AbstractType
             ])
 
             // Product Categories
-            ->add('category', EntityType::class,[
+            ->add('category', EntityType::class, [
                 // On base le champ EntityType sur l'entité Category
                 'class' => Category::class,
                 'label' => "Catégorie",
@@ -49,14 +49,13 @@ class ProductType extends AbstractType
             ])
 
             // illustration
-            ->add('illustration', UrlType::class,[
+            ->add('illustration', UrlType::class, [
                 'label' => "Photo du produit",
                 'required' => true,
                 'attr' => [
                     'placeholder' => "Insérer ici l'Url de l'image du produit"
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

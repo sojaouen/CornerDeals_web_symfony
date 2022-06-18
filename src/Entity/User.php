@@ -7,13 +7,14 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(
  *     fields={"email"},
  *     errorPath="email",
- *     message="Ce compte existe déjà"
+ *     message="Cette adresse mail est déjà associée à un compte"
  * )
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -26,6 +27,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Vous devez saisir votre email")
+     * @Assert\Email(message="L'adresse mail n'est pas valide")
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -42,6 +45,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
+     * @Assert\NotBlank(message="Vous devez saisir votre prénom")
+     * @Assert\Length(
+     *     min=3,
+     *     max=40,
+     *     minMessage="Votre prénom doit contenir au minimum {{ limit }} caractères",
+     *     maxMessage="Votre prénom peut contenir au maximum {{ limit }} caractères"
+     * )
      * @ORM\Column(type="string", length=40)
      */
     private $firstname;
