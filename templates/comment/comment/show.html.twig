@@ -7,26 +7,26 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ comment.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ comment.title }}</td>
-            </tr>
-            <tr>
-                <th>Commentaire</th>
-                <td>{{ comment.commentText }}</td>
-            </tr>
-            <tr>
-                <th>Date de création</th>
-                <td>{{ comment.creationDate ? comment.creationDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Date de modification</th>
-                <td>{{ comment.updateDate ? comment.updateDate|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ comment.id }}</td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ comment.title }}</td>
+        </tr>
+        <tr>
+            <th>Commentaire</th>
+            <td>{{ comment.commentText }}</td>
+        </tr>
+        <tr>
+            <th>Date de création</th>
+            <td>{{ comment.creationDate ? comment.creationDate|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Date de modification</th>
+            <td>{{ comment.updateDate ? comment.updateDate|date('Y-m-d H:i:s') : '' }}</td>
+        </tr>
         </tbody>
     </table>
 

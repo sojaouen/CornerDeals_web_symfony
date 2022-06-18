@@ -19,7 +19,7 @@ class DiscountCodeType extends AbstractType
         $builder
 
             // Title
-            ->add('title',TextType::class, [
+            ->add('title', TextType::class, [
                 'label' => "Titre",
                 'required' => true,
                 'attr' => [
@@ -33,7 +33,7 @@ class DiscountCodeType extends AbstractType
             ])
 
             // Merchant
-            ->add('merchant', EntityType::class,[
+            ->add('merchant', EntityType::class, [
                 // On base le champ EntityType sur l'entité Category
                 'class' => Merchant::class,
                 'label' => "Boutique",
@@ -41,26 +41,25 @@ class DiscountCodeType extends AbstractType
                 'choice_label' => "name"
             ])
 
-        // Code
-            ->add('code',TextType::class, [
-            'label' => "Code de réduction",
-            'required' => true,
-            'attr' => [
-                'placeholder' => "Veuillez saisir le code"
-            ],
-            'constraints' => [
-                new NotBlank([
-                    'message' => "Le code de réduction est obligatoire"
-                ])
-            ],
-        ])
+            // Code
+            ->add('code', TextType::class, [
+                'label' => "Code de réduction",
+                'required' => true,
+                'attr' => [
+                    'placeholder' => "Veuillez saisir le code"
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => "Le code de réduction est obligatoire"
+                    ])
+                ],
+            ])
 
-        // Description
+            // Description
             ->add('description', TextareaType::class, [
                 'label' => "Description",
                 'required' => false
-        ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

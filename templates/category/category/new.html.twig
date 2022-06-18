@@ -36,9 +36,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
           integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
           crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
+          referrerpolicy="no-referrer"/>
     <style>
-        .custom-file-label { display: none; }
+        .custom-file-label {
+            display: none;
+        }
+
         .dropify-wrapper .dropify-message p {
             font-size: 15px;
         }
@@ -46,21 +49,21 @@
 {% endblock %}
 {# Page Content #}
 {% block body %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
 
-            {# Header / Titre de la page #}
-            <header class="page-header">
-                <h1 class="text-center py-5">{{ title }}</h1>
-            </header>
+                {# Header / Titre de la page #}
+                <header class="page-header">
+                    <h1 class="text-center py-5">{{ title }}</h1>
+                </header>
 
-            {# Formulaire de creation du produit #}
-    {{ include('category/category/_form.html.twig') }}
+                {# Formulaire de creation du produit #}
+                {{ include('category/category/_form.html.twig') }}
 
-    <a href="{{ path('category:index') }}">Retour</a>
+                <a href="{{ path('category:index') }}">Retour</a>
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}

@@ -5,20 +5,20 @@
 <div class="card" style="width:200px">
 
     {% if card_header is not empty %}
-    <div class="card-header">
-        {% block header %}{% endblock %}
-    </div>
+        <div class="card-header">
+            {% block header %}{% endblock %}
+        </div>
     {% endif %}
 
     {% if card_body is not empty %}
-    <div class="card-body">
-        {% block body %}{% endblock %}
-    </div>
+        <div class="card-body">
+            {% block body %}{% endblock %}
+        </div>
     {% endif %}
 
     {% if card_footer is not empty %}
-    <div class="card-footer">
-        {% block footer %}{% endblock %}
-    </div>
+        <div class="card-footer">
+            {% block footer %}{% endblock %}
+        </div>
     {% endif %}
 </div>

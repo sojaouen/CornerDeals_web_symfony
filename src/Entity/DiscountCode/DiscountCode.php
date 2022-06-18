@@ -58,7 +58,7 @@ class DiscountCode
         $this->products = new ArrayCollection();
         $this->categories = new ArrayCollection();
     }
-    
+
     // TODO: relationship with merchant OK
     // TODO: relationship with product OK
     // TODO: relationship with category OK

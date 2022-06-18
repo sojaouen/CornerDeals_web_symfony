@@ -7,27 +7,27 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Nom</th>
-                <td>{{ product.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ product.description }}</td>
-            </tr>
-            <tr>
-                <th>Illustration</th>
-                <td>{{ product.illustration }}</td>
-            </tr>
-            <tr>
-                <th>Catégorie</th>
-                <td>{{ product.category.name }}</td>
-            </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ product.name }}</td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td>{{ product.description }}</td>
+        </tr>
+        <tr>
+            <th>Illustration</th>
+            <td>{{ product.illustration }}</td>
+        </tr>
+        <tr>
+            <th>Catégorie</th>
+            <td>{{ product.category.name }}</td>
+        </tr>
 
         </tbody>
     </table>
 
-{#    {{ dump(product.category.products[1]) }}#}
+    {#    {{ dump(product.category.products[1]) }} #}
 
     <a href="{{ path('product:index') }}">Retour</a>
 

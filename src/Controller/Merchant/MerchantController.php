@@ -83,7 +83,7 @@ class MerchantController extends AbstractController
      */
     public function delete(Request $request, Merchant $merchant, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$merchant->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $merchant->getId(), $request->request->get('_token'))) {
             $entityManager->remove($merchant);
             $entityManager->flush();
         }

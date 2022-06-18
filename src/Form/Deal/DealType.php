@@ -46,7 +46,7 @@ class DealType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => "Description",
                 'required' => false,
-                'attr'=> [
+                'attr' => [
                     'rows' => 5
                 ],
                 'help' => 'Entre 20 et 600 caractères'
@@ -57,7 +57,7 @@ class DealType extends AbstractType
                 // On base le champ EntityType sur l'entité Category
                 'class' => Category::class,
                 // On classe les catégories par ordre alphabétique
-                'query_builder' => function (EntityRepository $er){
+                'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('c')
                         ->orderBy('c.name', 'ASC');
                 },
@@ -71,7 +71,7 @@ class DealType extends AbstractType
                 // On base le champ EntityType sur l'entité Merchant
                 'class' => Merchant::class,
                 // On classe les boutiques par ordre alphabétique
-                'query_builder' => function (EntityRepository $er){
+                'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('b')
                         ->orderBy('b.name', 'ASC');
                 },
@@ -173,7 +173,7 @@ class DealType extends AbstractType
                 'label' => "Date du début de l'offre",
                 'invalid_message' => "La date de début n'est pas valide",
                 'widget' => "single_text",
-                ])
+            ])
 
             // endAt
             ->add('endAt', DateType::class, [

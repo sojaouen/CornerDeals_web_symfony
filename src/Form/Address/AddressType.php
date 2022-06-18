@@ -39,8 +39,7 @@ class AddressType extends AbstractType
             ->add('isFlat')
             ->add('hasElevator')
             ->add('createdAt')
-            ->add('updatedAt')
-        ;
+            ->add('updatedAt');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

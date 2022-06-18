@@ -12,9 +12,8 @@ class ProfileController extends AbstractController
     public function index(): Response
     {
         // Tester si utilisateur est identifié ou non
-        if(!$this->getUser())
-        {
-            return $this -> redirectToRoute('app_login');
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('profile/index.html.twig', [

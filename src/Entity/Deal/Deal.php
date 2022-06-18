@@ -190,7 +190,7 @@ class Deal
 
         return $this;
     }
-    
+
 
     public function getCrossedOutPrice(): ?float
     {
@@ -244,7 +244,7 @@ class Deal
     {
         return $this->category;
     }
-    
+
 
     public function setCategory(?Category $category): self
     {

@@ -7,6 +7,7 @@ use App\Form\Deal\DealType;
 use App\Service\DealService;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -36,7 +37,7 @@ class DealController extends AbstractController
         $sort = $request->query->get('sort');
 
         $deals = $this->dealService->buildResult($query, $sort);
-        
+
         return $this->render('deal/deal/list.html.twig', [
             'deals' => $deals,
             'query' => $query
@@ -45,6 +46,7 @@ class DealController extends AbstractController
 
     /**
      * @Route("/new", name="new", methods={"GET", "POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
@@ -53,21 +55,18 @@ class DealController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-//            $userRepository = $this->getDoctrine()->getRepository(User::class);
-//            $user = $userRepository->find($this->getUser());
-//            $deal->setOwner($user);
+//            $deal->setOwner($this->getUser());
 
             /** @var UploadedFile $illustrationFile */
             $illustrationFile = $form->get('illustration')->getData(); // permet de récupérer les données de l'image uploadée
             dump($illustrationFile);
 
-            if($illustrationFile)
-            {
+            if ($illustrationFile) {
                 $originalFilename = pathinfo($illustrationFile->getClientOriginalName(), PATHINFO_FILENAME);
-                dump($originalFilename); // permet de récupèrer le nom du fichier
+//                dump($originalFilename); // permet de récupèrer le nom du fichier
 
                 $safeFilename = $slugger->slug($originalFilename);
-                dump($safeFilename);
+//                dump($safeFilename);
 
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $illustrationFile->guessExtension();
 
@@ -77,9 +76,7 @@ class DealController extends AbstractController
                         $this->getParameter('images_directory'),
                         $newFilename
                     );
-                }
-                catch(FileException $e)
-                {
+                } catch (FileException $e) {
                     #TODO Notification, upload impossible
                 }
                 // On envoie l'image définitive dans le bon setter de l'objet afin que l'image soit stockée en BDD
@@ -137,7 +134,7 @@ class DealController extends AbstractController
      */
     public function delete(Request $request, Deal $deal, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$deal->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $deal->getId(), $request->request->get('_token'))) {
             $entityManager->remove($deal);
             $entityManager->flush();
         }

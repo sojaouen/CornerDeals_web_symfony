@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set controller_name = "Liste des Adresses"  %}
+{% set controller_name = "Liste des Adresses" %}
 {% set title = "Adresses" %}
 
 {% block title %}{{ title }} - {{ parent() }}{% endblock %}
@@ -16,7 +16,8 @@
 
     {# Barre d'actions (ajouter un produit) #}
     <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('address:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter une adresse</a>
+        <a href="{{ path('address:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter
+            une adresse</a>
     </div>
 
     {# Tableau de la liste des produits #}
@@ -24,37 +25,37 @@
         {# Entete du tableau HTML #}
         <thead class="thead-dark">
         <tr>
-                <th>Id</th>
-                <th>Numéro de rue</th>
-                <th>Extension du numéro de rue</th>
-                <th>Type de rue</th>
-                <th>Nom de la rue</th>
-                <th>Nom de l'immeuble</th>
-                <th>Nom de l'établissement</th>
-                <th>Étage</th>
-                <th>Numéro de l'étage</th>
-                <th>Code Postal</th>
-                <th>Préfixe code postal</th>
-                <th>Sufffixe code postal</th>
-                <th>Ville</th>
-                <th>Cedex</th>
-                <th>Numéro boite postale</th>
-                <th>Localité</th>
-                <th>Zone administrative niveau 1</th>
-                <th>Zone administrative niveau 2</th>
-                <th>Zone administrative niveau 3</th>
-                <th>Zone administrative niveau 4</th>
-                <th>Zone administrative niveau 5</th>
-                <th>Pays</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
-                <th>Altitude</th>
-                <th>Est un appartemment</th>
-                <th>À un ascenseur</th>
-                <th>Créé le</th>
-                <th>Mis à jour le</th>
-                <th>actions</th>
-            </tr>
+            <th>Id</th>
+            <th>Numéro de rue</th>
+            <th>Extension du numéro de rue</th>
+            <th>Type de rue</th>
+            <th>Nom de la rue</th>
+            <th>Nom de l'immeuble</th>
+            <th>Nom de l'établissement</th>
+            <th>Étage</th>
+            <th>Numéro de l'étage</th>
+            <th>Code Postal</th>
+            <th>Préfixe code postal</th>
+            <th>Sufffixe code postal</th>
+            <th>Ville</th>
+            <th>Cedex</th>
+            <th>Numéro boite postale</th>
+            <th>Localité</th>
+            <th>Zone administrative niveau 1</th>
+            <th>Zone administrative niveau 2</th>
+            <th>Zone administrative niveau 3</th>
+            <th>Zone administrative niveau 4</th>
+            <th>Zone administrative niveau 5</th>
+            <th>Pays</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Altitude</th>
+            <th>Est un appartemment</th>
+            <th>À un ascenseur</th>
+            <th>Créé le</th>
+            <th>Mis à jour le</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for address in addresses %}
@@ -101,4 +102,4 @@
         </tbody>
     </table>
 
-{% endblock %}
+    {% endblock %}

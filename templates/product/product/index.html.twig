@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% set controller_name = "Liste des Produits"  %}
+{% set controller_name = "Liste des Produits" %}
 {% set title = "Produits" %}
 
 {% block title %}{{ title }} - {{ parent() }}{% endblock %}
@@ -16,9 +16,10 @@
 
     {# Barre d'actions (ajouter un produit) #}
     {% if app.user %}
-    <div class="page-toolbar text-right mt-3">
-        <a href="{{ path('product:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i> Ajouter un produit</a>
-    </div>
+        <div class="page-toolbar text-right mt-3">
+            <a href="{{ path('product:new') }}" class="btn btn-primary btn-sm"><i class="ri-add-circle-line"></i>
+                Ajouter un produit</a>
+        </div>
     {% endif %}
 
     {# Tableau de la liste des produits #}
@@ -26,11 +27,11 @@
         {# Entete du tableau HTML #}
         <thead class="thead-dark">
         <tr>
-                <th>Nom</th>
-                <th>Description</th>
-                <th>Photo</th>
-                <th>actions</th>
-            </tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for product in products %}
@@ -52,4 +53,4 @@
         </tbody>
     </table>
 
-{% endblock %}
+    {% endblock %}

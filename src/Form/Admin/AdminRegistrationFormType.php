@@ -23,7 +23,7 @@ class AdminRegistrationFormType extends AbstractType
                 'entry_options' => [ // on définit les valeur des balises ‹option></option> du sélecteur
                     'choices' => [
                         'Utilisateur' => 'ROLE_USER',
-                        'Administrateur' =>'ROLE_ADMIN'
+                        'Administrateur' => 'ROLE_ADMIN'
                         // 'Utilisateur'--> contenu de la balise ‹option></option>
                         // 'ROLE_USER' > dans l'attribut value <option value=' ROLE_USER'>Utilisateur</option>
                     ]
@@ -31,8 +31,7 @@ class AdminRegistrationFormType extends AbstractType
             ])
             ->add('firstname')
             ->add('lastname')
-            ->add('birthdate')
-        ;
+            ->add('birthdate');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

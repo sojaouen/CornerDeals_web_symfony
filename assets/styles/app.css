@@ -1,14 +1,14 @@
 body {
-/*    background-color: lightgray;*/
+    /*    background-color: lightgray;*/
 }
 
-.required::after{
+.required::after {
     content: "*";
     margin-left: 4px;
     color: red;
 }
 
-.conteneur-base{
+.conteneur-base {
     min-height: 80vh;
 }
 
@@ -16,25 +16,25 @@ tr, td, th {
     vertical-align: middle ! important;
 }
 
-.deal .deal-info{
+.deal .deal-info {
     display: flex;
     align-items: center;
 }
 
-.deal .deal-info span{
+.deal .deal-info span {
     padding: 0 10px;
 }
 
-.deal .deal-info .spacer{
+.deal .deal-info .spacer {
     flex: 1;
 }
 
-.deal .deal-picture{
+.deal .deal-picture {
     position: relative;
 }
 
-.deal .deal-timer{
-    position:absolute;
+.deal .deal-timer {
+    position: absolute;
     top: 10px;
     right: 10px;
 }

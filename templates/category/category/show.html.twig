@@ -5,45 +5,45 @@
 
 
 {% block body %}
-<div class="container my-4">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="Photo de {{ category.name }}"
-                 class="img-fluid">
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="{{ asset('uploads/images/' ~ category.illustration) }}" alt="Photo de {{ category.name }}"
+                     class="img-fluid">
+            </div>
+
+            <div class="col-12 col-md-6">
+                <h1>{{ category.name }}</h1>
+
+                <p class="my-5">Description: {{ category.description }}</p>
+                {# Info du Produit #}
+
+                <a href="{{ path('category:index') }}">Retour</a>
+
+            </div>
         </div>
-
-        <div class="col-12 col-md-6">
-            <h1>{{ category.name }}</h1>
-
-            <p class="my-5">Description: {{ category.description }}</p>
-        {# Info du Produit #}
-
-    <a href="{{ path('category:index') }}">Retour</a>
-
+        <div class="card card-outline-secondary my-4">
+            <div class="card-header">
+                Deals postés dans la catégorie {{ category.name }}
+            </div>
+            {% for deal in category.id %}
+            <div class="card-body">
+                <p>{{ deal.name }}</p>
+                <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+                <hr>
+                {% endfor %}
+                {#            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique #}
+                {#                necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi #}
+                {#                mollitia, necessitatibus quae sint natus.</p> #}
+                {#            <small class="text-muted">Posted by Anonymous on 3/1/17</small> #}
+                {#            <hr> #}
+                {#            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique #}
+                {#                necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi #}
+                {#                mollitia, necessitatibus quae sint natus.</p> #}
+                {#            <small class="text-muted">Posted by Anonymous on 3/1/17</small> #}
+                {#            <hr> #}
+                {#            <a href="{{ path('comment:new') }}" class="btn btn-secondary">Donner votre avis</a> #}
+            </div>
+        </div>
     </div>
-</div>
-    <div class="card card-outline-secondary my-4">
-        <div class="card-header">
-            Deals postés dans la catégorie {{ category.name }}
-        </div>
-        {% for deal in category.id %}
-        <div class="card-body">
-            <p>{{ deal.name }}</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            {% endfor %}
-{#            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique#}
-{#                necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi#}
-{#                mollitia, necessitatibus quae sint natus.</p>#}
-{#            <small class="text-muted">Posted by Anonymous on 3/1/17</small>#}
-{#            <hr>#}
-{#            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique#}
-{#                necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi#}
-{#                mollitia, necessitatibus quae sint natus.</p>#}
-{#            <small class="text-muted">Posted by Anonymous on 3/1/17</small>#}
-{#            <hr>#}
-{#            <a href="{{ path('comment:new') }}" class="btn btn-secondary">Donner votre avis</a>#}
-        </div>
-    </div>
-</div>
 {% endblock %}
